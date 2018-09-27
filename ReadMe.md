@@ -1,18 +1,8 @@
-## Simple site: Easy websites with GitHub pages
+## Field Guide Testbed
 
-[Github Pages](https://pages.github.com) provide a simple way to make a
+Sandbox for [Pratt Itl](https://itl.pratt.edu) Field Guides
 website using Markdown and git.
 
-Yada yada blah blah I changed this!
-
-View the thing [here](https://kbroman.org/simple_site).
+View the thing [here](https://lelandjobson.github.io/github_pages_tut_01)
 
 ---
-
-To the extent possible under law,
-[Karl Broman](https://github.com/kbroman)
-has waived all copyright and related or neighboring rights to
-&ldquo;[simple site](https://github.com/kbroman/simple_site)&rdquo;.
-This work is published from the United States.
-<br/>
-[![CC0](https://i.creativecommons.org/p/zero/1.0/88x31.png)](https://creativecommons.org/publicdomain/zero/1.0/)

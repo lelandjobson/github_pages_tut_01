@@ -1,13 +1,29 @@
 /* Custom container */
 .container-narrow {
   margin: 0 auto;
-  max-width: 700px; }
+  max-width: 700px; 
+}
 
 .container-narrow > hr {
   margin: 30px 0; }
 
 .navbar .nav {
   float: right; }
+
+.navbar-inner {
+  background-image: linear-gradient(to right, DarkMagenta, DarkMagenta); 
+  border: none;
+  border-radius: 0;
+}
+
+.brand {
+  font-family: 'Inconsolata', monospace;
+  text-transform: uppercase;
+  color: white !important; /* Overrides bootstrap.min.css */
+  text-shadow: none;
+  text-rendering: geometricPrecision;
+  font-weight: normal;
+}
 
 /* posts index */
 .post > h3.title {
@@ -63,3 +79,7 @@
   background: #57A957;
   border: 1px solid #4c964d;
   color: #FFF; }
+
+  .content {
+    font-family: 'Roboto', monospace;
+  }
