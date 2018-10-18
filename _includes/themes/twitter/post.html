@@ -1,6 +1,23 @@
 <div class="page-header">
   <h1>{{ page.title }} {% if page.tagline %}<small>{{page.tagline}}</small>{% endif %}</h1>
 </div>
+<div class="sidenav">
+    <!-- {% for link_hash in page.components %}
+      {% for item in link_hash %}
+        <a href="{{item[1]}}">{{item[0]}}</a>
+      {% endfor %}
+    {% endfor %} -->
+    {% assign myGuides = site.pages | group_by: 'field-guide' %}
+    {% for cat in myGuides %}
+    <h2>{{ cat.title | capitalize }}</h2>
+        <ul>
+          {% assign items = cat.items | sort: 'order' %}
+          {% for item in items %}
+            <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+          {% endfor %}
+        </ul>
+    {% endfor %}
+  </div>
 
 <div class="row-fluid post-full">
   <div class="span12">

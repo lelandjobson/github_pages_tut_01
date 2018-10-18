@@ -54,6 +54,8 @@ JB :
   # NOTE: Replace this next line with your own URL, likely with username.github.io
   BASE_PATH : https://lelandjobson.github.io/github_pages_tut_01
 
+  IMG_PATH : https://lelandjobson.github.io/github_pages_tut_01/assets/images/
+
   # By default, the asset_path is automatically defined relative to BASE_PATH plus the enabled theme.
   # ex: [BASE_PATH]/assets/themes/[THEME-NAME]
   #

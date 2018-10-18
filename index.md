@@ -1,7 +1,6 @@
 ---
-layout: page
+layout: home
 title: Welcome
-tagline: tagline
 description: description
 ---
 
