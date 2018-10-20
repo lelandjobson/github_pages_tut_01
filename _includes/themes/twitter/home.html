@@ -1,95 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>{{ page.title }}</title>
-    {% if page.description %}<meta name="description" content="{{ page.description }}">{% endif %}
-    <meta name="author" content="{{ site.author.name }}">
+---
+layout: wrapper
+---
 
-    <!-- Enable responsive viewport -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
-    <!-- Le styles -->
-    <link href="{{ ASSET_PATH }}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="{{ ASSET_PATH }}/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
-    <link href="{{ ASSET_PATH }}/css/fonts.css" rel="stylesheet" type="text/css" media="all">
-
-    <!-- Le fav and touch icons -->
-
-    <!-- atom & rss feed -->
-    <link href="{{ BASE_PATH }}{{ site.JB.atom_path }}" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
-    <link href="{{ BASE_PATH }}{{ site.JB.rss_path }}" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">  
-  </head> 
-
-  <body class="wrapper">
-    <!-- TOP NAVIGATION -->
-    <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
-      <div class="container">
-        <a class="navbar-brand" href="{{ HOME_PATH }}">{{ site.title }}</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>    
-        <div class="collapse navbar-collapse" id="navbarText">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Contribute</a>
-            </li>
-          </ul>
-          <span class="navbar-text">
-            v.0.1.2
-          </span>
-        </div>
-      </div>
-    </nav>   
-    
-    <!-- CONTENT -->
-    <div class="container container-narrow container-content">
-      <div class="content" style="text-align: center;">
-        <h2>{{ page.title }}</h2><br>
-        {{ content }}
-      </div>
-      <hr>
-      <div class="container section">
-          <h5 style="text-align: center;" data-background-color="#27ae60">Field Guides</h5><br>
-        <div class="row">
-            {% for page in site.pages %}
-          <div class="card" style="width: 16rem; margin-bottom: 2%;">
-              <img class="card-img-top" src="{{ BASE_PATH }}/assets/images/286x180.png" alt="Field Guide">
-              <div class="card-body">
-                <h5 class="card-title">{{page.title}}</h5>
-                <p class="card-text">{{page.description}}</p>
-                <a href="{{page.url}}" class="btn btn-primary">Open</a>
-              </div>
+<!-- CONTENT -->
+<div class="container container-narrow container-content">
+  <div class="content" style="text-align: center;">
+    <h2>{{ page.title }}</h2><br>
+    {{ content }}
+  </div>
+  <hr>
+  <div class="container section">
+      <h5 style="text-align: center;" data-background-color="#27ae60">Field Guides</h5><br>
+    <div class="row">
+        {% for page in site.pages %}
+      <div class="card" style="width: 16rem; margin-bottom: 2%;">
+          <img class="card-img-top" src="{{ BASE_PATH }}/assets/images/286x180.png" alt="Field Guide">
+          <div class="card-body">
+            <h5 class="card-title">{{page.title}}</h5>
+            <p class="card-text">{{page.description}}</p>
+            <a href="{{page.url}}" class="btn btn-primary">Open</a>
           </div>
-          {% endfor %}
-        </div>
       </div>
-      <hr>
-      <footer>
-          <div class="alert alert-success" role="alert">
-            <strong>Support Our Mission!</strong> 
-            The <a href="http://itl.pratt.edu"><span class="label label-default">ITL</span></a> 
-            publishes online for free in our commitment to the design community and passion for education. 
-            Support us on <a href="http://www.drip.com"><span class="label label-info">Drip</span></a>. 
-            <i class="glyphicon glyphicon-book" aria-hidden="true"> </i>
-            <i class="glyphicon glyphicon-heart" aria-hidden="true"> </i>
-          </div>
-        <p><small>
-          <!-- <a href="https://creativecommons.org/publicdomain/zero/1.0/"><img src="https://i.creativecommons.org/p/zero/1.0/88x31.png" alt="CC0"/></a> &nbsp; -->
-          <a href="https://itl.pratt.edu">Interdisciplinary Technology Lab</a> 
-          <br>Field Guide v.0.12
-        </small></p>
-      </footer>
-
+      {% endfor %}
     </div>
-    {% include JB/analytics %}
-  </body>
-</html>
+  </div>

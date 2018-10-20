@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Introduction - Rasters and Vectors 
+title: Image Types
 description: A top level introduction to the adobe suite and its products.
 field-guide: Adobe Field Guide
 order: 1

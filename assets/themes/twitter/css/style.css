@@ -1,4 +1,7 @@
 /* Custom container */
+.wrapper {
+  font-family: 'IBM Plex Sans', sans-serif;
+}
 .container-narrow {
   margin: 0 auto;
   max-width: 800px; 
@@ -12,18 +15,26 @@
   margin: 30px 0; }
 
 .navbar .nav {
-  float: right; }
+  float: right; 
+}
+
+.navbar .ui{
+  padding: 0;
+}
 
 .navbar-inner {
-  background-image: linear-gradient(to right, DarkMagenta, DarkMagenta); 
   border: none;
   border-radius: 0;
+}
+
+.navbar {
+  background-image: linear-gradient(to right, black, rgb(34, 34, 34), black);
 }
 
 .brand {
   font-family: 'Inconsolata', monospace;
   text-transform: uppercase;
-  color: white !important; /* Overrides bootstrap.min.css */
+  color: rgb(255, 255, 255) !important; /* Overrides bootstrap.min.css */
   text-shadow: none;
   text-rendering: geometricPrecision;
   font-weight: normal;
@@ -97,38 +108,73 @@ blockquote {
   padding-left: 20px;
   margin-top: 10px;
   margin-bottom: 10px;
-  }
+}
+
+.introtext {
+  color:  rgb(0, 0, 0);
+  border-left-width: 4px;
+  border-left-style: solid;
+  border-left-color: rgb(3, 3, 3);
+  border-right-width: 4px;
+  border-right-style: solid;
+  border-right-color:rgb(0, 0, 0); 
+  padding-left: 50px;
+  padding-right: 50px;
+  margin-top: 10px;
+  margin-bottom: 40px;
+  font-size: 17px;
+  line-height: 26px
+}
 
 h2{
   margin-top: 50px;
   margin-bottom: 30px;
 }
+
+.page-header {
+  padding-top: 30px;
+  padding-bottom: 40px;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-style: italic;
+  font-weight: bold;
+  text-align: center;
+}
   
 /* The sidebar menu */
 .sidenav {
   height: 100%; /* Full-height: remove this if you want "auto" height */
-  width: 200px; /* Set the width of the sidebar */
+  width: 270px; /* Set the width of the sidebar */
   position: fixed; /* Fixed Sidebar (stay in place on scroll) */
   z-index: 1; /* Stay on top */
   top: 0; /* Stay at the top */
   left: 0;
-  background-color: rgb(243, 243, 243); /* Black */
+  color: rgb(0, 0, 0);
+  background-color: rgb(255, 255, 255); /* Black */
   overflow-x: hidden; /* Disable horizontal scroll */
-  padding-top: 20px;
+  padding-top: 90px;
 }
 
 /* The navigation menu links */
 .sidenav a {
-  padding: 6px 8px 6px 16px;
+  padding: 6px 8px 6px 10px;
   text-decoration: none;
-  font-size: 12px;
-  color: #030303;
+  font-size: .9em;
   display: block;
+  color: rgb(122, 122, 122);
+}
+
+.sidenav .nav-header {
+  font-weight: bold;
+}
+.sidenav ol {
+  border-bottom-color: black;
+  list-style: none;
+
 }
 
 /* When you mouse over the navigation links, change their color */
 .sidenav a:hover {
-  color: #b700ff;
+  color: #686868;
 }
 
 /* Style page content */
@@ -139,7 +185,9 @@ h2{
 
 /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
+  .sidenav {
+    width: 200px;
+  }
   .sidenav a {font-size: 18px;}
 }
 

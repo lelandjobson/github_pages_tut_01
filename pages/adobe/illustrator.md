@@ -8,14 +8,15 @@ order: 2
 
 Adobe Illustrator has become the industry standard for creating [vector](/introduction.md#vectors) artwork. As such, it is used for the production of infographics, diagrams, artwork creation, and refinement of drawings to name a few use objectives. It’s strength lies in internal or imported creation and modification of shapes and strokes with compositions arranged on artboards. Being apart of Adobe Suite, it also allows for the incorporation of pixel based assets to add to your designs. 
 
-> In this section, you will learn:
-    * Basic Navigation
+In this section, you will learn:
+* Basic Navigation
     * Document Creation
     * Panels and Workspaces
     * Layer Management
     * Base Tools Sets
     * Importing and Exporting
     * Saving and Output types
+    
 
 ## Workspace {#workspace}
 >Illustrator defines artboards as areas where which artwork is populated. 
