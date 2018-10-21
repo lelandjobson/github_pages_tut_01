@@ -1,6 +1,7 @@
 ---
 layout: post
-title: Bridge Quick Start
+title: Bridge
+type: Quick Start
 description: Get started using Adobe Bridge
 field-guide: Adobe Field Guide
 order: 6

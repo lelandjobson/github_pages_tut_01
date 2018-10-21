@@ -1,6 +1,7 @@
 ---
 layout: post
-title: Photoshop Quick Start
+title: Photoshop
+type: Quick Start
 description: Get started using Adobe Photoshop
 field-guide: Adobe Field Guide
 order: 3

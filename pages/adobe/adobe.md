@@ -14,12 +14,12 @@ A lion's share of the industry standards for graphic design, video editing and w
 
 ---
 
-## Image Types {#image-types}
+##Image Types
 
 Fundamentally, computer graphics are encoded in two ways: as colored cells (Raster) or geometry (Vector). The image formats we are familiar are rasters which vary in their packaging, either uncompressed or compressed, in order to reduce the file size by leveraging the redundancy in the image's content.
 
 
-## Rasters {#rasters}
+<h2 class="bgChange" data-background="/assets/images/adobe_fg/purple_placeholder.png">Rasters</h2>
  
 >Raster graphics are bitmaps, or a grid of individual pixels that collectively compose an image. Raster graphics render images as a collection of countless tiny squares. Each square, or pixel, is coded in a specific hue or shade.
 
@@ -31,7 +31,7 @@ To maximize the quality of a raster image, you must keep in mind that the **rast
 
 **Better resolution, however, is directly correlated to file size.** Just as raster files are significantly larger than comparable vector files, high resolution raster files are significantly larger than low resolution raster files since the computer needs to store information on every single pixel.
 
-## Vectors {#vectors}
+<h2 class="bgChange" data-background="/assets/images/adobe_fg/purple.png">Vectors</h2>
 
 >Unlike pixel-based raster images, Vector graphics are based on mathematical formulas that define geometric primitives such as polygons, lines, curves, circles and rectangles through translation into points, a start and end, connected by vector paths. 
 
@@ -46,7 +46,7 @@ Further, unlike raster graphics, vector images are not resolution-dependent. Vec
 Common vector file formats include AI, EPS, SVG, XML, CGM and PICT \(Mac\).
 <br></br>
 
-## Use Cases {#use-cases}
+<h2 class="bgChange" data-background="/assets/images/adobe_fg/hello.png">Use Cases</h2>
 > File size is important to take into consideration. If a smaller file size is what you’re looking for, stick with vector graphics. 
 
 |-----------------+------------+-----------------|

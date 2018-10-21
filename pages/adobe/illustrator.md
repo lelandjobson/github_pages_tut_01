@@ -1,6 +1,7 @@
 ---
 layout: post
-title: Illustrator Quick Start
+title: Illustrator
+type: Quick Start
 description: Get started using Adobe Illustrator
 field-guide: Adobe Field Guide
 order: 2

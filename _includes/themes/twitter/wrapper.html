@@ -63,7 +63,26 @@
             {% endfor %}
          </ol>
       {% endfor %}
+      {% for cat in myGuides %}
+      <ol>
+         <li class="nav-header"><h6>{{ cat.name }}</h6></li>
+         {% assign items = cat.items | sort: 'order' %} 
+         {% for item in items %}
+         <li class="nav-item"><a href="{{ item.url }}">{{ item.title }}</a></li>
+         {% endfor %}
+      </ol>
+   {% endfor %}
+   {% for cat in myGuides %}
+   <ol>
+      <li class="nav-header"><h6>{{ cat.name }}</h6></li>
+      {% assign items = cat.items | sort: 'order' %} 
+      {% for item in items %}
+      <li class="nav-item"><a href="{{ item.url }}">{{ item.title }}</a></li>
+      {% endfor %}
+   </ol>
+{% endfor %}
     </div>
+
     {{ content }}
       <hr>
       <footer>

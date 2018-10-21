@@ -53,6 +53,7 @@ JB :
   #
   # NOTE: Replace this next line with your own URL, likely with username.github.io
   BASE_PATH : https://lelandjobson.github.io/github_pages_tut_01
+  IMGP : https://lelandjobson.github.io/github_pages_tut_01/assets/images/
 
   IMG_PATH : https://lelandjobson.github.io/github_pages_tut_01/assets/images/
 

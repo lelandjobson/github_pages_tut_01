@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Adobe Appendix
+title: Appendix
 description: Links to various Adobe related content
 field-guide: Adobe Field Guide
 order: 6

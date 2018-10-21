@@ -1,6 +1,7 @@
 ---
 layout: post
-title: Indesign Quick Start
+title: Indesign
+type: Quick Start
 description: Get started using Adobe Indesign
 field-guide: Adobe Field Guide
 order: 4

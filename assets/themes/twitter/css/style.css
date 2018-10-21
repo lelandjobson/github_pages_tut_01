@@ -1,10 +1,23 @@
-/* Custom container */
+
+body{
+  opacity: 1.0;
+  -webkit-transition: background 1.5s linear;
+  -moz-transition: background 1.5s linear;
+  -o-transition: background 1.5s linear;
+  -ms-transition: background 1.5s linear;
+  transition: background 1.5s linear;
+  transition: background-image 1s ease-in-out;
+  /* -webkit-transform:translate3d(0,0,0);
+  transform:translate3d(0,0,0); */
+  
+}
 .wrapper {
   font-family: 'IBM Plex Sans', sans-serif;
 }
 .container-narrow {
   margin: 0 auto;
-  max-width: 800px; 
+  min-width: 1000px !important;
+  max-width: 1000px !important;
 }
 
 .container-content{
@@ -96,7 +109,9 @@
   color: #FFF; }
 
 .content {
-  font-family: 'Roboto', monospace;
+  /* font-family: 'Roboto', monospace; */
+  background-color: white;
+  padding: 40px;
 }
 
 blockquote {
