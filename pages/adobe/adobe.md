@@ -14,7 +14,7 @@ A lion's share of the industry standards for graphic design, video editing and w
 
 ---
 
-##Image Types
+**Image Types**
 
 Fundamentally, computer graphics are encoded in two ways: as colored cells (Raster) or geometry (Vector). The image formats we are familiar are rasters which vary in their packaging, either uncompressed or compressed, in order to reduce the file size by leveraging the redundancy in the image's content.
 
@@ -44,21 +44,17 @@ Inherently, vector-based graphics are more malleable than raster images — thus
 Further, unlike raster graphics, vector images are not resolution-dependent. Vector images have no fixed intrinsic resolution, rather they display at the resolution capability of whatever output device \(monitor, printer\) is rendering them. Also, because vector graphics need not memorize the contents of millions of tiny pixels, these files tend to be considerably smaller than their raster counterparts. Overall, vector graphics are more efficient and versatile.
 
 Common vector file formats include AI, EPS, SVG, XML, CGM and PICT \(Mac\).
-<br></br>
 
 <h2 class="bgChange" data-background="/assets/images/adobe_fg/hello.png">Use Cases</h2>
+
 > File size is important to take into consideration. If a smaller file size is what you’re looking for, stick with vector graphics. 
 
-|-----------------+------------+-----------------|
-| | Vector | Raster |
-|-----------------|:-----------|:---------------:|
-| **Architecture** | Points and Shapes | Pixels |
-|-----------------+------------+-----------------+----------------|
-| **Scalability** | Native Convert to Raster | Non-Native Convert to Vector |
-|=================+============+=================+================|
-| **Conversion**  | SVG, CGM, EPS, XML | BMP, JPG, GIF, PNG,TIFF |
-|-----------------+------------+-----------------+----------------|
-<div class=centered><small>Formats and their respective properties.</small></div>
+|  | Vector | Raster |
+|-------|--------|---------|
+| Architecture | Points and Shapes | Pixels |
+| Scalability | Native Convert to Raster | Non-Native Convert to Vector |
+| Conversion  | SVG, CGM, EPS, XML | BMP, JPG, GIF, PNG,TIFF |
+
 
 Raster graphics and raster editing are optimal for non-line art images; specifically digitized photographs, scanned artwork or detailed graphics. Non-line art images are best represented in raster form because these typically include subtle chromatic gradations, undefined lines and shapes, and complex composition. Additionally raster graphics are able to portray better color depth. Each pixel can be any one of the 16 million different colors available. 
 
@@ -67,7 +63,6 @@ Overall, as compared to vector graphics, raster graphics are less economical, sl
 But, if you’re not working with digital photographs, Vector graphics editors would be ideal for all other types of design editing, especially because vector graphics are able to be scaled and manipulated at any size with clarity.
 
 File size is important to take into consideration. If a smaller file size is what you’re looking for, stick with vector graphics. Raster image files can be quite large since the computer needs to remember information about every single pixel.
-<br></br>
 
 
 ## Static and Dynamic Content {#static-dynamic}

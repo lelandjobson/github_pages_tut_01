@@ -7,7 +7,7 @@ field-guide: Adobe Field Guide
 order: 3
 ---
 
-Photoshop is considered a leader in photo editing software and privileges **raster **based content. The software allows users to manipulate and make image adjustments such as cropping, resizing, and correcting color on digital images / photos. The software is particularly popular amongst professional photographers and graphic designers.
+Photoshop is considered a leader in photo editing software and privileges **raster** based content. The software allows users to manipulate and make image adjustments such as cropping, resizing, and correcting color on digital images / photos. The software is particularly popular amongst professional photographers and graphic designers.
 
 Applicable throughout all of Adobe software, but particularly paramount within photoshop due to its image forward, color-rich content, it the distinction between RBG and CMYK as it strandles output between physical printing versus digital media. 
 

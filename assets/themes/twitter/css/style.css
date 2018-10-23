@@ -1,5 +1,5 @@
 
-body{
+body {
   opacity: 1.0;
   -webkit-transition: background 1.5s linear;
   -moz-transition: background 1.5s linear;
@@ -7,13 +7,41 @@ body{
   -ms-transition: background 1.5s linear;
   transition: background 1.5s linear;
   transition: background-image 1s ease-in-out;
-  /* -webkit-transform:translate3d(0,0,0);
-  transform:translate3d(0,0,0); */
-  
+  background-image: url(../../../images/root/def_Grid.png);
 }
+
+h1 {
+  font-size: 3rem;
+}
+
+hr {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+table, th, td {
+  border: 1px solid rgb(167, 167, 167);
+  padding: 12px;
+}
+table {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+th {
+  font-size: 1em;
+}
+
 .wrapper {
   font-family: 'IBM Plex Sans', sans-serif;
 }
+
+.cards {
+  margin-right: auto;
+  margin-left: auto;
+}
+
 .container-narrow {
   margin: 0 auto;
   min-width: 1000px !important;
@@ -59,9 +87,8 @@ body{
   padding-top: 10px; }
 
 .post > h3.title span.date {
-  position: absolute;
-  right: 0;
-  font-size: 0.9em; }
+  text-align: center;
+}
 
 .post > .more {
   margin: 10px 0;
@@ -121,8 +148,8 @@ blockquote {
   color: black !important;
   font-size: 24px !important;
   padding-left: 20px;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 40px;
+  margin-bottom: 40px;
 }
 
 .introtext {
@@ -141,16 +168,41 @@ blockquote {
   line-height: 26px
 }
 
-h2{
+h2 {
   margin-top: 50px;
   margin-bottom: 30px;
+  text-rendering: geometricPrecision;
+}
+
+p::-moz-selection {
+  background: #fff2a8;
+}
+p::selection {
+  background: #fff2a8;
+}
+
+strong::selection {
+  background: rgb(137, 245, 182);
+}
+
+a::selection {
+  background: rgb(238, 252, 255);
+}
+
+h2::selection {
+  background: black;
+  color: white;
+}
+
+blockquote p::selection{
+  background: #e5caff;
 }
 
 .page-header {
   padding-top: 30px;
-  padding-bottom: 40px;
+  padding-bottom: 10px;
   font-family: 'IBM Plex Sans', sans-serif;
-  font-style: italic;
+  /* font-style: italic; */
   font-weight: bold;
   text-align: center;
 }
@@ -178,6 +230,24 @@ h2{
   color: rgb(122, 122, 122);
 }
 
+.sidenav .current {
+  border-style: solid;
+  border-width: 0px;
+  border-right-width: 6px;
+  border-right-color: rgb(105,238,166);
+}
+
+.sidenav .currentguide {
+  border-style: solid;
+  border-width: 0;
+  border-right-width: 30px;
+  border-color: rgb(221,211,255);
+}
+
+.sidenav .current .a {
+  color: black;
+}
+
 .sidenav .nav-header {
   font-weight: bold;
 }
@@ -189,7 +259,7 @@ h2{
 
 /* When you mouse over the navigation links, change their color */
 .sidenav a:hover {
-  color: #686868;
+  color: #494949;
 }
 
 /* Style page content */

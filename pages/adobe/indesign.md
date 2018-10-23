@@ -25,7 +25,7 @@ InDesign is also a vector based program much the same as Illustrator, however In
     * Text Manipulation
     * Output and Printing
 
-###Workspace
+### Workspace
 
 >Upon creating a document via the launch preferences of Indesign, the interface consists of a recognizable format of core tools docked to the left of the platform and core menus and management tools to the right. 
 
@@ -57,7 +57,7 @@ The use of guides for stanadizing proportions for layout is an essential tool wi
 </div>
 
 
-###Frame
+### Frame
 
 >Content or assets, be it Vector or Raster, are placed within frames within Indesign. 
 
@@ -73,14 +73,14 @@ Frames can hold either text, images or other adobe referenced content. The abili
     * Page Number and Navigation → Create 3 and Navigate
 
 
-###Fitting
+### Fitting
 
 >The relationship between content and frame is relatively independent from one another which broadly is advantageous for scaling, fitting, cropping or other techniques that can be leveraged from these two features. 
 
 Typically, the frame is subservient to the layout or composition that is desired while the content that resides within the frame has to be scaled to fit. These preferences for fitting can be accessed via right clicking on an assets and selecting the fitting options. Centering, proportion short, proportional long, fit all, etc. are only a few of the options within the presets. 
 
 
-###Typeface
+### Typeface
 
 >Fundamentally, indesign was built for text, this means its typeface tools and controls go incredibly deep. 
 
@@ -95,7 +95,7 @@ Additionally, Indesign has powerful tools to scrub your document locating variou
 * Text →  Titles, Annotation, Date, Page Number
 
 
-###Packaging
+### Packaging
 
 The aforementioned aspect of linking content via the file address across a myriad of disparate folders proves a daunting challenge when versioning or over a given duration (among a couple of instances) however, indesign has a command called packaging in which it produces a copy and collates all of the referenced content (raster / vector, etc) as well as all typefaces and produces a packaged folder which houses a folder entitled links, fonts and then also has a saved version of the current indesign file. This ensure that everything is ‘packaged’ into one location.
 

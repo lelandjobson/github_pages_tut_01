@@ -55,32 +55,24 @@
     <div class="sidenav">
       {% assign myGuides = site.pages | group_by: 'field-guide' %}
       {% for cat in myGuides %}
-         <ol>
-            <li class="nav-header"><h6>{{ cat.name }}</h6></li>
-            {% assign items = cat.items | sort: 'order' %} 
-            {% for item in items %}
-            <li class="nav-item"><a href="{{ item.url }}">{{ item.title }}</a></li>
-            {% endfor %}
-         </ol>
+         {% if cat.name != "None" %}
+          <ol>
+              {% if page.field-guide == cat.name %}
+              <li class="nav-header currentguide"><h6>{{ cat.name }}</h6></li>
+              {% else %}
+              <li class="nav-header"><h6>{{ cat.name }}</h6></li>
+              {% endif %}
+              {% assign items = cat.items | sort: 'order' %} 
+              {% for item in items %}
+                {% if item.url == page.url %}
+                <li class="nav-item current"><a>{{ item.title }}</a></li>
+                {% else %}
+                <li class="nav-item"><a href="{{ item.url }}">{{ item.title }}</a></li>
+                {% endif %}
+              {% endfor %}
+          </ol>
+        {% endif %}
       {% endfor %}
-      {% for cat in myGuides %}
-      <ol>
-         <li class="nav-header"><h6>{{ cat.name }}</h6></li>
-         {% assign items = cat.items | sort: 'order' %} 
-         {% for item in items %}
-         <li class="nav-item"><a href="{{ item.url }}">{{ item.title }}</a></li>
-         {% endfor %}
-      </ol>
-   {% endfor %}
-   {% for cat in myGuides %}
-   <ol>
-      <li class="nav-header"><h6>{{ cat.name }}</h6></li>
-      {% assign items = cat.items | sort: 'order' %} 
-      {% for item in items %}
-      <li class="nav-item"><a href="{{ item.url }}">{{ item.title }}</a></li>
-      {% endfor %}
-   </ol>
-{% endfor %}
     </div>
 
     {{ content }}

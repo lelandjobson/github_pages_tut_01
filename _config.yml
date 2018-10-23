@@ -8,7 +8,7 @@ highlighter: rouge
 # Themes are encouraged to use these universal variables
 # so be sure to set them if your theme uses them.
 #
-title : Field Guide of Future Craft
+title : Future Craft Field Guide
 author :
   name : Pratt Interdisciplinary Technology Lab (ITL)
   email : itl@pratt.edu
@@ -108,3 +108,6 @@ JB :
   # and include your custom code. Your custom file must be defined at:
   #   ./_includes/custom/[HELPER]
   # where [HELPER] is the name of the helper you are overriding.
+
+  plugins:
+    - jekyll-last-modified-at
