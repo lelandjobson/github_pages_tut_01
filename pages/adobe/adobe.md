@@ -10,7 +10,7 @@ This field guide highlights the basics of Adobe Suite - primarily Illustrator, P
 
 A lion's share of the industry standards for graphic design, video editing and web development is comprised of [Adobe Systems](https://www.adobe.com) products. The workflows produced by their software are heavily integrated into the training of the creative workforce today, spanning their influence over raster, vector, static and dynamic assets across all platforms.
 
-<div class="alert" role="alert"><strong>Did you know?</strong> Adobe was started by Xeroc-PARC employees who were passionate about standardizing digital printing and resolving the pressing issues of CGI at the time, such as describing fonts such  that they look good at all sizes. After failing to convince management in the value of this pursuit, they left and did it themselves, and the rest is history.</div>
+<div class="alert alert-dark" role="alert"><strong>Did you know?</strong> Adobe was started by Xeroc-PARC employees who were passionate about standardizing digital printing and resolving the pressing issues of CGI at the time, such as describing fonts such  that they look good at all sizes. After failing to convince management in the value of this pursuit, they left and did it themselves, and the rest is history.</div>
 
 ---
 
@@ -65,7 +65,7 @@ But, if you’re not working with digital photographs, Vector graphics editors w
 File size is important to take into consideration. If a smaller file size is what you’re looking for, stick with vector graphics. Raster image files can be quite large since the computer needs to remember information about every single pixel.
 
 
-## Static and Dynamic Content {#static-dynamic}
+<h2 class="bgChange" data-background="/assets/images/adobe_fg/InaBG.png">Static And Dynamic Content</h2>
 
 Overarchingly the additional spectrum that can be applied to Adobe Software is its ability or platform forte to deal with static or dynamic content. Primer, Flash and Aftereffects in this aspect would define one end of the spectrum while Illustrator and Indesign would occupy the opposing end. This distinction specifically denotes content creation as opposed to management tools 
 
@@ -78,7 +78,7 @@ Place from content / asset management and creation - static to dynamic
 ```
 
 
-## The Suite {#suite}
+<h2 class="bgChange" data-background="/assets/images/adobe_fg/InaBG_2.png">The Suite</h2>
 
 >The benefits of Adobe Software is ironically where confusion can potentially occur. At once each software platform has a forte, a privilege set of criteria from its workspace/interface design, its management, tools, asset handling, etc., there is also a high degree of overlap and commonality amongst each software package. 
 

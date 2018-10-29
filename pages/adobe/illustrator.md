@@ -31,7 +31,7 @@ Broadly speaking, within the essentials workspace setting of Illustrator, the ce
 Reference pdf
 ```
 
-##Workflows {#workflows}
+## Workflows {#workflows}
 
 
 <div class="alert alert-info"><span class="glyphicon glyphicon-hand-down" aria-hidden="true"></span> These workflows will help you get started.</div>
@@ -71,7 +71,7 @@ Reference PDF
     * Group and Ungroup
 <br></br>
 
-##Toolsets & Techniques {#toolsets}
+## Toolsets & Techniques {#toolsets}
 
 
 >Tools, docked on the left, are the main creators or transformers of content while menus, dock on the right, are the main calibrators, editors or expanded parameters of any one tools or artifact produced. 
@@ -83,7 +83,7 @@ As a rule of thumb, seek to keep your fill and stroke calibration independent of
 <div class="alert alert-info"><span class="glyphicon glyphicon-hand-down" aria-hidden="true"></span> These are the core toolsets to create and manipulate assets.</div>
 
 
-* #####Tools {#tools}
+* ##### Tools {#tools}
     * Line → Stroke, Color, Wt., Length
     * Pen → Anchor, Shift, Appearance
     * Shape → Presets, Fill/Stroke, Anchor, 
@@ -93,18 +93,18 @@ As a rule of thumb, seek to keep your fill and stroke calibration independent of
     * Eye Dropper → Use
     * Scissors → Use
 
-* #####Transformations {#transformations}
+* ##### Transformations {#transformations}
     * Move, Scale, Rotate … → Select, Right-click, Transform, Inputs
     * Anchor Points and Handles → Use, <span class="badge">A</span> & <span         class="badge">V</span> keys
 
-* #####Saving a Document {#saving}
+* ##### Saving a Document {#saving}
     * Save As → AI., PDF. (Artboard Output), EPS., SVG. 
 
-* #####Output {#output}
+* ##### Output {#output}
     * Export → Types, Compatibility
     * Print → Settings, Resolution, Formatting, Print Range, Paper Type
 
-* #####Help Menu {#help}
+* ##### Help Menu {#help}
 Use it. Seriously!
 
 

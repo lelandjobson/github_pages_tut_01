@@ -64,35 +64,27 @@
               {% endif %}
               {% assign items = cat.items | sort: 'order' %} 
               {% for item in items %}
-                {% if item.url == page.url %}
-                <li class="nav-item current"><a>{{ item.title }}</a></li>
+                {% capture nowunix %}{{'now' | date: '%s'}}{% endcapture %}
+                <!-- If the post is younger than 10 days, thrown in a NEW tag -->   
+                {% if nowunix - item._last_modified_at < 900000000000000000000000000000000000 %}
+                  {% if item.url == page.url %}
+                    <li class="nav-item current newItem"><a>{{ item.title }}</a></li>
+                  {% else %}
+                    <li class="nav-item"><a href="{{ item.url }}">{{ item.title }}</a></li>
+                  {% endif %}
                 {% else %}
-                <li class="nav-item"><a href="{{ item.url }}">{{ item.title }}</a></li>
+                  {% if item.url == page.url %}
+                    <li class="nav-item current"><a>{{ item.title }}</a></li>
+                  {% else %}
+                    <li class="nav-item"><a href="{{ item.url }}">{{ item.title }}</a></li>
+                  {% endif %}
                 {% endif %}
-              {% endfor %}
+              {% endfor %}     
           </ol>
         {% endif %}
       {% endfor %}
     </div>
-
     {{ content }}
-      <hr>
-      <footer>
-          <div class="alert alert-success" role="alert">
-            <strong>Support Our Mission!</strong> 
-            The <a href="http://itl.pratt.edu"><span class="label label-default">ITL</span></a> 
-            publishes online for free in our commitment to the design community and passion for education. 
-            Support us on <a href="http://www.drip.com"><span class="label label-info">Drip</span></a>. 
-            <i class="glyphicon glyphicon-book" aria-hidden="true"> </i>
-            <i class="glyphicon glyphicon-heart" aria-hidden="true"> </i>
-          </div>
-        <p><small>
-          <!-- <a href="https://creativecommons.org/publicdomain/zero/1.0/"><img src="https://i.creativecommons.org/p/zero/1.0/88x31.png" alt="CC0"/></a> &nbsp; -->
-          <a href="https://itl.pratt.edu">Interdisciplinary Technology Lab</a> 
-          <br>Field Guide v.0.12
-        </small></p>
-      </footer>
-
     </div>
     {% include JB/analytics %}
   </body>

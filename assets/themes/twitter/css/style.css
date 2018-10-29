@@ -10,8 +10,14 @@ body {
   background-image: url(../../../images/root/def_Grid.png);
 }
 
+p {
+  font-size: 1rem;
+}
+
 h1 {
   font-size: 3rem;
+  font-style: italic;
+  text-rendering: geometricPrecision;
 }
 
 hr {
@@ -34,7 +40,7 @@ th {
 }
 
 .wrapper {
-  font-family: 'IBM Plex Sans', sans-serif;
+  font-family: 'IBM Plex Mono';
 }
 
 .cards {
@@ -70,6 +76,7 @@ th {
 
 .navbar {
   background-image: linear-gradient(to right, black, rgb(34, 34, 34), black);
+  font-family: 'Roboto', monospace;
 }
 
 .brand {
@@ -136,9 +143,10 @@ th {
   color: #FFF; }
 
 .content {
-  /* font-family: 'Roboto', monospace; */
+  font-family: 'Roboto', monospace;
   background-color: white;
   padding: 40px;
+  line-height: 20pt;
 }
 
 blockquote {
@@ -148,8 +156,8 @@ blockquote {
   color: black !important;
   font-size: 24px !important;
   padding-left: 20px;
-  margin-top: 40px;
-  margin-bottom: 40px;
+  margin-top: 10px;
+  margin-bottom: 20px;
 }
 
 .introtext {
@@ -200,11 +208,9 @@ blockquote p::selection{
 
 .page-header {
   padding-top: 30px;
-  padding-bottom: 10px;
-  font-family: 'IBM Plex Sans', sans-serif;
-  /* font-style: italic; */
-  font-weight: bold;
-  text-align: center;
+  padding-bottom: 5px;
+  font-family: 'Roboto';
+  padding-left: 38px;
 }
   
 /* The sidebar menu */
@@ -219,6 +225,8 @@ blockquote p::selection{
   background-color: rgb(255, 255, 255); /* Black */
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 90px;
+  font-family: 'Roboto', monospace;
+  box-shadow: 5px 10px #888888;
 }
 
 /* The navigation menu links */
@@ -294,4 +302,20 @@ blockquote p::selection{
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #555; 
+}
+
+/* New item background badge */
+.newitem {
+  background-image: url(../../../images/root/new_tag.png);
+  background-position: fixed;
+  background-position: right 30px center;
+  background-repeat: no-repeat;
+}
+
+/* Modified item background badge */
+.moditem {
+  background-image: url(../../../images/root/mod_tag.png);
+  background-position: fixed;
+  background-position: right 30px center;
+  background-repeat: no-repeat;
 }
