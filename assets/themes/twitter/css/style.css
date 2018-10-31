@@ -11,7 +11,7 @@ body {
 }
 
 p {
-  font-size: 1rem;
+  font-size: 1.03rem;
 }
 
 h1 {
@@ -26,8 +26,20 @@ hr {
 }
 
 table, th, td {
-  border: 1px solid rgb(167, 167, 167);
+  border: 2px solid rgb(167, 167, 167);
   padding: 12px;
+}
+
+th {
+}
+th tr td {
+  border: 2px solid rgb(0, 0, 0); 
+  color: white;
+  background-color: rgb(48, 48, 48);
+}
+
+tbody :nth-child(even) td {
+  background-color: #ececec;
 }
 table {
   margin-left: auto;
@@ -154,10 +166,14 @@ blockquote {
   border-left-style: solid;
   border-left-color: DarkMagenta;
   color: black !important;
-  font-size: 24px !important;
   padding-left: 20px;
   margin-top: 10px;
   margin-bottom: 20px;
+}
+
+blockquote p{
+  font-size: 20px;
+  line-height: 30px;
 }
 
 .introtext {
