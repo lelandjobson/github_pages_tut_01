@@ -47,6 +47,7 @@ Markdown is converted into HTML.
 
 ```
 Basic markdown:
+<------ NOTE - IGNORE ALL ARROWS, THOSE ARE MY COMMENTS <------
 
 **bold text**
 _italic text_
@@ -58,5 +59,39 @@ _italic text_
 #### Heading 4
 ##### Heading 5 (Smallest)
 
+> quote
+> second line of above quote
+> > nested quote within above quote
+
+[Name of link](http://www.url.to.link.com)
+
+~~~
+Code block - put code in here
+Multiple lines of code supported.
+~~~
+
+~~~ python
+Code block that will be styled as python code.
+~~~
+
+* * * <----- This creates a horizontal rule (a straight line breaking up the doc)
+--- <----- So does this
+
+1. This is a list item
+  1. This is a list within the above list item
+2. This is the list item after the first list item
+
+* This is a list item with a bullet
+* This too
+
+term
+: definition of term
+: another definition of the term
+
+
+| Header1 | Header2 | Header3 |  <---- this is a table
+|:--------|:-------:|--------:|
+| cell1   | cell2   | cell3   |
+| cell4   | cell5   | cell6   |
 
 ```
