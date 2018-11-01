@@ -19,7 +19,7 @@ This project, calledd the Future Craft Field Guides, or FCFG for short, is the c
 - **Navigate to the field guide folder on this website and create a new file with a .md extension** If you want to add a new page, add it to said folder with the extension .md (Ex. introduction.md)
 - **Add a header to the file** You will need to add a header to the file, which we call the "front matter" (metadata about the page) that is **critical** to the pages functionality. It lets our compiler know where to add the page in the field guide, the pages layout, the pages title and description, and what order the page ought to go in. Front matter looks like this:
 **Example Header (From Adobe Field Guide**
-```
+``` yaml
 ---
 layout: post
 title: Image Types
@@ -27,7 +27,7 @@ description: A top level introduction to the adobe suite and its products.
 field-guide: Adobe Field Guide
 order: 1
 ---
-```
+``` 
 - _layout: post_ Do not change this.
 - _title_ The title of this page
 - _description_ A short description of what this page is about
@@ -131,7 +131,7 @@ In this example, vectorBackgroundImage.png is the name of the background image w
 
 ## Adding Sketchfab Model Viewport
 Adding a reference to a sketcfab model is very straightforward. Simply grab the embed code for the viewport from the Sketchfab website. It should look something like this:
-```
+``` html
 <iframe width="800" height="600" src="https://sketchfab.com/models/338f5aa603b24ec6b9303596867e3285/embed?autostart=1" frameborder="0" allowvr allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" onmousewheel=""></iframe>
 ```
 
@@ -149,17 +149,6 @@ Creating this:
 ``` html
 <div class="sketchfab-embed-wrapper"><iframe width="800" height="600" src="https://sketchfab.com/models/338f5aa603b24ec6b9303596867e3285/embed?autostart=1" frameborder="0" allowvr allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" onmousewheel=""></iframe></div>
 ```
-
-
-## Adding mathematical formulae with KaTeX
-
-You can render LaTeX mathematical expressions using [KaTeX](https://khan.github.io/KaTeX/):
-
-The *Gamma function* satisfying $\Gamma(n) = (n-1)!\quad\forall n\in\mathbb N$ is via the Euler integral
-
-$$
-\Gamma(z) = \int_0^\infty t^{z-1}e^{-t}dt\,.
-$$
 
 
 
