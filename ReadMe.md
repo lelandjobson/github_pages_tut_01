@@ -24,18 +24,18 @@ field-guide: Adobe Field Guide
 order: 1
 ---
 ```
-_layout: post_ Do not change this.
-_title_ The title of this page
-_description_ A short description of what this page is about
-_field-guide_ The guide that this content belongs to. Files in the same folder should have the same field-guide. This is what groups pages together on the navbar.
-_order_ The order this page is in the navbar, also sets the previous/next page buttons on the website
+- _layout: post_ Do not change this.
+- _title_ The title of this page
+- _description_ A short description of what this page is about
+- _field-guide_ The guide that this content belongs to. Files in the same folder should have the same field-guide. This is what groups pages together on the navbar.
+- _order_ The order this page is in the navbar, also sets the previous/next page buttons on the website
 
 - **Write your content** Write your content. See the below information on how to write with markdown, add images and special content.
 
 
 ## How to write in Markdown Syntax
+Markdown is a way of styling text and content with simple special characters. These characters change the text size, text style, help you create tables, special blocks, links, embeds, and much more.
+The Future Craft Field Guides use a flavor of markdown called [Kramdown](http://kramdown.gettalong.org).
+```
 
-
-View the thing [here](https://lelandjobson.github.io/github_pages_tut_01)
-
----
+```
