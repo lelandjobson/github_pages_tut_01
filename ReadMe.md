@@ -121,7 +121,7 @@ Adding a background change is straightforward.
 - Add the background image you want to use in the field guides **images** folder
 - For the heading of a topic, instead of creating a heading with markdown like this:
 ```
-# Vectors
+## Vectors
 ```
 Do this:
 ```
@@ -150,5 +150,10 @@ Creating this:
 <div class="sketchfab-embed-wrapper"><iframe width="800" height="600" src="https://sketchfab.com/models/338f5aa603b24ec6b9303596867e3285/embed?autostart=1" frameborder="0" allowvr allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" onmousewheel=""></iframe></div>
 ```
 
-
+## Adding Video Embeds
+Vimeo/Youtube embeds work similarly to Sketchfab (using an iframe). You can get these directly from the video's webpage (embed code) and paste it in. Example:
+``` html
+<iframe src="https://player.vimeo.com/video/261402433" width="640" height="1138" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+<p><a href="https://vimeo.com/261402433">ITL Robot Penholder Hello World</a> from <a href="https://vimeo.com/user7298135">Leland Jobson</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
+``
 
