@@ -14,7 +14,7 @@ This chapter will get you acquainted with the architecture of the robot, and con
 
 ## Layout & Features {#features}
 
-<div class="sketchfab-embed-wrapper"><iframe width="800" height="600" src="https://sketchfab.com/models/338f5aa603b24ec6b9303596867e3285/embed?autostart=1" frameborder="0" allowvr allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" onmousewheel=""></iframe></div>
+<iframe width="800" height="600" src="https://sketchfab.com/models/338f5aa603b24ec6b9303596867e3285/embed?autostart=1" frameborder="0" allowvr allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" onmousewheel=""></iframe>
 
 A core concept behind this 6 axis robot arm is features. A feature is a 3 axis coordinate space. The robot arm contains two features, one for each trio of axis: A **Base feature** (Which I am referring to as Global) and a **Head feature** (Local). You can define new features that are aligned with the surfaces of the working object to localize the coordinates. By nesting coordinates and orientations with features, you can repeat the local commands of a feature while a different feature moves (I.e., head feature space to draw circle, rotating the base to repeat that same drawing of the circle in different points in space.
 
