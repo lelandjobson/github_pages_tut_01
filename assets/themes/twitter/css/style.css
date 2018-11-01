@@ -8,7 +8,12 @@ body {
   transition: background 1.5s linear;
   transition: background-image 1s ease-in-out;
   background-image: url(../../../images/global/def_Grid.png);
+  padding-top: 40px;
 }
+
+/* @media screen and (max-width: 768px) {
+    body { padding-top: 0px; }
+} */
 
 p {
   font-size: 1.03rem;
@@ -30,8 +35,6 @@ table, th, td {
   padding: 12px;
 }
 
-th {
-}
 th tr td {
   border: 2px solid rgb(0, 0, 0); 
   color: white;
@@ -231,11 +234,11 @@ blockquote p::selection{
   
 /* The sidebar menu */
 .sidenav {
-  height: 100%; /* Full-height: remove this if you want "auto" height */
-  width: 270px; /* Set the width of the sidebar */
-  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
-  z-index: 1; /* Stay on top */
-  top: 0; /* Stay at the top */
+  height: 100%; 
+  width: 270px;
+  position: fixed;
+  z-index: 1; 
+  top: 0;
   left: 0;
   color: rgb(0, 0, 0);
   background-color: rgb(255, 255, 255); /* Black */

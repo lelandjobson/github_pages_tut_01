@@ -27,7 +27,6 @@
   </head> 
 
   <body class="wrapper">
-
     <!-- TOP NAVIGATION -->
     <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
       <div class="container">
@@ -49,42 +48,49 @@
           </span>
         </div>
       </div>
-    </nav>
-
-    <!-- SIDE NAVIGATION -->   
-    <div class="sidenav">
-      {% assign myGuides = site.pages | group_by: 'field-guide' %}
-      {% for cat in myGuides %}
-         {% if cat.name != "None" %}
-          <ol>
-              {% if page.field-guide == cat.name %}
-              <li class="nav-header currentguide"><h6>{{ cat.name }}</h6></li>
-              {% else %}
-              <li class="nav-header"><h6>{{ cat.name }}</h6></li>
+    </nav>  
+    <div class="container-fluid">
+      <div class="row">   
+        <!-- SIDE NAVIGATION -->   
+        <div class="col-2">
+          <div class="sidenav">
+            {% assign myGuides = site.pages | group_by: 'field-guide' %}
+            {% for cat in myGuides %}
+              {% if cat.name != "None" %}
+                <ol>
+                    {% if page.field-guide == cat.name %}
+                    <li class="nav-header currentguide"><h6>{{ cat.name }}</h6></li>
+                    {% else %}
+                    <li class="nav-header"><h6>{{ cat.name }}</h6></li>
+                    {% endif %}
+                    {% assign items = cat.items | sort: 'order' %} 
+                    {% for item in items %}
+                      {% capture nowunix %}{{'now' | date: '%s'}}{% endcapture %}
+                      <!-- If the post is younger than 10 days, thrown in a NEW tag -->   
+                      {% if nowunix - item._last_modified_at < 900000000000000000000000000000000000 %}
+                        {% if item.url == page.url %}
+                          <li class="nav-item current newItem"><a>{{ item.title }}</a></li>
+                        {% else %}
+                          <li class="nav-item"><a href="{{ item.url }}">{{ item.title }}</a></li>
+                        {% endif %}
+                      {% else %}
+                        {% if item.url == page.url %}
+                          <li class="nav-item current"><a>{{ item.title }}</a></li>
+                        {% else %}
+                          <li class="nav-item"><a href="{{ item.url }}">{{ item.title }}</a></li>
+                        {% endif %}
+                      {% endif %}
+                    {% endfor %}     
+                </ol>
               {% endif %}
-              {% assign items = cat.items | sort: 'order' %} 
-              {% for item in items %}
-                {% capture nowunix %}{{'now' | date: '%s'}}{% endcapture %}
-                <!-- If the post is younger than 10 days, thrown in a NEW tag -->   
-                {% if nowunix - item._last_modified_at < 900000000000000000000000000000000000 %}
-                  {% if item.url == page.url %}
-                    <li class="nav-item current newItem"><a>{{ item.title }}</a></li>
-                  {% else %}
-                    <li class="nav-item"><a href="{{ item.url }}">{{ item.title }}</a></li>
-                  {% endif %}
-                {% else %}
-                  {% if item.url == page.url %}
-                    <li class="nav-item current"><a>{{ item.title }}</a></li>
-                  {% else %}
-                    <li class="nav-item"><a href="{{ item.url }}">{{ item.title }}</a></li>
-                  {% endif %}
-                {% endif %}
-              {% endfor %}     
-          </ol>
-        {% endif %}
-      {% endfor %}
-    </div>
-    {{ content }}
+            {% endfor %}
+          </div>
+        </div>
+        <!-- CONTENT (post.html, home.html, etc.) -->  
+        <div class="col-10">
+            {{ content }}
+        </div>
+      </div>
     </div>
     {% include JB/analytics %}
   </body>
