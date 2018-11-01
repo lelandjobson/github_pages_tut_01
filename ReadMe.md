@@ -58,11 +58,14 @@ _italic text_
 #### Heading 4
 ##### Heading 5 (Smallest)
 
+
 > quote
 > second line of above quote
 > > nested quote within above quote
 
+
 [Name of link](http://www.url.to.link.com)
+
 
 ~~~
 Code block - put code in here
@@ -73,8 +76,10 @@ Multiple lines of code supported.
 Code block that will be styled as python code.
 ~~~
 
+
 * * * <----- This creates a horizontal rule (a straight line breaking up the doc)
 --- <----- So does this
+
 
 1. This is a list item
   1. This is a list within the above list item
@@ -82,6 +87,7 @@ Code block that will be styled as python code.
 
 * This is a list item with a bullet
 * This too
+
 
 term
 : definition of term
@@ -93,6 +99,55 @@ term
 | cell1   | cell2   | cell3   |
 | cell4   | cell5   | cell6   |
 
+
 ![grass](img/image.jpg) <----- this is an image. the text [grass] is the alt of the image, which will show up when the image isn't loaded, as well as when the user hovers over it
 
 ```
+## Adding images to the field guide
+All field guides will have their own **images** folder within them.
+To insert an image with markdown:
+- Add the picture to the images folder in the appropriate field guide. (ex. babyphoto.png)
+- Use the following markdown syntax:
+```
+![My caption](./images/babyphoto.png)
+```
+The image will now be nested into the field guide
+
+## Adding dynamic background images
+A unique feature of the FCFG is the dynamic background that ties thematically to the content.
+These background changes are triggered by **headings** with embedded reference to the image in its metadata. 
+Adding a background change is straightforward.
+
+- Add the background image you want to use in the field guides **images** folder
+- For the heading of a topic, instead of creating a heading with markdown like this:
+```
+# Vectors
+```
+Do this:
+```
+<h2 class="bgChange" data-background="./images/vectorBackgroundImage.png">Vectors</h2>
+```
+In this example, vectorBackgroundImage.png is the name of the background image we want to use, which has been added to the field guide folder. You can name the image anything you want, but we ask that you stick to the convention (myimagename)BackgroundImage.png.
+
+## Adding Sketchfab Model Viewport
+Adding a reference to a sketcfab model is very straightforward. Simply grab the embed code for the viewport from the Sketchfab website. It should look something like this:
+```
+<iframe width="800" height="600" src="https://sketchfab.com/models/338f5aa603b24ec6b9303596867e3285/embed?autostart=1" frameborder="0" allowvr allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" onmousewheel=""></iframe>
+```
+
+Simply add this to the front 
+``` html
+<div class="sketchfab-embed-wrapper">
+``` 
+
+And this at the end
+``` html
+</div>
+```
+
+Creating this:
+``` html
+<div class="sketchfab-embed-wrapper"><iframe width="800" height="600" src="https://sketchfab.com/models/338f5aa603b24ec6b9303596867e3285/embed?autostart=1" frameborder="0" allowvr allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" onmousewheel=""></iframe></div>
+```
+
+
