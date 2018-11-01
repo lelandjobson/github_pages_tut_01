@@ -211,7 +211,8 @@ and open a command line window
 - open Google Chrome and go to
    - http://localhost:4000/
 
-You should now see the website
+You should now see the website running locally on this page, and you can make changes as you see fit.
 
-
+### Pushing Changes
+Speak to Leland Jobson or David Mans about merging changes you've made into the FCFG.
 
