@@ -7,7 +7,7 @@ body {
   -ms-transition: background 1.5s linear;
   transition: background 1.5s linear;
   transition: background-image 1s ease-in-out;
-  background-image: url(../../../images/root/def_Grid.png);
+  background-image: url(../../../images/global/def_Grid.png);
 }
 
 p {
@@ -322,7 +322,7 @@ blockquote p::selection{
 
 /* New item background badge */
 .newitem {
-  background-image: url(../../../images/root/new_tag.png);
+  background-image: url(../../../images/global/new_tag.png);
   background-position: fixed;
   background-position: right 30px center;
   background-repeat: no-repeat;
@@ -330,7 +330,7 @@ blockquote p::selection{
 
 /* Modified item background badge */
 .moditem {
-  background-image: url(../../../images/root/mod_tag.png);
+  background-image: url(../../../images/global/mod_tag.png);
   background-position: fixed;
   background-position: right 30px center;
   background-repeat: no-repeat;

@@ -19,7 +19,7 @@ A lion's share of the industry standards for graphic design, video editing and w
 Fundamentally, computer graphics are encoded in two ways: as colored cells (Raster) or geometry (Vector). The image formats we are familiar are rasters which vary in their packaging, either uncompressed or compressed, in order to reduce the file size by leveraging the redundancy in the image's content.
 
 
-<h2 class="bgChange" data-background="/assets/images/adobe_fg/purple_placeholder.png">Rasters</h2>
+<h2 class="bgChange" data-background="./images/purple_placeholder.png">Rasters</h2>
  
 >Raster graphics are bitmaps, or a grid of individual pixels that collectively compose an image. Raster graphics render images as a collection of countless tiny squares. Each square, or pixel, is coded in a specific hue or shade.
 
@@ -31,7 +31,7 @@ To maximize the quality of a raster image, you must keep in mind that the **rast
 
 **Better resolution, however, is directly correlated to file size.** Just as raster files are significantly larger than comparable vector files, high resolution raster files are significantly larger than low resolution raster files since the computer needs to store information on every single pixel.
 
-<h2 class="bgChange" data-background="/assets/images/adobe_fg/purple.png">Vectors</h2>
+<h2 class="bgChange" data-background="./images/purple.png">Vectors</h2>
 
 >Unlike pixel-based raster images, Vector graphics are based on mathematical formulas that define geometric primitives such as polygons, lines, curves, circles and rectangles through translation into points, a start and end, connected by vector paths. 
 
@@ -45,7 +45,7 @@ Further, unlike raster graphics, vector images are not resolution-dependent. Vec
 
 Common vector file formats include AI, EPS, SVG, XML, CGM and PICT \(Mac\).
 
-<h2 class="bgChange" data-background="/assets/images/adobe_fg/hello.png">Use Cases</h2>
+<h2 class="bgChange" data-background="./images/hello.png">Use Cases</h2>
 
 > File size is important to take into consideration. If a smaller file size is what you’re looking for, stick with vector graphics. 
 
@@ -65,7 +65,7 @@ But, if you’re not working with digital photographs, Vector graphics editors w
 File size is important to take into consideration. If a smaller file size is what you’re looking for, stick with vector graphics. Raster image files can be quite large since the computer needs to remember information about every single pixel.
 
 
-<h2 class="bgChange" data-background="/assets/images/adobe_fg/InaBG.png">Static And Dynamic Content</h2>
+<h2 class="bgChange" data-background="./images/InaBG.png">Static And Dynamic Content</h2>
 
 Overarchingly the additional spectrum that can be applied to Adobe Software is its ability or platform forte to deal with static or dynamic content. Primer, Flash and Aftereffects in this aspect would define one end of the spectrum while Illustrator and Indesign would occupy the opposing end. This distinction specifically denotes content creation as opposed to management tools 
 
@@ -78,7 +78,7 @@ Place from content / asset management and creation - static to dynamic
 ```
 
 
-<h2 class="bgChange" data-background="/assets/images/adobe_fg/InaBG_2.png">The Suite</h2>
+<h2 class="bgChange" data-background="./images/InaBG_2.png">The Suite</h2>
 
 >The benefits of Adobe Software is ironically where confusion can potentially occur. At once each software platform has a forte, a privilege set of criteria from its workspace/interface design, its management, tools, asset handling, etc., there is also a high degree of overlap and commonality amongst each software package. 
 
