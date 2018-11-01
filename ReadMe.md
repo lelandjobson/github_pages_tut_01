@@ -46,7 +46,7 @@ Markdown is converted into HTML.
 ### [You can find a complete guide for using markdown to write here.](https://kramdown.gettalong.org/quickref.html)
 
 ### Basic markdown:
-### <------ NOTE - IGNORE ALL ARROWS, THOSE ARE MY COMMENTS <------
+<------ NOTE - IGNORE ALL ARROWS, THOSE ARE MY COMMENTS <------
 ```
 **bold text**
 _italic text_
