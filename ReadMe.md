@@ -1,9 +1,13 @@
 # Future Craft Field Guides
 
-Sandbox for [Pratt Itl](https://itl.pratt.edu) Field Guides
-website using Markdown and git.
+## Introduction
+Since our formation in 2011 as the Digital Futures Group through our transition into the ITL, we have purveyed over one hundred digital seminars and provided a decade of service in the forms of creating, curating, delivering and supporting educational content and initiatives within the School of Architecture. In our tenure, we consistently maintained that the tenets of digital craftsmanship are immutable: lessons in design software outlast their manifestations.
 
-## How to contribute
+We have come to believe that the ultimate user manual for implementing technology in creative work is not only writable, but the resources and talent to do so are already at our grasp.
+
+This project, calledd the Future Craft Field Guides, or FCFG for short, is the consolidation of our knowledge base: technology’s manifold implementations in the arts are keyframed at the macro and micro levels, spanning from fundamentals to content creation. On its face, the Field Guide serves to broaden the technical prowess of our students, but our project is to also discover how technology, technique, craft and reason interlink our various disciplines - if we could draw that web, what would we learn? What could we do with it? FCFG is such an  asset.
+
+# How to contribute
 
 ### Editing an existing page
 - You can edit on this website directly (Github.com) using the above 
@@ -34,8 +38,25 @@ order: 1
 
 
 ## How to write in Markdown Syntax
+The text you are currently reading was written in markdown, and is the README.md file at the root of this repository. 
 Markdown is a way of styling text and content with simple special characters. These characters change the text size, text style, help you create tables, special blocks, links, embeds, and much more.
 The Future Craft Field Guides use a flavor of markdown called [Kramdown](http://kramdown.gettalong.org).
+Markdown is converted into HTML. 
+
+###[You can find a complete guide for using markdown to write here.](https://kramdown.gettalong.org/quickref.html)
+
 ```
+Basic markdown:
+
+**bold text**
+_italic text_
+
+
+# Heading 1 (Biggest)
+## Heading 2
+### Heading 3
+#### Heading 4
+##### Heading 5 (Smallest)
+
 
 ```
