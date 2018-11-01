@@ -26,66 +26,100 @@
     <link href="{{ BASE_PATH }}{{ site.JB.rss_path }}" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">  
   </head> 
 
-  <body class="wrapper">
-
+  <body>
     <!-- TOP NAVIGATION -->
     <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
-      <div class="container">
-        <a class="navbar-brand" href="{{ HOME_PATH }}">{{ site.title }}</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>    
-        <div class="collapse navbar-collapse" id="navbarText">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Contribute</a>
-            </li>
-          </ul>
-          <span class="navbar-text">
-            v.0.1.2
-          </span>
+        <div class="container">
+          <a class="navbar-brand" href="{{ HOME_PATH }}">{{ site.title }}</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>    
+          <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Contribute</a>
+              </li>
+            </ul>
+            <span class="navbar-text">
+              v.0.1.2
+            </span>
+          </div>
         </div>
-      </div>
-    </nav>
+    </nav>  
+    <div class="wrapper">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div class="sidenav navitems">
+                {% assign myGuides = site.pages | group_by: 'field-guide' %}
+                {% for cat in myGuides %}
+                  {% if cat.name != "None" %}
+                    <ol>
+                        {% if page.field-guide == cat.name %}
+                        <li class="nav-header currentguide"><h6>{{ cat.name }}</h6></li>
+                        {% else %}
+                        <li class="nav-header"><h6>{{ cat.name }}</h6></li>
+                        {% endif %}
+                        {% assign items = cat.items | sort: 'order' %} 
+                        {% for item in items %}
+                          {% capture nowunix %}{{'now' | date: '%s'}}{% endcapture %}
+                          <!-- If the post is younger than 10 days, thrown in a NEW tag -->   
+                          {% if nowunix - item._last_modified_at < 900000000000000000000000000000000000 %}
+                            {% if item.url == page.url %}
+                              <li class="nav-item current newItem"><a>{{ item.title }}</a></li>
+                            {% else %}
+                              <li class="nav-item"><a href="{{ item.url }}">{{ item.title }}</a></li>
+                            {% endif %}
+                          {% else %}
+                            {% if item.url == page.url %}
+                              <li class="nav-item current"><a>{{ item.title }}</a></li>
+                            {% else %}
+                              <li class="nav-item"><a href="{{ item.url }}">{{ item.title }}</a></li>
+                            {% endif %}
+                          {% endif %}
+                        {% endfor %}     
+                    </ol>
+                  {% endif %}
+                {% endfor %}
+            </div>
+        </nav>
 
-    <!-- SIDE NAVIGATION -->   
-    <div class="sidenav">
-      {% assign myGuides = site.pages | group_by: 'field-guide' %}
-      {% for cat in myGuides %}
-         {% if cat.name != "None" %}
-          <ol>
-              {% if page.field-guide == cat.name %}
-              <li class="nav-header currentguide"><h6>{{ cat.name }}</h6></li>
-              {% else %}
-              <li class="nav-header"><h6>{{ cat.name }}</h6></li>
-              {% endif %}
-              {% assign items = cat.items | sort: 'order' %} 
-              {% for item in items %}
-                {% capture nowunix %}{{'now' | date: '%s'}}{% endcapture %}
-                <!-- If the post is younger than 10 days, thrown in a NEW tag -->   
-                {% if nowunix - item._last_modified_at < 900000000000000000000000000000000000 %}
-                  {% if item.url == page.url %}
-                    <li class="nav-item current newItem"><a>{{ item.title }}</a></li>
-                  {% else %}
-                    <li class="nav-item"><a href="{{ item.url }}">{{ item.title }}</a></li>
-                  {% endif %}
-                {% else %}
-                  {% if item.url == page.url %}
-                    <li class="nav-item current"><a>{{ item.title }}</a></li>
-                  {% else %}
-                    <li class="nav-item"><a href="{{ item.url }}">{{ item.title }}</a></li>
-                  {% endif %}
-                {% endif %}
-              {% endfor %}     
-          </ol>
-        {% endif %}
-      {% endfor %}
+        <!-- Page Content  -->
+        <div id="content">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+
+                    <button type="button" id="sidebarCollapse" class="btn btn-info">
+                        <i class="fas fa-align-left"></i>
+                        <span>Toggle Sidebar</span>
+                    </button>
+                    
+                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-align-justify"></i>
+                    </button>
+            </nav>
+            {{ content }}
+        </div>
     </div>
-    {{ content }}
-    </div>
+
+
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+            });
+        });
+    </script>
+
     {% include JB/analytics %}
   </body>
 </html>
