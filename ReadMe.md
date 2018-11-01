@@ -11,6 +11,7 @@ This project, calledd the Future Craft Field Guides, or FCFG for short, is the c
 
 ### Editing an existing page
 - You can edit on this website directly (Github.com) using the above 
+- We recommend using [Typora](https://typora.io/#download), a beautiful offline markdown editor. See the **Using Typora** section below.
 - In the **pages** folder, go to the field guide folder you want to edit. 
 - **Click** on the appropriate page file (.md file) that you want to edit.
 - **Write your content** Write your content. See the below information on how to write with markdown, add images and special content.
@@ -36,6 +37,22 @@ order: 1
 
 - **Write your content** Write your content. See the below information on how to write with markdown, add images and special content.
 
+## Using Typora
+[Typora](https://typora.io/#download) is an offline markdown editor.
+
+### [Download Typora Here](https://typora.io/#download)
+
+To download the contents of the FCFG onto your computer, you will need Github Desktop.
+
+### [Download Github Desktop Here](https://desktop.github.com/)
+
+### Cloning(Downloading locall) the repository (The FCFG)
+- Clone the Repo in Github Desktop (File - Clone) with this url:
+  - _https://github.com/lelandjobson/github_pages_tut_01_
+  - **This will produce a folder with the repository in it in Documents/Github.**
+
+- Now you can open typora, and go to File - Open Folder, choose the folder of the repository you want to work in, and type away!
+  - See the below information on how to write with markdown, add images and special content.
 
 ## How to write in Markdown Syntax
 The text you are currently reading was written in markdown, and is the README.md file at the root of this repository. 
