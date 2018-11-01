@@ -164,7 +164,37 @@ FGFC uses Bootstrap 4.0 for special components, such as alert bars, buttons, dro
 
 Pro tip - If you see a component on another page that you want to use, you can simple copy and paste it into your page and change the content there as necessary.
 
+# Writing in Visual Studio Code & Dev Work
+If you want to add styles, make infrastructural changes, or just use an offline editor to work with markdown and preview changes, 
+you can get started with the following series of steps
 
+### Install
+- [Visual Studio Code](https://code.visualstudio.com/download)
+- [Github Desktop](https://desktop.github.com/)
+- [Ruby Runtime](http://www.rubyinstaller.org)
+  - Get the latest WITH DEVKIT (x64)
+  - Follow the command line instructions. When asked what package to install, use 1, or the simplest package.
+
+### Clone the repository
+- Clone the Repo in Github Desktop (File - Clone) with this url:
+  - _https://github.com/lelandjobson/github_pages_tut_01_
+  - **This will produce a folder with the repository in it in Documents/Github.**
+  - In the github desktop window in the Branches dropdown, select the **gh-pages** branch
+- Navigate to the local folder with the repository in it (...\Documents\GitHub\github_pages_tut_01 ) 
+and open a command line window
+  - You can do this in Windows in windows explorer by typing cmd.exe into the textbox on the explorer where the folder's path is displayed and hitting enter. 
+- Type in and hit enter: 
+   - _gem install bundler_
+- When that is finished, in the same console window, do the same for  
+   - _gem install github-pages_ 
+- Then
+   - _gem install jekyll-last-modified-at_
+- Close the console window, and open a new one and do
+   - _jekyll serve_
+- open Google Chrome and go to
+   - http://localhost:4000/
+
+You should now see the website
 
 
 
