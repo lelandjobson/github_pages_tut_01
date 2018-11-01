@@ -129,8 +129,8 @@ Do this:
 ```
 In this example, vectorBackgroundImage.png is the name of the background image we want to use, which has been added to the field guide folder. You can name the image anything you want, but we ask that you stick to the convention (myimagename)BackgroundImage.png.
 
-## Adding Sketchfab Model Viewport
-Adding a reference to a sketcfab model is very straightforward. Simply grab the embed code for the viewport from the Sketchfab website. It should look something like this:
+## Adding Sketchfab Models
+Showing a sketchfab model on our page is easy. Simply grab the embed code for the viewport from the Sketchfab website. It should look something like this:
 ``` html
 <iframe width="800" height="600" src="https://sketchfab.com/models/338f5aa603b24ec6b9303596867e3285/embed?autostart=1" frameborder="0" allowvr allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" onmousewheel=""></iframe>
 ```
@@ -155,5 +155,16 @@ Vimeo/Youtube embeds work similarly to Sketchfab (using an iframe). You can get 
 ``` html
 <iframe src="https://player.vimeo.com/video/261402433" width="640" height="1138" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 <p><a href="https://vimeo.com/261402433">ITL Robot Penholder Hello World</a> from <a href="https://vimeo.com/user7298135">Leland Jobson</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
-``
+```
+
+## Adding components
+FGFC uses Bootstrap 4.0 for special components, such as alert bars, buttons, dropdowns and more. For example, the grey and green boxes you see. You can visit the bootstrap website below and paste in code for special components.
+
+### [Boostrap components](https://getbootstrap.com/docs/4.1/components/alerts/)
+
+Pro tip - If you see a component on another page that you want to use, you can simple copy and paste it into your page and change the content there as necessary.
+
+
+
+
 
