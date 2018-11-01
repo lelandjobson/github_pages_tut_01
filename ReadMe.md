@@ -93,4 +93,6 @@ term
 | cell1   | cell2   | cell3   |
 | cell4   | cell5   | cell6   |
 
+![grass](img/image.jpg) <----- this is an image. the text [grass] is the alt of the image, which will show up when the image isn't loaded, as well as when the user hovers over it
+
 ```
