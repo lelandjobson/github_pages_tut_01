@@ -43,7 +43,7 @@ Markdown is a way of styling text and content with simple special characters. Th
 The Future Craft Field Guides use a flavor of markdown called [Kramdown](http://kramdown.gettalong.org).
 Markdown is converted into HTML. 
 
-###[You can find a complete guide for using markdown to write here.](https://kramdown.gettalong.org/quickref.html)
+### [You can find a complete guide for using markdown to write here.](https://kramdown.gettalong.org/quickref.html)
 
 ```
 Basic markdown:
