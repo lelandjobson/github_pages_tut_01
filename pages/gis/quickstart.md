@@ -1,275 +1,287 @@
 ---
 layout: post
 title: Quick Start
-description: A quick start to GIS in Python
-field-guide: GIS Field Guide
-order: 3
+description: An overview of GIS in Python
+field-guide: GIS Python Field Guide
+order: 1
 ---
 
-This chapter will get you acquainted with the architecture of the robot, and concludes with a grasshopper Hello World example that allows you to drive the robot with Rhinoceros.
-
-<div class="alert alert-success"><strong>Lets get started!
-</strong> We recommend taking notes as you go along to remember the content.</div>
-
----
-
-## Layout & Features {#features}
-
-<div class="sketchfab-embed-wrapper"><iframe width="800" height="600" src="https://sketchfab.com/models/338f5aa603b24ec6b9303596867e3285/embed?autostart=1" frameborder="0" allowvr allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" onmousewheel=""></iframe></div>
-
-A core concept behind this 6 axis robot arm is features. A feature is a 3 axis coordinate space. The robot arm contains two features, one for each trio of axis: A **Base feature** (Which I am referring to as Global) and a **Head feature** (Local). You can define new features that are aligned with the surfaces of the working object to localize the coordinates. By nesting coordinates and orientations with features, you can repeat the local commands of a feature while a different feature moves (I.e., head feature space to draw circle, rotating the base to repeat that same drawing of the circle in different points in space.
-
-Unless otherwise defined, the positioning of the robots tip will take place in the **global** feature.
 
 
-```
-To create custom feature:
-- Define a feature
-- Apply that feature to the workpoints when programming.
-- You can jog within features. Under the Move tab, in the Feature dropdown at the top right, select the feature relative to the movement you want to achieve.
-- You can change the feature coordinate system afterwards, and this will subsequently displace all of the movement commands mapped to that feature.
-```
+GIS is a system that relates information to locations on earth. A GIS point can at a minimum consist of an identifier (Id) and a location on a coordinate system. For example, a street intersection can be given an Id (It’s name, or an arbitrary number/string) and a coordinate marking its position in space. As you can imagine, there is more to a street intersection than these two things, such as the names of the streets which are intersecting, when it was built, the speed limit at that moment, etc. ad infinitum.
 
+There are a number of interfaces for parsing GIS data. A very common tools for architects to access GIS data is via Grasshopper. However, in this primer, we will focus on the general task of site modeling with more common GIS tools in combination with Rhino 3D. The primer will guide you through the process of finding appropriate terrain and building footprint data and the steps it will take to creating a complete 3D model in Rhino.
 
+## Tool Breakdown
 
-## Electrical Layout {#elayout}
+<div class="alert alert-info"><span class="glyphicon glyphicon-hand-down" aria-hidden="true"></span><strong> Have at the ready:</strong></div>
 
-The electrical componentry of the UR-10 are as follows:
+#####[Rhinoceros 5 ](https://www.rhino3d.com/download/rhino/5/latest)
 
-![](/assets/UR/ControlBox.PNG)
+<span class="label label-success">STUDENT DISCOUNT</span>
 
-- Control Box - Contains the computer and ports
-- Motherboard - Contains ethernet connector for wireless (located at bottom of computer box), usb ports for file transfer, and I/O ports for connection to sensors and electronics.
--USB connectors (Usb stick only? 4 usb slots)
-- Leftmost Yellow connectors - Emergency stop signals. A signal sent through these ports will stop the machine.
-- Grey/Yellow Connectors - Safety related, but not necessarily emergency stop, signals (System level?)
-- Grey Connectors - Digital signals
-- Green connectors - Analog Signals
-- Pendant - The attached screen. Note the button located on the back of this screen that allows free movement of the robot when held down.
-Tool flange - the robot head where end effectors are attached
+#####[QGIS ](https://qgis.org/en/site/)
 
-## Initialization {#init}
+<span class="label label-success">FREE</span>
 
->Note - protective stop enabled when pressure is encountered, and you will have to reinitialize.
+- Rhinoceros 5
+- A NURBS modeler for the design industry
+→ We will be using Rhino’s scripting function to facilitate mesh generation of topography and building mass.
 
-On powerup you will get an Initialization Message - Hit the start button to unlock brakes
-- Once initialized, use the Move Tab To jog or home the robot
-
-
-
-## End Effector {#endef}
-
-![](/assets/UR/Head.PNG)
-
-The robot needs to be informed of certain properties of the end effector in order to do meaningful work. The end effector of the robot is known as the TCP.
-
-### What is the TCP?
-
-<div class="sketchfab-embed-wrapper"><iframe width="640" height="480" src="https://sketchfab.com/models/6b856c71abdf4aeaaa84489ff5fc7ede/embed?autostart=1" frameborder="0" allowvr allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" onmousewheel=""></iframe></div>
-
-TCP stands for Tool center point. When we command the robot to move to a position, the coordinates we specify are that of the TCP. The point should best represent the intersection between the tool head and objects, so that one can avoid unwanted collisions to interface with material as specifically and controlled as possible. For grabbing or multi-pronged tools, the TCP is the center between points of contact on the tool. For nozzles, at the end of the nozzle. For grippers, its the midpoint between the two sides of the gripper. For programming on the pendant, you can specify the tool weight in the following way:
-
-- Click on Program Robot
-- Click on Installation
-- Click on TCP Configuration
-- Click on field labeled “Z”
-- Needs distance from TCP to the tool flange
-- Weigh the end effector
-- Add this measurement to the Payload field. Click the Save icon.
-- Click the Center of gravity checkbox
-- Add the point information for the center of gravity
--Example: Payload (.7kg), 11 cm (110 mm) TCP, 2 cm (20mm)
-- When done entering properties, click Save Icon
-
-> Note - saving, creating new installations/configurations for the robot may require you to restart the robot’s initialization. You will be prompted if this is the case.
-
-###Manual TCP Configuration {#manualTCP}
-
-- Under Program -> Installation -> TCP Configuration, you can use the Position and Orientation buttons to manually set the TCP dimensions and the orientation of the end effector on the robot
-- With position, click the position button, set point one, bring the end effector tip to an arbitrary configuration point (I.e. set up a stand with a marker to point at), set. Do this 3 more times from 3 different perspectives on the same point.
-- For orientation, before hitting the Set button, use the dropdown that appears after hitting the orientation button and select Base - Align the tool to be parallel with the global Z axis (Straight up from the floor).
+- QGIS
+- Includes a large collection of open source GIS toolkits from an active community → A very powerful GIS toolkit we will use to process GIS data.
 
 ---
 
-## Programming the Robot {#prog}
->Polyscope is the built in programming interface and operating system of the robot. The language of communication is URScript.
+## Finding Data {#}
 
-####Example Program Walkthrough
-- On the pendant, Click Program
-- Click Empty Program to create a new program
->Note - The program tree is the leftmost box showing the commands in order of sequence and parent/child. Commands are executed sequentially. Note - You can cut and paste commands on the command tree to nest the way you want them to using the on-screen cut and paste buttons.
+Most US governmental agencies make GIS data available to the public. The best way to find data is by asking first what kind of data you want. Data can be found at federal, state, or local agencies. By knowing what type of data you need, it will be easier to track down the agency that has the specific dataset you require.
 
-- Click Structure tab to access commands such as move, waypoint, wait, set, etc.
-- Programs consist of waypoints and motion between them.
-- Program tree shows the movements in their order
-- Motion Types
-- ####MoveL
-Linear motion type, straight line from one point to another. Where the path is important. Suited for motion in confined space.
-- MoveJ - Fastest between two points. Use where path of TCP is not important
-- ####MoveP
-Move Process. Maintains a constant speed. Does not stop or make sharp turns - will make filleted corners to maintain a constant speed. Doesn’t slow down when reaching the next waypoint.
-- ####MoveC
-CircleMove - Circle Move - The first point is the starting point, second is Via point (center of arc) end point is end of arc.
-####Hello World Example
-- Create an Empty program
-- Open Structure Tab
-- Click move
-- Under the Command tab, change motion type to whatever is appropriate (Dropdown in top right corner of the command tab)
-- You can consolidate all similarly typed movements into one routine. (I.e. two MoveL movements are two waypoints in one MoveL move node)
-- A waypoint will automatically be created
-- Set waypoint in manual space by clicking on the waypoint in the command tree and set the point’s position
-- To create the next movement
-- Click the last movement in the tree (not the point)
-- Go to structure tab
-- Click move
-- To create a circle move:
-- Under the Command tab, you will see a Circle Move option
-- Remember, circle moves contain two points (midpoint and endpoint) , with the previous waypoint before the circle move defining the start point of the circle.
-
-## Actuation and Sensors {#sensors}
-
->Sensors are attached directly into one of the grey input/output columns located on the robots onboard computer. (One sensor per column)
-
-Under I/O tab, you can examine the sensors that are attached
-You can use the radio buttons in the Tool Output to actuate
-You can watch the radio buttons in the Tool Input to see how the sensors (when) are being triggered
-Wait button under the Structure tab allows you to add a Wait command
-- Add a wait command
-- Go to command tab - You can specify a waiting option. Select Wait for digital input
-Set button will allow you to set an analog or digital output (I.e. actuate a tool)
-- Add a set command
-- Go to command tab - Set digital output, set tool from dropdown, set High (not sure why?)
-- Set the payload
-- If you’re picking up an object, set the payload to the tool + the workpiece weight
-- If you’re releasing an object, set the payload to the tool weight only	Add a timed wait, which will let the robot wait until the gripper is closed on the object.
-- Add a wait command
-- Add a timed wait
-- Type in the appropriate amount of time for the action
-
-## Safety Configuration {#safetyconfig}
-
-Under I/O Setup, you can click the Safety Settings tab to set up to 8 safety points. These points define planes that are perpendicular to the TCP. The robot, under the configuration for that TCP, will not cross these planes. Use this to avoid obstructions when jogging and programming with Polyscope.
+For our example, we will use 3 sets of data, one from USGS’s National Map to find extremely high resolution terrain elevation data call National Elevation Dataset (NED). The one we are looking for has a resolution of 1 image pixel equals to 1 meter x 1 meter in physical dimension. Another dataset we will download from New York City’s Opendata platform, it has all of NYC’s 5 boroughs building footprint with building height information.
 
 
-## Palletizing (Wizards) {#pallet}
+For your convenience, you can find all the data with the following links.
 
-- You can use wizards to speed up the workflow for setting up palletizing (and a few other) operations. The Wizards tab is located within the nested field within the Structure tab.
-- Choose the pattern “square” to array a placed object within a field.
-- 4 corner points will be created for this square. Tell it how many objects exist in each dimension (between one and two and two and three). The four corner points are wound clockwise.
-- Set the positions for each of these corners using the robot and the workpiece. This will set the placement of the corner objects in the pallet.
-- Now set the approach point (moment above the whole pallet), the pattern point (moment where the workpiece is set on the pallet) and the exit point (where the head leaves the area of the pallet), being mindful of not colliding into previously set workpieces.
-- If you have a gripper releasing an object, make sure you add the release command between the patter point and exit point commands
-- To loop this process, click the Robot Program on the tree (at the top), go to the Structure tab, click the Advanced Tab (in the nested field) and click Loop. Click the Command tab to configure the loop. Set the loop to loop as many times as you need
+- From USGS National Map - NYC 1-meter NED (4 tiles)
+- [Example Tile 01](https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/IMG/USGS_NED_one_meter_x58y452_NY_CMPG_2013_IMG_2015.zip)
+- [Example Tile 02](https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/IMG/USGS_NED_one_meter_x59y452_NY_CMPG_2013_IMG_2015.zip)
+- [Example Tile 03](https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/IMG/USGS_NED_one_meter_x58y451_NY_CMPG_2013_IMG_2015.zip)
+-[Example Tile 04](https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/IMG/USGS_NED_one_meter_x59y451_NY_CMPG_2013_IMG_2015.zip)
 
-## Advanced Programming {#adv}
+- NYC Building Footprints
+- [Shapefile](https://data.cityofnewyork.us/api/geospatial/nqwf-w8eh?method=export&format=Shapefile)
 
-##### Palletizing
-<iframe src="https://player.vimeo.com/video/261401942" width="640" height="1138" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-<p><a href="https://vimeo.com/261401942">ITL Robot Hello World</a> from <a href="https://vimeo.com/user7298135">Leland Jobson</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
+## Processing Data
 
-- In the command tree, you can add statements such as conditionals (if, else) to finesse a process.
-- You can add an if else statement from the Structure - Advanced tab.
-- To edit the if else, click on it in the command tree and open the expression editor.
-- Note: High or Hi = True / Lo or Low = False
-- Any commands that are nested inside of this conditional will not execute unless the statement is proven true.
-- You can also create variables, which you can assign to, such as a counter. You can hook these into other conditionals, for example, to stop the process after executing a set number of times. You can reassign variable values at any time in the process. You can create and assign variables by going to Structure - Advanced - Assignment.
-- You can initialize variable values at the top of the tree, where you can select the variables from a dropdown and give them a starting value (I.e. for counters, initialize at 0)
-
-## Connecting via Ethernet {#connect}
-
-Your computer can communicate with the robot via ethernet. The port for communicating with the UR-10 is 30002. Sending instructions to this port will bypass the
-To communicate with the robot:
-- Plug in the robot to the laptop via ethernet
-- Set the robot’s Network connection to Static Ip
-Use the arbitrary address 192.168.1.1 with a subnet mask of 255.255.255.0
-- Your computer should recognize the ethernet connection to the robot. It may display the state of the connection as “Not connected to internet”, but this does not necessarily mean that there is not a connection.
-- On your computer, under Network and Sharing center (or some other network screen), examine the ethernet connection. Hit “Details…” and take note of the IPv4 settings assigned to the connection
-
-## Grasshopper Hello World {#ghHello}
-
-We use Scorpion, a free plugin for grasshopper, to perform simple actions with the robot through rhinoceros. [You can download scorpion here.](http://www.food4rhino.com/app/scorpion)
-
->Note: You may need to also install GHPython if you haven't already.
-
-<div class="alert alert-success"><strong>Go grasshopper!
-</strong> Grasshopper is a programming plugin for Rhinoceros 3d and a favorite among architects. You should climb aboard the Grasshopper train!</div>
+> The raw dataset we downloaded need to be process before they can become useful. Namely, we need to stitch the image tiles of the NED and NAIP data, make sure the map projection system is compatible with Google Earth, and re-project the building footprint to the same map projection system as the rest of the data.
 
 
-#####Download the package and install. Open the example file in Grasshopper.
+## QGIS
 
->What the grasshopper components do is turn your geometry into robot commands (strings of text) and send them over a TCP/IP socket with unicode 8 encoding (Not to be confused with the robot's TCP).
+To process the image and vector data, we will use an open source software call QGIS. GIS software, in general, process data differently from other image processing or vector processing tools. Because GIS files tend to be very big, it very common to be working with files that are over 2Gb. These type of files will easily crash Photoshop, Illustrator or Rhino. GIS software do not read and cache data into RAM, which allows you to work with huge files efficiently, so it is important for you to understand why it’s necessary to learn GIS if you want to work with real life datasets.
 
-A sample of the grasshopper output is the following:
+Install QGIS and choose **Express Desktop Install**. When installation completes, click on QGIS Desktop under OSGeo4W to open the app.
 
-```
-def myprog():
-socket_open("192.168.2.3",30003)
-set_tcp(p[0.000000, 0.000000, 0.100654, 0.000000, 0.000000, 0.000000])
-movej([2.756165, -1.950960, -1.842570, 2.222735, -1.570796, -0.385427],a=0.053000,v=0.150000,r=0.000000)
-movel(p[-0.462883, 0.323050, 0.105461, -2.221441, 2.221441, 0.000000],a=0.053000,v=0.150000,r=0.015000)
-movel(p[-0.462883, 0.263218, 0.077366, -2.221441, 2.221441, 0.000000],a=0.053000,v=0.150000,r=0.015000)
-movel(p[-0.462883, 0.196714, 0.078182, -2.221441, 2.221441, 0.000000],a=0.053000,v=0.150000,r=0.015000)
-movel(p[-0.462883, 0.132118, 0.095136, -2.221441, 2.221441, 0.000000],a=0.053000,v=0.150000,r=0.015000)
-movel(p[-0.462883, 0.069420, 0.118312, -2.221441, 2.221441, 0.000000],a=0.053000,v=0.150000,r=0.015000)
-movel(p[-0.462883, 0.006956, 0.142123, -2.221441, 2.221441, 0.000000],a=0.053000,v=0.150000,r=0.015000)
-movel(p[-0.462883, -0.056943, 0.161648, -2.221441, 2.221441, 0.000000],a=0.053000,v=0.150000,r=0.015000)
-movel(p[-0.462883, -0.123141, 0.169585, -2.221441, 2.221441, 0.000000],a=0.053000,v=0.150000,r=0.015000)
-movel(p[-0.462883, -0.187760, 0.154651, -2.221441, 2.221441, 0.000000],a=0.053000,v=0.150000,r=0.015000)
-movel(p[-0.462883, -0.239601, 0.113215, -2.221441, 2.221441, 0.000000],a=0.053000,v=0.150000,r=0.015000)
-stopj(1)
-end
-```
+![](./images/1.PNG)
 
-Note the different commands shown above:
-- ###def myprog():
-Tells the interpreter that the below code is the program.
-- ###socket open
-Opens a connection to the robot at the expected socket (30002 or 30003) which is hard coded inside of the robots firmware
-- ###movej, movep, movel
-Movement commands with their orientations and speeds
-- ###stopj
-Stop movement
-- ###end
-End the defined program. If there is another program that follows, it will execute.
+## Landscape Processing
 
+We will first process the NED data. Since we downloaded the NED data as 4 separate tiles, we will need to combine them into 1 file. As the downloaded NED files are zipped, each file should be unzipped into separate folders. Then, we will need to locate the actual data file and put them in the same folder.
 
-#### Set the IP Address
+> It may seem redundant at first but once you have tried unzipping the first file, you will find many seemingly random files and it can get messy rather quickly.
+In any case, the files we are looking for has the file extension of **.img** and they typically have the largest file size. Cut and paste all the **.img** files into a separate folder so it looks like this.
 
-![](/assets/SetIP.PNG)
+![](./images/2.PNG)
 
-At the top left corner of the definition, set the IP address assigned in the above step "Connecting Via Ethernet"
+Once you have the files in the same folder, follow these steps:
 
-#### Set a toolpath
+In QGIS, click **Raster > Miscellaneous > Merge**
 
-![](/assets/RobotScreenshot.PNG)
+![](./images/3.PNG)
 
-The input for the solver is a collection of planes, each corresponding to the orientation of the end effector in the sequence you want to move.
+Under **Input Files**, pick the 4 .img files, and under **Output Files**, type in a name for the joined file, and choose **Geotiff **as the file format.
 
-#### Have an end effector? Add the geometry to the TCP component
+![](./images/4.PNG)
 
-![](/assets/EndEffector.PNG)
+Make sure **Load into canvas when finished** is checked and click **OK**. You should now have the joined NED data in QGIS. Be aware that this image is about 1.5Gb with about 20000px X 20000px.
 
-If you have an end effector installed, you will need to model the geometry in rhino and link it to the grasshopper definition via the TCP component.
+![](./images/5.PNG)
 
-#### Enable Feedback
+## Building Footprint Processing
 
-![](/assets/Feedback.PNG)
+Next we process the Building Footprint data. It should be obvious that every 2D map is a projection of the spherical earth.
+> In the world of GIS, every agency that produces geospatial data seem to have a different preference for projection systems, mostly due to the various idiosyncrasies of the map projection systems themselves, some systems maintain true distances but distorts area, some provides true north but completely distorts shapes...etc. The consequence of this fact is that we often times find data with different projection systems and we need to adhere to one and convert all the data we use to that same system, this is particularly critical when we export the data out to other platforms like Rhino 3D. 
 
-Scorpion comes with a feedback component that provides the position of the robot at a given moment. To receive constant feedback, connect a timer to the component and set it to the appropriate interval.
+First **drag and drop** the file that has **.shp** extension to QGIS’ Layer panel, and you should now have the map of all building footprint in the 5 boroughs appear on the main screen on the right.
 
-#### Send the program
+![](./images/6.PNG)
 
-![](/assets/SendProgram.PNG)
+You should note that the street grid is not “square” as the map seem “skewed”. That is due to the projection system used. On the lower right corner of the screen, you should see EPSG:4326, that is the projection system currently being used.
 
-Once you're set up with the above steps, from Connection to implementing your toolpath, you will be able to send a string of commands directly to the machine.
+![](./images/7.PNG)
 
-##### Writing with a Penholder
-<iframe src="https://player.vimeo.com/video/261402433" width="640" height="1138" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-<p><a href="https://vimeo.com/261402433">ITL Robot Penholder Hello World</a> from <a href="https://vimeo.com/user7298135">Leland Jobson</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
+To convert the file’s projection system, **right click** on the name of the file in the Layer panel, and **click Save As**, a Save vector layer as… window will pop up. **Choose ESRI Shapefile** for Format, and give the new file a unique name, in this case, **NYC-FP-26918**.
 
-<div class="alert alert-success"><strong>Way to go!
-</strong> Congratulations on sending your first program.</div>
+![](./images/8.PNG)
 
+Click the globe icon next to CRS. Under **Filter **type **26918**.
 
+![](./images/9.PNG)
+
+Then click on NAD83/UTM zone 18N EPSG:26918 and click OK.
+
+![](./images/10.PNG)
+
+Click **OK** again to save the layer.
+
+Now with both layers referencing 2 different projection systems, we will need to get rid of the EPSG:4326 file. Right click on the layer name and click Remove.
+
+![](./images/11.PNG)
+
+QGIS will not automatically set the file to the new coordinate system, so we need to do it manually. **Click on the globe icon** on the lower right corner. As done previously, type 26918 in Filter and click on NAD83/UTM zone 18N EPSG:26918, then click **OK **at the bottom.
+
+![](./images/12.PNG)
+
+The map should now be properly projected and the Manhattan street grid should be squared.
+
+## Site Selection & Import
+
+Unless you are operating at urban design or landscape scale, you will most likely want to zoom in and define a more specific site boundary. This part of the workshop will focus on cropping the 2 sets of data to show only the area of interest and more importantly, reduce the file size by eliminating unnecessary elements.
+
+Your QGIS layers should have both the building footprint and NED files loaded, and you Layers Panel should look like this:
+
+![](./images/13.PNG)
+
+Also as a precaution, make sure the projection system says **EPSG:26918** at the lower right corner of the screen. Your main QGIS screen should look something like this:
+
+![](./images/14.PNG)
+
+To crop both the building footprint and NEd, we will need to create a cropping region. To do this, go to _**Layer > Create Layer > New Shapefile Layer. **_
+
+![](./images/15.PNG)
+
+A window will pop up. Check **Polygon** and most importantly, set the **CRS** to **EPSG:26918.** Then click OK, a window will pop up to ask you for a name for the new layer, just type in **TEMP** as this is just a temporary file that will be deleted later.
+
+![](./images/16.PNG)
+
+With the temp layer highlighted, click on the **yellow pencil** to make the layer editable.
+
+![](./images/17.PNG)
+
+Next click **Add feature** to enable drawing.
+
+![](./images/18.PNG)
+
+Back on the main screen, use your middle mouse wheel **(MMW)** to zoom and pan into the area of interest. **Click to draw a boundary** and **right click to end drawing.**
+> Be aware that QGIS is not a CAD program and it does not allow you to snap to orthogonal constraints. There are a few free plugins that will let you do this simple task but it’s beyond our scope.
+For now, we will use a little work-around to create a squared boundary. However, if you prefer to use a non-rectangular boundary, by all means just draw the shape you want.
+
+![](./images/19.PNG)
+
+Once the shape is drawn, click on the **yellow pencil** again and **Save** the edits. Next click **Vector > Research Tools > Polygon** from layer extent
+
+![](./images/20.PNG)
+
+Use the temporary boundary file as the Input Layer, then click the **…** button to enter a proper file name. Click **RUN** and you should see a perfect rectangle appear. Right click on the **temp layer** and click **REMOVE** to get rid of the temporary file.
+
+![](./images/21.PNG)
+
+We will now use the site boundary to clip the NED file. Go to **Raster > Extraction > Clipper**
+
+![](./images/22.PNG)
+
+In the Clipper popup window, chose **NYC-NED-1m** as the input file, choose a name for the output file, click on **Mask** layer and select the site boundary as the Mask, and check Crop the extent of the target dataset to the extent of the cutline. Click **OK** to finish.
+
+![](./images/23.PNG)
+
+Now to crop the building footprints, go to **Vector > Geoprocessing Tools > Clip**
+
+![](./images/24.PNG)
+
+Choose **NYC-FP-26918** as the Input layer, Extent as the Clip layer, choose a name for the Clipped file, click RUN.
+
+![](./images/25.PNG)
+
+You should now have both files cropped and your screen should look like this:
+
+![](./images/26.PNG)
+
+## Format Conversion
+
+Before we move to Rhino, we need to do one last thing in QGIS, which is to convert the files to something Rhino can read.
+
+We start with converting the building footprint file. With the building footprint layer highlighted, click on the **Open Attribute Table** button to see the database associated with the file.
+
+![](./images/27.PNG)
+
+As you can see, there is a rather large spreadsheet associated with the geometries. One of the columns in the spreadsheet indicates the height of the roof for every building footprint. We will use this information when exporting the file.
+
+![](./images/28.PNG)
+
+To do that we need to prepare the file again. The function we will use is based on a very powerful library call GDAL, we will use it to save the file as DXF format and use the heightroof data to write the z coordinate of each footprint when exporting. However, part of the quirks of GDAL is it will create a hatch pattern if its sees the GIS geometry is a polygon. Since hatch pattern does not contain z-coordinates, we will need to convert the file to lines.
+
+Highlight the cropped building footprint layer and go to **Vector > Geometry Tools > Polygons to lines.**
+
+![](./images/29.PNG)
+
+Make sure **Input layer** is the clipped building footprint, Choose a new file name for Lines from polygons, click **RUN**.
+
+![](./images/30.PNG)
+
+Now is the tricky bit, we will need to run the following function in Command line. **Run the OSGeo4W Shell **
+
+![](./images/31.PNG)
+
+A command prompt will pop up. In the window, type in the word **CD** and make sure **spacebar** is pressed after the word, then go to your File Explorer and find folder where you placed the building footprint file you just created, click on the **folder** icon and drag it to the **OSGeo4W** **Shell window**. This will automatically write the path where you file is located. Press **Enter**.
+
+![](./images/32.PNG)
+
+Now type **ogr2ogr -f DXF nyc_bfp.dxf BFP.shp -zfield heightroof** in the shell, and press **ENTER**.
+> Ogr2ogr is a GDAL function that convert between many different file formats. -f DXF tells the function to convert to DXF, nyc_bfp.dxf is the name we want to use for the converted file, BFP.shp is the file name of the GIS file of the building footprint, -zfield heightroof tells the function to use the heightroof data column to write the z-coordinates.
+
+![](./images/33.PNG)
+
+You will get a number of errors stating that DXF does not support field creation, that is normal as DXF is not a format that supports database. You may now **open the dxf file in Rhino** and you should see this.
+![](./images/34.PNG)
+
+Next we convert the NED data. Again, the goal is to convert to something that Rhino can use to generate the terrain, so even though the steps might seem obscure but it will make sense later. It will also help to understand a little about the structure of how image data is formatted, we will discuss that more in depth in the workshop. **Click Raster > Conversion > Translate (Convert Format)...**
+
+![](./images/35.PNG)
+
+Make sure the Input Layer is the clipped NED layer. For the output file, choose your preferred name, and choose **Arc/Info ASCII Grid (*.asc *.ASC)** as the format.
+
+![](./images/36.PNG)
+
+Now use **25%** for Outsize to reduce the pixel count and click **OK**.
+
+![](./images/37.PNG)
+
+This should be explained further. Double click on the NED layer and you will open the Layer Properties window. The Columns and Rows indicate the number of pixels that image has, it also implies how dense the terrain model is going to be. Since the NED data we use has a resolution of 1 meter, meaning each pixel is the equivalent of 1 meter x 1 meter in physical space, which is extremely high resolution. Unless you really need this level of resolution, I would suggest you crop your site further so it’s roughly 2000 px X 2000 px.
+> This number is based on the amount of memory a modern computer needs to generate the geometry. Anything beyond that will slow down your Rhino performance. This is written as of 2017.
+
+For us, reducing the resolution to 25% means each pixel is about 4 meters and reduce the length to around 1820 pixels.
+
+![](./images/38.PNG)
+
+Lastly before we move to Rhino, we need to export the site boundary to DXF format, right click on the **site boundary layer** and click **Save As**, choose **DXF** as format and a file name. Click **OK**.
+
+## Generating Massing Volumes in Rhino
+
+Open the DXF building footprint file, when import options window pops up, use Meters as units and leave the rest as default
+
+![](./images/38B.PNG)
+
+Drag and drop the site-boundary DXF file into the Rhino window and import with the same units. As mentioned before, the DXF export treats closed polygons as hatches, so you need to exploded the site boundary to reveal its geometry. When the 2 files come together, you should see something like this.
+
+![](./images/39.PNG)
+
+You should have 2 Rhino Python scripts given to you at the beginning of the session (Download). 1 file will help us generate mesh volumes from the footprints, and the other will help us generate a mesh terrain from the NED data. You do not need to know any scripting to do this. It’s just like pressing any button in rhino. We will tackle the building footprints first.
+
+**Run Tools > PythonScript > Edit**, this will launch a script editor. Click on the **folder button** to open the script name **ExtrudeBuildingFP2.py**
+
+![](./images/40.PNG)
+
+Once the script is opened, click on the Play button to run the script. This script takes all the building footprint curves and create a mesh object. I did not implement an option to make NURBS objects because polysurfaces are very heavy objects for Rhino to handle in huge quantities. But if you prefer to have NURBS objects, please feel free to let me know.
+
+![](./images/41.PNG)
+
+The script will take a little while to run depending on the performance of your computer. When it is done, you should see something like this.
+
+![](./images/42.PNG)
+
+### Generating The Terrain Model
+
+**Put the building massing in a separate layer** and **hide** it. Now **run the other Python script name TerrainGen01.py.** Upon executing the script, it will ask you to pick a .asc file, go and **locate the .asc file** we just generated. When done, you might be surprised to not seeing any objects. Now turn the building footprint layer back on, select all the building mass and the site boundary, **snap to the upper left corner of the boundary and move them to 0,0,0**
+
+![](./images/43.PNG)
+
+If everything went smoothly, you should have all the objects sitting nicely on top of one another, and it should look something like this.
+
+![](./images/44.PNG)
+
+If your terrain model did not match your site, use the site boundary as reference and scale the terrain model accordingly.
+
+<div class="alert alert-success"><strong>Nice!
+</strong> That was quite a ride!</div>
 
 

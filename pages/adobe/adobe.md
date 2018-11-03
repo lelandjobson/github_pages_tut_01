@@ -23,7 +23,7 @@ Fundamentally, computer graphics are encoded in two ways: as colored cells (Rast
  
 >Raster graphics are bitmaps, or a grid of individual pixels that collectively compose an image. Raster graphics render images as a collection of countless tiny squares. Each square, or pixel, is coded in a specific hue or shade.
 
-![](/assets/ADOBE/Raster.png)
+![](./images/Raster.png)
 
 Because raster images are pixel-based, they are subject to image degradation. **Just like photographic images that get blurry and imprecise when blown up, a raster image gets jagged and rough** (See [aliasing](https://en.wikipedia.org/wiki/Aliasing)). This ultimately is because when a raster graphic is created at a certain size, it has a fixed number of pixels that comprise the image. Hence an image attempting to scale an image up by 100 it will become bitmapped. Likewise, scaling an image down, although usually is easier to achieve, does in fact degrade an image as well with detail becoming softer than the original, at its created size.
 
@@ -35,7 +35,7 @@ To maximize the quality of a raster image, you must keep in mind that the **rast
 
 >Unlike pixel-based raster images, Vector graphics are based on mathematical formulas that define geometric primitives such as polygons, lines, curves, circles and rectangles through translation into points, a start and end, connected by vector paths. 
 
-![](/assets/Vector.png)
+![](./images/Vector.png)
 
 Because vector graphics are composed of true geometric primitives, they are best used to represent more structured images, like line art graphics with flat, uniform colors. Most created images \(as opposed to natural images\) meet these specifications, including logos, letterhead, and fonts.
 

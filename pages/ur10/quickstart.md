@@ -35,7 +35,7 @@ To create custom feature:
 
 The electrical componentry of the UR-10 are as follows:
 
-![](/assets/UR/ControlBox.PNG)
+![](./images/ControlBox.PNG)
 
 - Control Box - Contains the computer and ports
 - Motherboard - Contains ethernet connector for wireless (located at bottom of computer box), usb ports for file transfer, and I/O ports for connection to sensors and electronics.
@@ -58,7 +58,7 @@ On powerup you will get an Initialization Message - Hit the start button to unlo
 
 ## End Effector {#endef}
 
-![](/assets/UR/Head.PNG)
+![](./images/Head.PNG)
 
 The robot needs to be informed of certain properties of the end effector in order to do meaningful work. The end effector of the robot is known as the TCP.
 

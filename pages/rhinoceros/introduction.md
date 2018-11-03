@@ -21,7 +21,7 @@ The types of modeling technologies described here were developed for industrial 
 A surface can be defined in a number of ways depending on context, but for you're looking for an analogy, it could be likened to a flexible sheet which has no thickness. Like a single-sided printed sheet, **it has a front facing side and a back**. If you picked a point on that surface, not unlike marking a dot on a piece of paper, you could imagine an imaginary vector that sticks out perpendicular to the surface, toward the front face. This is known as a **surface normal**, for which there are infinite across the surface, all pointing out frontwards.
 
 <div class=centered>
-![](/assets/Surf_1.PNG)
+![](./images/Surf_1.PNG)
 </div>
 
 Surface Modeling anecdotally can be conceived of having no ‘interior’ when cut. Because of this infinity thin surface, it affords a ‘light weight’ or low amount of data within the geometry or modeled artifact. This makes it a favorite among animation, film, video game design as it abstracts real-world geometry and does not accurately reflect real-world physical attributes ultimately affording more flexibility and complexity.
@@ -35,7 +35,7 @@ Solid Modeling, conversely, has mass, or depth, to the surface. As such, aside f
 Solid modeling can be conceived as having an ‘interior’ when cut through or, anecdotally, similar to cutting through a block of wood. This makes it a favorite within the realms of BIM, industrial design, and engineering to name a few due to its ability to representing real-world geometry that accurately mirrors real-world physical attributes. Being inherently data-rich, the ability to analyze and extract information relative to fabrication … watertight
 
 <div class=centered>
-![](/assets/Surf_2.PNG)
+![](./images/Surf_2.PNG)
 </div>
 
 ##NURBS Surfaces
@@ -51,7 +51,7 @@ It offers great flexibility and precision for handling both analytic and modeled
 * Low number of control points for resolution
 * Very flexible
 
-![](/assets/Surf_3.PNG)
+![](./images/Surf_3.PNG)
 
 ##Polygon Meshes
 
@@ -67,7 +67,7 @@ With the simplicity of points and a pattern of connection, meshes can define the
 * High number of control points for resolution
 * Less flexible
 
-![](/assets/Surf_4.PNG)
+![](./images/Surf_4.PNG)
 
 ## SubDivision Modeling
 

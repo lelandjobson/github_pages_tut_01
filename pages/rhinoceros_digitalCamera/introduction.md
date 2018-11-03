@@ -19,7 +19,7 @@ The objective of this guide is to familiarize Rhino users with native camera set
 
 When setting up your perspective views in Rhino, you want to think about how the camera is being used to helpfully depict your scene, for whatever purposes. You may wish to focus on circulation and get a close up of the stairs and passages into a space, or you may be interested in a sequence of spatial experiences as you move through a space or series of spaces. Regardless of your focus, a healthy understanding of how to set up your camera shots will be imperative in helping you reveal these various conditions clearly.
 
-![](/assets/RHCAM/Props.PNG)
+![](./images/Props.PNG)
 
 ##02 | Constructing Views{#const}
 
@@ -27,15 +27,15 @@ To better understand how and where to take a view from within your Rhino model, 
 
 Architectural Photography
 
-![](/assets/RHCAM/1.PNG)
+![](./images/1.PNG)
 
-![](/assets/RHCAM/2.PNG)
+![](./images/2.PNG)
 
 
 You can see that all of the building’s vertical lines remain vertical and avoid parallax or distortion by looking (unnecessarily) up or down. The idea is to keep the camera straight for a true and honest view of the architecture. The Rhino equivalent would be to set your Camera Z Location = Target Z Location.
 Camera Location
 
-![](/assets/RHCAM/3.PNG)
+![](./images/3.PNG)
 
 Within Rhino, here are 3 ways you can adjust the camera location.
 Panning and Zooming around within the active Viewport
@@ -55,21 +55,21 @@ Mouse Wheel- zoom
 ###Camera/Target X,Y,Z Location{#camtar}
 Camera is the x,y,z position of the viewpoint or eye point.
 Target is the x,y,z position in space that is at the center of the viewport and about which the view rotates.
-![](/assets/RHCAM/5.PNG)
+![](./images/5.PNG)
 
 
 ###“Camera” Command{#camcmd}
 
 The Camera command shows, hides, and toggles the visibility of the viewport camera widget. Use the camera widget's control points to move the camera widget, to drag the camera and target points, and to change the lens length of the perspective viewport.
 
-![](/assets/RHCAM/6.PNG)
+![](./images/6.PNG)
 
 
 ###Lens Length{#lens}
 
 When the projection is set to perspective, you can change the Lens Length of the camera. The Lens Length is equal to the “focal length” of a camera.
 
-![](/assets/RHCAM/7.PNG)
+![](./images/7.PNG)
 
 
 Focal length, usually represented in millimeters (mm), tells us the angle of view—how much of the scene will be captured—and the magnification—how large individual elements will be. The longer the focal length, the narrower the angle of view and the higher the magnification. The shorter the focal length, the wider the angle of view and the lower the magnification.
@@ -79,13 +79,13 @@ Higher lens length is good for capturing exteriors 35mm-50mm
 
 
 >######Interior View - 24mm Lens Length
->![](/assets/RHCAM/8.PNG)
+>![](./images/8.PNG)
 
 >######Interior View - 35mm Lens Length
->![](/assets/RHCAM/9.PNG)
+>![](./images/9.PNG)
 
 >######Interior View - 50mm Lens Length
->![](/assets/RHCAM/10.PNG)
+>![](./images/10.PNG)
 
 
 ##03 | Saving Views{#saving}
@@ -98,12 +98,12 @@ Using the “NamedView” command and accessing all of your views in a Windows
 
 - Clicking on the Viewport Tab at top Set View>Named Views
 
-![](/assets/RHCAM/11.PNG)
+![](./images/11.PNG)
 
 - Using the **NamedView** command and accessing all of your views in a Windows
 Manages the named views list to save, restore, and edit named views
 
-![](/assets/RHCAM/12.PNG)
+![](./images/12.PNG)
 
 
 ###Saving Screenshots
@@ -112,7 +112,7 @@ Save your camera views to an image for representation with high-resolution scree
 
 Use the **-ViewCaptureToFile **command.
 
-![](/assets/RHCAM/13.PNG)
+![](./images/13.PNG)
 
 
 > ViewCaptureToFile saves the contents of the view with a specified width and height, disregarding the current viewport size. Viewport borders, cursor images, and other decorations are not saved.
