@@ -58,19 +58,19 @@
             {% for cat in myGuides %}
               {% if cat.name != "None" %}
                 <ol>
+                    {% assign items = cat.items | sort: 'order' %} 
                     {% if page.field-guide == cat.name %}
                     <li class="nav-header currentguide"><h6>{{ cat.name }}</h6></li>
                     {% else %}
-                    <li class="nav-header"><h6>{{ cat.name }}</h6></li>
+                    <li class="nav-header"><a href="{{ BASE_PATH}}{{ items[0].url }}"><h6>{{ cat.name }}</h6></a></li>
                     {% endif %}
-                    {% assign items = cat.items | sort: 'order' %} 
                     {% for item in items %}
                       {% capture nowunix %}{{'now' | date: '%s'}}{% endcapture %}
                       <!-- If the post is younger than 10 days, thrown in a NEW tag -->   
                         {% if item.url == page.url %}
                           <li class="nav-item current newItem"><a>{{ item.title }}</a></li>
                         {% else %}
-                          <li class="nav-item"><a href="{{ item.url }}">{{ item.title }}</a></li>
+                          <li class="nav-item"><a href="{{ BASE_PATH}}{{ item.url }}">{{ item.title }}</a></li>
                         {% endif %}
                     {% endfor %}     
                 </ol>
