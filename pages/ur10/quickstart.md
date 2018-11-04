@@ -234,31 +234,31 @@ End the defined program. If there is another program that follows, it will execu
 
 #### Set the IP Address
 
-![](/assets/SetIP.PNG)
+![](./images/SetIP.PNG)
 
 At the top left corner of the definition, set the IP address assigned in the above step "Connecting Via Ethernet"
 
 #### Set a toolpath
 
-![](/assets/RobotScreenshot.PNG)
+![](./images/RobotScreenshot.PNG)
 
 The input for the solver is a collection of planes, each corresponding to the orientation of the end effector in the sequence you want to move.
 
 #### Have an end effector? Add the geometry to the TCP component
 
-![](/assets/EndEffector.PNG)
+![](./images/EndEffector.PNG)
 
 If you have an end effector installed, you will need to model the geometry in rhino and link it to the grasshopper definition via the TCP component.
 
 #### Enable Feedback
 
-![](/assets/Feedback.PNG)
+![](./images/Feedback.PNG)
 
 Scorpion comes with a feedback component that provides the position of the robot at a given moment. To receive constant feedback, connect a timer to the component and set it to the appropriate interval.
 
 #### Send the program
 
-![](/assets/SendProgram.PNG)
+![](./images/SendProgram.PNG)
 
 Once you're set up with the above steps, from Connection to implementing your toolpath, you will be able to send a string of commands directly to the machine.
 
