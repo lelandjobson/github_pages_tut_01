@@ -330,6 +330,7 @@ pre {
 .sidenav ol {
   border-bottom-color: black;
   list-style: none;
+  padding-bottom: 20px;
 
 }
 
