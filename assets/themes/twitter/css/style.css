@@ -219,11 +219,18 @@ blockquote p{
   line-height: 26px
 }
 
+h2,h3,h4,h5 {
+  padding-top:20px;
+  padding-bottom: 20px;
+}
+
 h2 {
   margin: 20px;
   margin-left: 0px;
   text-rendering: geometricPrecision;
   font-size: 2.3em;
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 
 p::-moz-selection {
@@ -248,6 +255,20 @@ h2::selection {
 
 blockquote p::selection{
   background: #e5caff;
+}
+
+code {
+  background-color: rgb(27, 25, 27) !important;
+  color: white;
+  background-color: inherit !important;
+  /* color: white; */
+  /* margin: 20px !important; */
+}
+
+pre {
+  color: white;
+  background-color: #a996c0;
+  padding: 40px;
 }
 
 .page-header {
