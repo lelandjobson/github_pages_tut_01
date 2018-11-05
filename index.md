@@ -9,7 +9,9 @@ field-guide: None
 The Field Guide of Future Craft is an cross-disciplinary knowledge base pertaining to creative technologies, edited and maintained by the Interdisciplinary Technology Lab at Pratt Institute. Its purpose is to bootstrap the learning process within studios at Pratt Institute, and broaden the technical prowess of our students across the board, in the hope discovering how technology, technique, craft and reason interlink our various disciplines.</p>
 </div>
 
-<br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br>
+<div id="ourProject"></div>
+<br><br>
 
 <h2 class="bgChange" data-background="{{ BASE_PATH }}/github_pages_tut_01/assets/images/global/yellow.png">Our Project</h2>
 Since our formation in 2011 as the Digital Futures Group through our transition into the ITL, we have purveyed over one hundred digital seminars and provided a decade of service in the forms of creating, curating, delivering and supporting educational content and initiatives within the School of Architecture. In our tenure, we consistently maintained that the tenets of digital craftsmanship are immutable: lessons in design software outlast their manifestations.
