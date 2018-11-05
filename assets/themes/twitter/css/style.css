@@ -328,10 +328,15 @@ pre {
   font-weight: bold;
 }
 .sidenav ol {
+  padding-bottom: 20px !important;
   border-bottom-color: black;
   list-style: none;
+}
+
+ol {
   padding-bottom: 20px !important;
 }
+
 
 /* When you mouse over the navigation links, change their color */
 .sidenav a:hover {
