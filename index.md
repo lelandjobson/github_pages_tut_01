@@ -11,7 +11,7 @@ The Field Guide of Future Craft is an cross-disciplinary knowledge base pertaini
 
 <br><br><br><br><br><br><br><br>
 
-<h2 class="bgChange" data-background="{{ BASE_PATH }}/assets/images/global/yellow.png">Our Project</h2>
+<h2 class="bgChange" data-background="{{ BASE_PATH }}/github_pages_tut_01/assets/images/global/yellow.png">Our Project</h2>
 Since our formation in 2011 as the Digital Futures Group through our transition into the ITL, we have purveyed over one hundred digital seminars and provided a decade of service in the forms of creating, curating, delivering and supporting educational content and initiatives within the School of Architecture. In our tenure, we consistently maintained that the tenets of digital craftsmanship are immutable: lessons in design software outlast their manifestations.
 
 We have come to believe that the ultimate user manual for implementing technology in creative work is not only writable, but the resources and talent to do so are already at our grasp.
