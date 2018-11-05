@@ -133,14 +133,17 @@ term
 ![grass](img/image.jpg) <----- this is an image. the text [grass] is the alt of the image, which will show up when the image isn't loaded, as well as when the user hovers over it
 
 ```
+
 ## Adding images to the field guide
 All field guides will have their own **images** folder within them.
 To insert an image with markdown:
 - Add the picture to the images folder in the appropriate field guide. (ex. babyphoto.png)
 - Use the following markdown syntax:
+
 ```
 ![My caption](./images/babyphoto.png)
 ```
+
 The image will now be nested into the field guide
 
 ## Adding dynamic background images
@@ -150,10 +153,13 @@ Adding a background change is straightforward.
 
 - Add the background image you want to use in the field guides **images** folder
 - For the heading of a topic, instead of creating a heading with markdown like this:
+
 ```
 ## Vectors
 ```
+
 Do this:
+
 ```
 <h2 class="bgChange" data-background="./images/vectorBackgroundImage.png">Vectors</h2>
 ```
@@ -161,27 +167,32 @@ In this example, vectorBackgroundImage.png is the name of the background image w
 
 ## Adding Sketchfab Models
 Showing a sketchfab model on our page is easy. Simply grab the embed code for the viewport from the Sketchfab website. It should look something like this:
+
 ``` html
 <iframe width="800" height="600" src="https://sketchfab.com/models/338f5aa603b24ec6b9303596867e3285/embed?autostart=1" frameborder="0" allowvr allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" onmousewheel=""></iframe>
 ```
 
 Simply add this to the front 
+
 ``` html
 <div class="sketchfab-embed-wrapper">
 ``` 
 
 And this at the end
+
 ``` html
 </div>
 ```
 
 Creating this:
+
 ``` html
 <div class="sketchfab-embed-wrapper"><iframe width="800" height="600" src="https://sketchfab.com/models/338f5aa603b24ec6b9303596867e3285/embed?autostart=1" frameborder="0" allowvr allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" onmousewheel=""></iframe></div>
 ```
 
 ## Adding Video Embeds
 Vimeo/Youtube embeds work similarly to Sketchfab (using an iframe). You can get these directly from the video's webpage (embed code) and paste it in. Example:
+
 ``` html
 <iframe src="https://player.vimeo.com/video/261402433" width="640" height="1138" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 <p><a href="https://vimeo.com/261402433">ITL Robot Penholder Hello World</a> from <a href="https://vimeo.com/user7298135">Leland Jobson</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
