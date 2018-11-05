@@ -157,7 +157,7 @@ th {
 .content {
   font-family: 'Roboto', monospace;
   background-color: white;
-  padding: 40px;
+  padding: 60px;
   line-height: 20pt;
 }
 
@@ -206,7 +206,7 @@ p::selection {
 }
 
 strong::selection {
-  background: rgb(137, 245, 182);
+  background: #fff2a8;
 }
 
 a::selection {
