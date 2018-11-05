@@ -8,7 +8,7 @@ body {
   transition: background 1.5s linear;
   transition: background-image 1s ease-in-out;
   background-image: url(../../../images/global/def_Grid.png);
-  padding-top: 40px;
+  padding-top: 20px;
 }
 
 /* @media screen and (max-width: 768px) {
@@ -16,13 +16,17 @@ body {
 } */
 
 p {
-  font-size: 1.03rem;
+  font-size: 1.3rem;
+  line-height: 1.7;
+  padding-bottom: 10px;
+  padding-top: 10px;
 }
 
 h1 {
   font-size: 3rem;
-  font-style: italic;
+  font-style: bold;
   text-rendering: geometricPrecision;
+  text-align: center;
 }
 
 hr {
@@ -54,6 +58,15 @@ th {
   font-size: 1em;
 }
 
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 38em;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
 .wrapper {
   font-family: 'IBM Plex Mono';
 }
@@ -65,12 +78,12 @@ th {
 
 .container-narrow {
   margin: 0 auto;
-  min-width: 1000px !important;
-  /* max-width: 1000px !important; */
+  min-width: 700px !important;
+  max-width: 1000px !important;
 }
 
 .container-content{
-  padding-top: 100px;
+  padding-top: 60px;
 }
 
 .container-narrow > hr {
@@ -158,20 +171,20 @@ th {
   color: #FFF; }
 
 .content {
-  font-family: 'Roboto', monospace;
+  font-family: 'Frank Ruhl Libre', serif;
   background-color: white;
-  padding: 40px;
+  padding: 45px;
   line-height: 20pt;
 }
 
 blockquote {
-  border-left-width: 4px;
+  border-left-width: 1px;
   border-left-style: solid;
-  border-left-color: DarkMagenta;
-  color: black !important;
-  padding-left: 20px;
+  border-left-color: rgb(200,200,200);
+  color: rgb(100,100,100);
+  padding-left: 40px;
   margin-top: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
 blockquote p{
@@ -196,9 +209,10 @@ blockquote p{
 }
 
 h2 {
-  margin-top: 50px;
-  margin-bottom: 30px;
+  margin: 20px;
+  margin-left: 0px;
   text-rendering: geometricPrecision;
+  font-size: 2.3em;
 }
 
 p::-moz-selection {
@@ -226,26 +240,28 @@ blockquote p::selection{
 }
 
 .page-header {
-  padding-top: 30px;
-  padding-bottom: 5px;
-  font-family: 'Roboto';
-  padding-left: 38px;
+  padding-top: 50px;
+  padding-bottom: 9px;
+  font-family: 'Frank Ruhl Libre', serif;
+  text-align: center;
 }
   
 /* The sidebar menu */
 .sidenav {
-  height: 100%; 
-  width: 270px;
+  height: 100%;
+  width: 300px;
   position: fixed;
-  z-index: 1; 
+  z-index: 1;
   top: 0;
+  /* font-size: 17px; */
+  /* line-height: 20px; */
   left: 0;
-  color: rgb(0, 0, 0);
-  background-color: rgb(255, 255, 255); /* Black */
+  color: white;
+  background-color: rgb(29, 29, 29); /* Black */
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 90px;
   font-family: 'Roboto', monospace;
-  box-shadow: 5px 10px #888888;
+  /* box-shadow: 5px 10px #888888; */
 }
 
 /* The navigation menu links */
@@ -269,6 +285,7 @@ blockquote p::selection{
   border-width: 0;
   border-right-width: 30px;
   border-color: rgb(221,211,255);
+  color: #ddd7ff;
 }
 
 .sidenav .current .a {
@@ -282,6 +299,10 @@ blockquote p::selection{
   border-bottom-color: black;
   list-style: none;
 
+}
+
+h6 {
+  /* color: rgb(117, 117, 117); */
 }
 
 /* When you mouse over the navigation links, change their color */
@@ -337,4 +358,8 @@ blockquote p::selection{
   background-position: fixed;
   background-position: right 30px center;
   background-repeat: no-repeat;
+}
+
+.sketchfab-embed-wrapper {
+  padding: 30px;
 }

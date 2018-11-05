@@ -1,10 +1,9 @@
 <!-- CONTENT -->
 <div class="container container-narrow container-content">
+    <p style="color: rgb(200,200,200); float: right; padding-right: 40px;">{{ page.field-guide | remove: 'Field Guide' }}</p>
   <div class="content">
     <div class="page-header">
-        <p style="color: rgb(200,200,200); float: right; padding-right: 40px;">{{ page.field-guide | remove: 'Field Guide' }}</p>
-      <h1>{{ page.title }} {% if page.tagline %}<small>{{page.tagline}}</small>{% endif %}</h1>
-    
+      <h1>{{ page.title }} {% if page.tagline %}<small>{{page.tagline}}</small>{% endif %}</h1>   
     </div>
     <div class="row-fluid post-full">
       <div class="span12">
