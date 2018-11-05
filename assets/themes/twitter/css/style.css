@@ -35,14 +35,23 @@ hr {
 }
 
 table, th, td {
-  border: 2px solid rgb(167, 167, 167);
+  border: 2px solid rgb(62, 62, 62);
   padding: 12px;
+}
+
+strong {
+  background-color: #f6f191 !important;
+  font-weight: 100;
 }
 
 th tr td {
   border: 2px solid rgb(0, 0, 0); 
   color: white;
   background-color: rgb(48, 48, 48);
+}
+
+strong {
+  background-color: #494949;
 }
 
 tbody :nth-child(even) td {
@@ -53,6 +62,9 @@ table {
   margin-right: auto;
   margin-top: 40px;
   margin-bottom: 40px;
+  font-family: 'Ibm Plex Mono';
+  font-size: 13px;
+  font-weight: bold;
 }
 th {
   font-size: 1em;
@@ -62,11 +74,10 @@ img {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 38em;
+  max-width: 33em;
   margin-top: 30px;
   margin-bottom: 30px;
 }
-
 .wrapper {
   font-family: 'IBM Plex Mono';
 }
@@ -307,7 +318,7 @@ h6 {
 
 /* When you mouse over the navigation links, change their color */
 .sidenav a:hover {
-  color: #494949;
+  color: #d8d8d8;
 }
 
 /* Style page content */
