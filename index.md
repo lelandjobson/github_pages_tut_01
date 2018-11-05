@@ -5,9 +5,9 @@ description: description
 field-guide: None
 ---
 
-The Field Guide of Future Craft is an cross-disciplinary knowledge base pertaining to creative technologies. This book is edited and maintained by the Interdisciplinary Technology Lab at Pratt Institute. The purpose of this book is to bootstrap the learning process within studios at Pratt Institute, and broaden the technical prowess of our students across the board, in the hope discovering how technology, technique, craft and reason interlink our various disciplines.
-
----
+<div style="text-align: center"><p>
+The Field Guide of Future Craft is an cross-disciplinary knowledge base pertaining to creative technologies, edited and maintained by the Interdisciplinary Technology Lab at Pratt Institute. Its purpose is to bootstrap the learning process within studios at Pratt Institute, and broaden the technical prowess of our students across the board, in the hope discovering how technology, technique, craft and reason interlink our various disciplines.</p>
+</div>
 
 <br><br><br><br><br><br><br><br>
 
