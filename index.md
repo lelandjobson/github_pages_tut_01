@@ -6,7 +6,7 @@ field-guide: None
 ---
 
 <div style="text-align: center"><p>
-The Field Guide of Future Craft is an cross-disciplinary knowledge base pertaining to creative technologies, edited and maintained by the Interdisciplinary Technology Lab at Pratt Institute. Its purpose is to bootstrap the learning process within studios at Pratt Institute, and broaden the technical prowess of our students across the board, in the hope discovering how technology, technique, craft and reason interlink our various disciplines.</p>
+Our mission is to bootstrap the learning process within studios at Pratt Institute, and broaden the technical prowess of our students across the board, in the hope discovering how technology, technique, craft and reason interlink our various disciplines. Edited and maintained by the Interdisciplinary Technology Lab at Pratt Institute. </p>
 </div>
 
 <br><br><br><br><br><br>
@@ -18,7 +18,7 @@ Since our formation in 2011 as the Digital Futures Group through our transition 
 
 We have come to believe that the ultimate user manual for implementing technology in creative work is not only writable, but the resources and talent to do so are already at our grasp.
 
-This project, called the Future Craft Field Guides, or FCFG for short, is the consolidation of our knowledge base: technology’s manifold implementations in the arts are keyframed at the macro and micro levels, spanning from fundamentals to content creation. On its face, the Field Guide serves to broaden the technical prowess of our students, but our project is to also discover how technology, technique, craft and reason interlink our various disciplines - if we could draw that web, what would we learn? What could we do with it? FCFG is such an  asset.
+This project, called the Future Craft Field Guides, or FCFG for short, are the consolidation of our knowledge base: technology’s manifold implementations in the arts are keyframed at the macro and micro levels, spanning from fundamentals to content creation. On its face, the Field Guide serves to broaden the technical prowess of our students, but our project is to also discover how technology, technique, craft and reason interlink our various disciplines - if we could draw that web, what would we learn? What could we do with it? FCFG is such an  asset.
 
 ---
 # How to contribute
