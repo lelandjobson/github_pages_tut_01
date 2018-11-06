@@ -51,7 +51,7 @@ th tr td {
 }
 
 strong {
-  background-color: #494949;
+  background: #fff2a8;
 }
 
 tbody :nth-child(even) td {
@@ -184,7 +184,7 @@ img {
 .content {
   font-family: 'Frank Ruhl Libre', serif;
   background-color: white;
-  padding: 45px;
+  padding: 60px;
   line-height: 20pt;
 }
 
