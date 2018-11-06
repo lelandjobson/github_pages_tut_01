@@ -40,7 +40,7 @@ table, th, td {
 }
 
 strong {
-  background-color: #b1ffdd3b !important;
+  background-color: #fff2a8 !important;
   font-weight: 100;
 }
 
@@ -50,9 +50,6 @@ th tr td {
   background-color: rgb(48, 48, 48);
 }
 
-strong {
-  background: #fff2a8;
-}
 
 tbody :nth-child(even) td {
   background-color: #ececec;
