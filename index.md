@@ -6,7 +6,7 @@ field-guide: None
 ---
 
 <div style="text-align: center"><p>
-Our mission is to bootstrap the learning process within studios at Pratt Institute, and broaden the technical prowess of our students across the board, in the hope discovering how technology, technique, craft and reason interlink our various disciplines. Edited and maintained by the Interdisciplinary Technology Lab at Pratt Institute. </p>
+We believe that technology, technique, craft and reason interlink our various disciplines. Our mission is to bootstrap the learning process within the creative arts and broaden the technical prowess of students and practitioners through a free and open source medium. Edited and maintained by the Interdisciplinary Technology Lab at Pratt Institute. </p>
 </div>
 
 <br><br><br><br><br><br>
