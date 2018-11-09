@@ -1,4 +1,3 @@
-
 body {
   opacity: 1.0;
   -webkit-transition: background 1.5s linear;
@@ -285,16 +284,20 @@ pre {
   /* font-size: 17px; */
   /* line-height: 20px; */
   left: 0;
-  color: white;
-  background-color: rgb(29, 29, 29); /* Black */
+  color: rgb(22, 22, 22);
+  background-color: rgb(235, 235, 235); /* Black */
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 90px;
   font-family: 'Roboto', monospace;
   /* box-shadow: 5px 10px #888888; */
 }
 
+li a {
+  font-size:0.9em;
+}
+
 /* The navigation menu links */
-.sidenav a {
+/* .sidenav a {
   padding: 6px 8px 6px 10px;
   text-decoration: none;
   font-size: .9em;
@@ -332,13 +335,13 @@ pre {
 
 ol {
   padding-bottom: 20px !important;
-}
+} */
 
 
 /* When you mouse over the navigation links, change their color */
-.sidenav a:hover {
+/* .sidenav a:hover {
   color: #d8d8d8;
-}
+} */
 
 /* Style page content */
 .main {

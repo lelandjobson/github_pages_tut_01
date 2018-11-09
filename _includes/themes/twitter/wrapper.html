@@ -18,12 +18,36 @@
     <link href="{{ ASSET_PATH }}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="{{ ASSET_PATH }}/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
     <link href="{{ ASSET_PATH }}/css/fonts.css" rel="stylesheet" type="text/css" media="all">
+    <link href="{{ BASE_PATH }}/assets/themes/scripts/vakata-tree/themes/default/style.css" rel="stylesheet"/>
 
-    <!-- Le fav and touch icons -->
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
     <!-- atom & rss feed -->
-    <link href="{{ BASE_PATH }}{{ site.JB.atom_path }}" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
-    <link href="{{ BASE_PATH }}{{ site.JB.rss_path }}" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">  
+    <!-- <link href="{{ BASE_PATH }}{{ site.JB.atom_path }}" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    <link href="{{ BASE_PATH }}{{ site.JB.rss_path }}" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">   -->
+
+    <!-- jquery is used in the nav and the bg change  -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+    <!-- jsTree TreeView side navigation script -->
+    <script src="{{ BASE_PATH }}/assets/themes/scripts/vakata-tree/jstree.min.js"></script>
+
+    <!-- Run the script to transform the sidenav into a treeview -->
+    <script>
+      $(function () { 
+        $('#jsTreeNav').jstree();        
+        $('#jsTreeNav')
+          // listen for event
+          .on('select_node.jstree', function (e, data) {
+            console.log("Tree item selected", data.node.a_attr.href);
+            window.location.href = data.node.a_attr.href;
+          })
+          // create the instance
+          .jstree();
+      });
+    </script>  
+
   </head> 
 
   <body class="wrapper">
@@ -53,29 +77,32 @@
       <div class="row">   
         <!-- SIDE NAVIGATION -->   
         <div class="col-2">
-          <div class="sidenav">
+          <div id="jsTreeNav" class="sidenav">
+            <ul>
             {% assign myGuides = site.pages | group_by: 'field-guide' %}
             {% for cat in myGuides %}
-              {% if cat.name != "None" %}
-                <ol>
+              {% if cat.name != "None" %},
                     {% assign items = cat.items | sort: 'order' %} 
                     {% if page.field-guide == cat.name %}
-                    <li class="nav-header currentguide"><h6>{{ cat.name }}</h6></li>
+                    <li data-jstree='{"opened":true, "icon":"fa fa-book"}' class="nav-header currentguide">{{ cat.name }}
                     {% else %}
-                    <li class="nav-header"><a href="{{ BASE_PATH}}{{ items[0].url }}"><h6>{{ cat.name }}</h6></a></li>
+                    <li data-jstree='{"icon":"fa fa-book"}' class="nav-header"><a href="{{ BASE_PATH }}{{ items[0].url }}">{{ cat.name }}</a>
                     {% endif %}
+                    <ul>
                     {% for item in items %}
                       {% capture nowunix %}{{'now' | date: '%s'}}{% endcapture %}
                       <!-- If the post is younger than 10 days, thrown in a NEW tag -->   
                         {% if item.url == page.url %}
-                          <li class="nav-item current newItem"><a>{{ item.title }}</a></li>
+                          <li  data-jstree='{"selected":true, "icon":"{{ BASE_PATH }}{{ item.dir }}/icons/{{ item.title | downcase }}.png"}' class="nav-item current newItem"><a>{{ item.title }}</a></li>
                         {% else %}
-                          <li class="nav-item"><a href="{{ BASE_PATH}}{{ item.url }}">{{ item.title }}</a></li>
+                          <li data-jstree='{"icon":"{{ BASE_PATH }}{{ item.dir }}/icons/{{ item.title | downcase }}.png"}' class="nav-item"><a href="{{ BASE_PATH}}{{ item.url }}">{{ item.title }}</a></li>
                         {% endif %}
                     {% endfor %}     
-                </ol>
+                    </ul>
+                    </li>
               {% endif %}
             {% endfor %}
+            </ul>
           </div>
         </div>
         <!-- CONTENT (post.html, home.html, etc.) -->  
