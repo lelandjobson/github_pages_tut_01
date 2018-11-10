@@ -9,7 +9,7 @@ field-guide: None
 We believe that technology, technique, craft and reason interlink our various disciplines. Our mission is to bootstrap the learning process within the creative arts and broaden the technical prowess of students and practitioners through a free and open source medium. Edited and maintained by the Interdisciplinary Technology Lab at Pratt Institute. </p>
 </div>
 
-<br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br>
 <div id="ourProject"></div>
 <br><br>
 

@@ -288,7 +288,7 @@ pre {
   /* line-height: 20px; */
   left: 0;
   color: rgb(22, 22, 22);
-  background-color: rgb(235, 235, 235); /* Light Grey */
+  background-color: white;
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 90px;
   font-family: 'Roboto', monospace;
