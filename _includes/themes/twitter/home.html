@@ -1,19 +1,20 @@
 <!-- CONTENT -->
+
 <body style="background-image: url(./assets/images/global/white.png)">
-<div class="container container-narrow container-content">
-  <div class="content">
+  <div class="container container-narrow container-content">
+    <div class="content">
       <div class="row-fluid post-full">
-          <div class="span12">
-            <div class="content" style="padding-top: 23%">
-             <h1>{{ page.title }} {% if page.tagline %}<small>{{page.tagline}}</small>{% endif %}</h1>
-             <br>
-             {{ content }}
-             </div>
+        <div class="span12">
+          <div class="content" style="padding-top: 23%">
+            <h1>{{ page.title }} {% if page.tagline %}<small>{{page.tagline}}</small>{% endif %}</h1>
+            <br>
+            {{ content }}
+          </div>
 
 
-    <!-- FIELD GUIDE CARD ARRAY -->
-    <!-- <h5 style="text-align: center;" data-background-color="#27ae60">Field Guides</h5><br> -->
-    <!-- <div class="row">
+          <!-- FIELD GUIDE CARD ARRAY -->
+          <!-- <h5 style="text-align: center;" data-background-color="#27ae60">Field Guides</h5><br> -->
+          <!-- <div class="row">
         {% for page in site.pages %}
       <div class="card" style="width: 16rem; margin-bottom: 2%;">
           <img class="card-img-top" src="{{ BASE_PATH }}/assets/images/global/286x180.png" alt="Field Guide">
@@ -25,18 +26,18 @@
       </div>
       {% endfor %}
     </div> -->
-    <hr>
-    <footer>
-      <p><small>
-        <a href="https://itl.pratt.edu">Interdisciplinary Technology Lab</a> 
-        <br>Field Guide v.0.12
-      </small></p>
-    </footer>
-  </div>
-</div>
+          <hr>
+          <footer>
+            <p><small>
+                <a href="https://itl.pratt.edu">Interdisciplinary Technology Lab</a>
+                <br>Field Guide v.0.12
+              </small></p>
+          </footer>
+        </div>
+      </div>
 
-<!-- SCRIPTS -->
-<script src="{{ ASSET_PATH }}scripts/in-view/in-view.min.js"></script>
-<script src="{{ ASSET_PATH }}scripts/changeBg.js"></script>
+      <!-- SCRIPTS -->
+      <script src="{{ ASSET_PATH }}scripts/in-view/in-view.min.js"></script>
+      <script src="{{ ASSET_PATH }}scripts/changeBg.js"></script>
 
 </body>
