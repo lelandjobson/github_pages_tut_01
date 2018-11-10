@@ -6,7 +6,7 @@ body {
   -ms-transition: background 1.5s linear;
   transition: background 1.5s linear;
   transition: background-image 1s ease-in-out;
-  background-image: url(../../../images/global/def_Grid.png);
+  background-image: url(../../../images/global/white.png);
   padding-top: 20px;
 }
 
@@ -15,17 +15,19 @@ body {
 } */
 
 p {
-  font-size: 1.3rem;
-  line-height: 1.7;
+  font-size: 1.2rem;
+  line-height: 1.65;
   padding-bottom: 10px;
   padding-top: 10px;
 }
 
 h1 {
-  font-size: 3rem;
-  font-style: bold;
+  font-size: 2.8rem;
+  color: rgb(44, 44, 44);
   text-rendering: geometricPrecision;
   text-align: center;
+  /* font-family: 'Ibm Plex Mono', monospace; */
+  font-family: 'Rubik', sans-serif;
 }
 
 hr {
@@ -178,7 +180,7 @@ img {
   color: #FFF; }
 
 .content {
-  font-family: 'Frank Ruhl Libre', serif;
+  font-family: 'Ibm Plex Sans', sans-serif;
   background-color: white;
   padding: 60px;
   line-height: 20pt;
@@ -270,7 +272,8 @@ pre {
 .page-header {
   padding-top: 50px;
   padding-bottom: 9px;
-  font-family: 'Frank Ruhl Libre', serif;
+  /* font-family: 'Frank Ruhl Libre', serif; */
+
   text-align: center;
 }
   
@@ -285,12 +288,16 @@ pre {
   /* line-height: 20px; */
   left: 0;
   color: rgb(22, 22, 22);
-  background-color: rgb(235, 235, 235); /* Black */
+  background-color: rgb(235, 235, 235); /* Light Grey */
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 90px;
   font-family: 'Roboto', monospace;
   /* box-shadow: 5px 10px #888888; */
 }
+
+.jstree-container-ul.jstree-children {
+  padding-left: 10px;
+} 
 
 li a {
   font-size:0.9em;
