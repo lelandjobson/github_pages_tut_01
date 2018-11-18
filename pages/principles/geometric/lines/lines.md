@@ -1,14 +1,12 @@
 ---
-layout: post
+layout: principle
 title: Lines
 category: Principles
 subcategory: Geometry
-description: Lines
-dependencies: 
+description: A line is a straight one-dimensional figure having no thickness and extending infinitely in both directions. (Wolfram Alpha)
+dependencies: [ 'Points' ]
+platforms: [ 'Photoshop', 'Illustrator' ]
 order: 0
+supported: Photoshop
 ---
-<table class="dependencyTable pull-left">
-    <tr><th colspan="2"> Dependencies</th></tr>
-    <tr><td><a href=""><img src="lines.png"></a></td><td><a href="">Lines</a></td></tr>
-    <tr><td><a href=""><img src="lines.png"></a></td><td><a href="">Lines</a></td></tr>
-</table>
+A nice writeup goes here.
