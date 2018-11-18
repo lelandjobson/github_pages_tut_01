@@ -15,11 +15,12 @@
               <div class="content">
                     <p class="principleDescription">{{ page.description }}</p>
                     {% if page.description-credit %}
+                    <br>
                     <p class="aka">- {{ page.description-credit }}</p>
                     {% endif %}
                     <br><hr>
                     <div class="d-flex justify-content-center">
-                        {% if page.dependencies != "" %}
+                        {% if page.dependencies != None %}
                         <table class="principleTable dependencyTable" style="margin: 5px !important; padding: 5px !important;">
                             <tr>
                                 <th colspan="2"> Dependencies</th>
@@ -34,7 +35,7 @@
                             {% endfor %}
                         </table>
                         {% endif %}
-                        {% if page.platforms != "" %}
+                        {% if page.platforms != None %}
                         <table class="principleTable platformTable" style="margin: 5px !important; padding: 5px !important;">
                             <tr>
                                 <th colspan="2">Supported Platforms</th>
