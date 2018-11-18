@@ -4,8 +4,8 @@ title: Ellipses
 # aka: [ '' ]
 category: Principles
 subcategory: Geometry
-description: A continuous portion (as of a circle or ellipse) of a curved line.
-description-credit: Merriam-Webster
+description: An ellipse is a curve in a plane surrounding two focal points such that the sum of the distances to the two focal points is constant for every point on the curve.
+description-credit: Wikipedia
 dependencies: [ 'Points' ]
 platforms: [ 'Rhinoceros', 'Illustrator', 'Grasshopper' ]
 order: 0
