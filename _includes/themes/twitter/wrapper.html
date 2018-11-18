@@ -44,7 +44,7 @@
           // listen for event
           .on('select_node.jstree', function (e, data) {
             console.log("Tree item selected", data.node.a_attr.href);
-            window.location.href = data.node.a_attr.href;
+            if(data.node.a_attr.href != "" && data.node.a_attr.href != "#"){ window.location.href = data.node.a_attr.href; }
           })
           .on('click', '.jstree-anchor', function (e) {
             $('#jsTreeNav').jstree(true).toggle_node(e.target);
