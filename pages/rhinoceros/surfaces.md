@@ -4,6 +4,8 @@ title: Surfaces
 description: An overview of Rhinoceros
 field-guide: Rhinoceros Field Guide
 order: 3
+category: Platforms
+subcategory: Rhinoceros
 ---
 
 Whether working in 2D or 3D space, curves, and the control of them, provide the basis for all preceding geometry relative to the geometric hierarchy of points, curves, surfaces and solids.

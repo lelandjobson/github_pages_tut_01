@@ -4,6 +4,8 @@ title: Introduction
 description: An overview of Rhinoceros
 field-guide: Rhinoceros Field Guide
 order: 1
+category: Platforms
+subcategory: Rhinoceros
 ---
 
 The types of modeling technologies described here were developed for industrial purposes: surface modeling came out of the car manufacturing industry because the model is able to capture information that are critical to manufacturing with thin metal panels. Solid modeling came out of the machining and engineering world. Geometry types and their respective industries remain strongly entwined. Understanding the nuances, properties and characteristics of these geometries will strengthen their utilization for our purposes.

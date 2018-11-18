@@ -4,6 +4,8 @@ title: Quick Start
 description: Getting started with the UR10
 field-guide: UR10 Field Guide
 order: 3
+category: Hardware
+subcategory: UR-10
 ---
 This chapter will get you acquainted with the architecture of the robot, and concludes with a grasshopper Hello World example that allows you to drive the robot with Rhinoceros.
 

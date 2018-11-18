@@ -4,6 +4,8 @@ title: Quick Start
 description: An overview of GIS in Python
 field-guide: GIS Python Field Guide
 order: 1
+category: Platforms
+subcategory: QGIS
 ---
 
 

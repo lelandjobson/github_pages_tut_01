@@ -5,6 +5,8 @@ type: Quick Start
 description: Get started using Adobe Bridge
 field-guide: Adobe Field Guide
 order: 5
+category: Platforms
+subcategory: Adobe
 ---
 
 At its core, Adobe Bridge is a media browser that lets you download images from your media devices (camera, phone, tablet), navigate through the folders on your hard drive or drives connected to your computer to find the images or media you are searching for. If you stop there, however, you are not even close to exploiting the full power of Bridge because it is not just a media browser, it is a digital asset MANAGEMENT platform.

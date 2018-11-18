@@ -3,6 +3,8 @@ layout: post
 title: Appendix
 description: Links to various Adobe related content
 field-guide: Adobe Field Guide
+category: Platforms
+subcategory: Adobe
 order: 6
 ---
 

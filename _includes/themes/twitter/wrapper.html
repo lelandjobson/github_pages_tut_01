@@ -34,7 +34,7 @@
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
   <!-- jsTree TreeView side navigation script -->
-  <script src="{{ BASE_PATH }}/assets/themes/scripts/vakata-tree/jstree.min.js"></script>
+  <script src="{{ BASE_PATH }}/assets/themes/scripts/vakata-tree/jstree.js"></script>
 
   <!-- Run the script to transform the sidenav into a treeview -->
   <script>
@@ -46,8 +46,15 @@
             console.log("Tree item selected", data.node.a_attr.href);
             window.location.href = data.node.a_attr.href;
           })
+          .on('click', '.jstree-anchor', function (e) {
+            $('#jsTreeNav').jstree(true).toggle_node(e.target);
+          })
           // create the instance
-          .jstree();
+          .jstree({
+            // core : {
+            //   dblclick_toggle : false
+            // }
+          });
       });
     </script>
 
@@ -57,6 +64,7 @@
   <!-- TOP NAVIGATION -->
   <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
     <div class="container">
+      <img class=" navbar-brand "src="/assets/images/global/itl_white_clear.png" style="margin: 0; margin-right: 40px">
       <a class="navbar-brand" href="{{ HOME_PATH }}">{{ site.title }}</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -83,29 +91,38 @@
       <div class="col-2">
         <div id="jsTreeNav" class="sidenav">
           <ul>
-            {% assign myGuides = site.pages | group_by: 'field-guide' %}
-            {% for cat in myGuides %}
-            {% if cat.name != "None" %},
-            {% assign items = cat.items | sort: 'order' %}
-            {% if page.field-guide == cat.name %}
-            <li data-jstree='{"opened":true, "icon":"fa fa-book"}' class="nav-header currentguide">{{ cat.name }}
-              {% else %}
-            <li data-jstree='{"icon":"fa fa-book"}' class="nav-header"><a href="{{ BASE_PATH }}{{ items[0].url }}">{{
-                cat.name }}</a>
-              {% endif %}
-              <ul>
-                {% for item in items %}
-                {% capture nowunix %}{{'now' | date: '%s'}}{% endcapture %}
-                <!-- If the post is younger than 10 days, thrown in a NEW tag -->
-                {% if item.url == page.url %}
-                <li data-jstree='{"selected":true, "icon":"{{ BASE_PATH }}{{ item.dir }}/icons/{{ item.title | downcase }}.png"}'
-                  class="nav-item current newItem"><a>{{ item.title }}</a></li>
-                {% else %}
-                <li data-jstree='{"icon":"{{ BASE_PATH }}{{ item.dir }}/icons/{{ item.title | downcase }}.png"}' class="nav-item"><a
-                    href="{{ BASE_PATH}}{{ item.url }}">{{ item.title }}</a></li>
+            {% assign myCats = site.pages | group_by: 'category' %}
+              {% for cat in myCats %}
+                <!-- Create the category header -->
+                {% if cat.name != "" %}
+                <li data-jstree='{"opened":true, "icon":"fa fa-cubes"}'>{{ cat.name}}
+                <ul>
+                {% assign subCats = cat.items | group_by: 'subcategory' %}
+                {% for subcat in subCats %}   
+                {% if subcat.name != "None" %}
+                  {% assign items = subcat.items | sort: 'order' %}
+                  {% if page.field-guide == subcat.name %}
+                    <li data-jstree='{"opened":true, "icon":"fa fa-book"}' class="nav-header currentguide">{{ subcat.name }}
+                  {% else %}
+                    <li data-jstree='{"icon":"fa fa-book"}' class="nav-header currentguide">{{ subcat.name }}
+                  {% endif %}
+                  <ul>
+                    {% for item in items %}
+                      {% capture nowunix %}{{'now' | date: '%s'}}{% endcapture %}
+                      <!-- TODO: If the post is younger than 10 days, thrown in a NEW tag -->
+                      {% if item.url == page.url %}
+                      <li data-jstree='{"selected":true, "icon":"{{ BASE_PATH }}{{ item.dir }}/{{ item.title | downcase }}.png"}'
+                        class="nav-item current newItem"><a>{{ item.title }}</a></li>
+                      {% else %}
+                      <li data-jstree='{"icon":"{{ BASE_PATH }}{{ item.dir }}/{{ item.title | downcase }}.png"}' class="nav-item"><a
+                          href="{{ BASE_PATH}}{{ item.url }}">{{ item.title }}</a></li>
+                      {% endif %}
+                    {% endfor %}
+                  </ul>
                 {% endif %}
-                {% endfor %}
-              </ul>
+              </li>
+              {% endfor %}
+            </ul>
             </li>
             {% endif %}
             {% endfor %}

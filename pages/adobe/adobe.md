@@ -3,6 +3,8 @@ layout: post
 title: Image Types
 description: A top level introduction to the adobe suite and its products.
 field-guide: Adobe Field Guide
+category: Platforms
+subcategory: Adobe
 order: 1
 ---
 

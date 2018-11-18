@@ -5,6 +5,8 @@ type: Quick Start
 description: Get started using Adobe Illustrator
 field-guide: Adobe Field Guide
 order: 2
+category: Platforms
+subcategory: Adobe
 ---
 
 Adobe Illustrator has become the industry standard for creating [vector](/introduction.md#vectors) artwork. As such, it is used for the production of infographics, diagrams, artwork creation, and refinement of drawings to name a few use objectives. It’s strength lies in internal or imported creation and modification of shapes and strokes with compositions arranged on artboards. Being apart of Adobe Suite, it also allows for the incorporation of pixel based assets to add to your designs. 
