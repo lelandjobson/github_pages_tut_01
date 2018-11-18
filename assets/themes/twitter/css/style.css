@@ -110,6 +110,14 @@ img {
   border: none;
 }
 
+.dependencyTable th {
+  background-color: #ffdfae;
+}
+
+.platformTable th {
+  background-color: #d9ffae;
+}
+
 
 .wrapper {
   font-family: 'IBM Plex Mono';
