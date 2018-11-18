@@ -6,7 +6,7 @@ category: Principles
 subcategory: Geometry
 description: A polygon is a plane figure that is bounded by a finite chain of straight line segments closing in a loop to form a closed polygonal chain or circuit. 
 description-credit: Wikipedia
-dependencies: [ 'Points, Lines' ]
+dependencies: [ 'Points', 'Lines' ]
 platforms: [ 'Rhinoceros', 'Illustrator', 'Grasshopper' ]
 order: 0
 ---
