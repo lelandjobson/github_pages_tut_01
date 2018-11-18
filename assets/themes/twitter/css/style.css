@@ -316,12 +316,14 @@ pre {
   /* line-height: 20px; */
   left: 0;
   color: rgb(22, 22, 22);
-  background-color: white;
   overflow-x: hidden;
-  /* Disable horizontal scroll */
+  background-color: #fafafa;
+  overflow-x: hidden;
   padding-top: 90px;
   font-family: 'Roboto', monospace;
-  /* box-shadow: 5px 10px #888888; */
+  border: #b3b3b3;
+  border-style: solid;
+  border-width: 1px;
 }
 
 .jstree-container-ul.jstree-children {
