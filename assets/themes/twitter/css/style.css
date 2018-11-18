@@ -49,8 +49,6 @@ strong {
 
 th tr td {
   border: 2px solid rgb(0, 0, 0);
-  color: white;
-  background-color: rgb(48, 48, 48);
 }
 
 
@@ -86,6 +84,32 @@ img {
   margin-top: 30px;
   margin-bottom: 30px;
 }
+
+.principleImg {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+
+.principleDescription {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center; 
+  padding-top: 20px;
+  padding-bottom: 0;
+  max-width: 600px;
+}
+
+.principleTable {
+  border: none;  
+}
+.principleTable tr,td,th {
+  border: none;
+}
+
 
 .wrapper {
   font-family: 'IBM Plex Mono';
@@ -339,52 +363,13 @@ li a {
   font-size: 0.9em;
 }
 
-/* The navigation menu links */
-/* .sidenav a {
-  padding: 6px 8px 6px 10px;
-  text-decoration: none;
-  font-size: .9em;
-  display: block;
-  color: rgb(173, 173, 173);
+.aka {
+  font-style: italic;
+  color: grey;
+  padding: 0;
+  margin: 0;
+  text-align: center;
 }
-
-.sidenav .current {
-  border-style: solid;
-  border-width: 0px;
-  border-right-width: 6px;
-  border-right-color: rgb(105,238,166);
-}
-
-.sidenav .currentguide {
-  border-style: solid;
-  border-width: 0;
-  border-right-width: 30px;
-  border-color: rgb(221,211,255);
-  color: #ddd7ff;
-}
-
-.sidenav .current .a {
-  color: black;
-}
-
-.sidenav .nav-header {
-  font-weight: bold;
-}
-.sidenav ol {
-  padding-bottom: 20px !important;
-  border-bottom-color: black;
-  list-style: none;
-}
-
-ol {
-  padding-bottom: 20px !important;
-} */
-
-
-/* When you mouse over the navigation links, change their color */
-/* .sidenav a:hover {
-  color: #d8d8d8;
-} */
 
 /* Style page content */
 .main {

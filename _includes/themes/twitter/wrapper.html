@@ -109,14 +109,29 @@
                   <ul>
                     {% for item in items %}
                       {% capture nowunix %}{{'now' | date: '%s'}}{% endcapture %}
-                      <!-- TODO: If the post is younger than 10 days, thrown in a NEW tag -->
-                      {% if item.url == page.url %}
-                      <li data-jstree='{"selected":true, "icon":"{{ BASE_PATH }}{{ item.dir }}/{{ item.title | downcase }}.png"}'
+
+                      {% if cat.name == "Principles" %}
+
+                        {% if item.url == page.url %}
+                        <li data-jstree='{"selected":true,"icon":"fa fa-code-branch"}'
                         class="nav-item current newItem"><a>{{ item.title }}</a></li>
-                      {% else %}
-                      <li data-jstree='{"icon":"{{ BASE_PATH }}{{ item.dir }}/{{ item.title | downcase }}.png"}' class="nav-item"><a
+                        {% else %}
+                        <li data-jstree='{"icon":"fa fa-code-branch"}' class="nav-item"><a
+                        href="{{ BASE_PATH}}{{ item.url }}">{{ item.title }}</a></li>
+                        {% endif %}
+
+                      {% else %}   
+
+                        {% if item.url == page.url %}
+                          <li data-jstree='{"selected":true, "icon":"{{ BASE_PATH }}{{ item.dir }}/{{ item.title | downcase }}.png"}'
+                        class="nav-item current newItem"><a>{{ item.title }}</a></li>
+                        {% else %}
+                          <li data-jstree='{"icon":"{{ BASE_PATH }}{{ item.dir }}/{{ item.title | downcase }}.png"}' class="nav-item"><a
                           href="{{ BASE_PATH}}{{ item.url }}">{{ item.title }}</a></li>
+                        {% endif %}
+
                       {% endif %}
+
                     {% endfor %}
                   </ul>
                 {% endif %}
@@ -131,7 +146,6 @@
       </div>
       <!-- CONTENT (post.html, home.html, etc.) -->
       <div class="col-10">
-        hi this is the right one
         {{ content }}
       </div>
       <hr>

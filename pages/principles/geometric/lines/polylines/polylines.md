@@ -1,12 +1,13 @@
 ---
 layout: principle
 title: Polylines
+aka: [ 'Polychains' ]
 category: Principles
 subcategory: Geometry
-description: A line is a straight one-dimensional figure having no thickness and extending infinitely in both directions. (Wolfram Alpha)
+description: A polyline is a connected series of line segments.
+description-credit: Merriam-Webster
 dependencies: [ 'Lines' ]
-platforms: [ 'Rhinoceros', 'Illustrator' ]
+platforms: [ 'Rhinoceros', 'Illustrator', 'Grasshopper' ]
 order: 0
-supported: Photoshop
 ---
 A nice writeup goes here.
