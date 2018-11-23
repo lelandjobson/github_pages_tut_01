@@ -2,10 +2,9 @@
 layout: post
 title: Quick Start
 description: Getting started with the UR10
-field-guide: UR10 Field Guide
 order: 3
 category: Hardware
-subcategory: UR-10
+subcategory: Universal Robotics UR-10
 ---
 This chapter will get you acquainted with the architecture of the robot, and concludes with a grasshopper Hello World example that allows you to drive the robot with Rhinoceros.
 
@@ -51,7 +50,7 @@ Tool flange - the robot head where end effectors are attached
 
 ## Initialization {#init}
 
->Note - protective stop enabled when pressure is encountered, and you will have to reinitialize.
+> Note - protective stop enabled when pressure is encountered, and you will have to reinitialize.
 
 On powerup you will get an Initialization Message - Hit the start button to unlock brakes
 - Once initialized, use the Move Tab To jog or home the robot
@@ -84,7 +83,7 @@ TCP stands for Tool center point. When we command the robot to move to a positio
 
 > Note - saving, creating new installations/configurations for the robot may require you to restart the robot’s initialization. You will be prompted if this is the case.
 
-###Manual TCP Configuration {#manualTCP}
+### Manual TCP Configuration {#manualTCP}
 
 - Under Program -> Installation -> TCP Configuration, you can use the Position and Orientation buttons to manually set the TCP dimensions and the orientation of the end effector on the robot
 - With position, click the position button, set point one, bring the end effector tip to an arbitrary configuration point (I.e. set up a stand with a marker to point at), set. Do this 3 more times from 3 different perspectives on the same point.
@@ -95,23 +94,23 @@ TCP stands for Tool center point. When we command the robot to move to a positio
 ## Programming the Robot {#prog}
 >Polyscope is the built in programming interface and operating system of the robot. The language of communication is URScript.
 
-####Example Program Walkthrough
+#### Example Program Walkthrough
 - On the pendant, Click Program
 - Click Empty Program to create a new program
->Note - The program tree is the leftmost box showing the commands in order of sequence and parent/child. Commands are executed sequentially. Note - You can cut and paste commands on the command tree to nest the way you want them to using the on-screen cut and paste buttons.
+> Note - The program tree is the leftmost box showing the commands in order of sequence and parent/child. Commands are executed sequentially. Note - You can cut and paste commands on the command tree to nest the way you want them to using the on-screen cut and paste buttons.
 
 - Click Structure tab to access commands such as move, waypoint, wait, set, etc.
 - Programs consist of waypoints and motion between them.
 - Program tree shows the movements in their order
 - Motion Types
-- ####MoveL
+- #### MoveL
 Linear motion type, straight line from one point to another. Where the path is important. Suited for motion in confined space.
 - MoveJ - Fastest between two points. Use where path of TCP is not important
-- ####MoveP
+- #### MoveP
 Move Process. Maintains a constant speed. Does not stop or make sharp turns - will make filleted corners to maintain a constant speed. Doesn’t slow down when reaching the next waypoint.
-- ####MoveC
+- #### MoveC
 CircleMove - Circle Move - The first point is the starting point, second is Via point (center of arc) end point is end of arc.
-####Hello World Example
+#### Hello World Example
 - Create an Empty program
 - Open Structure Tab
 - Click move
@@ -129,7 +128,7 @@ CircleMove - Circle Move - The first point is the starting point, second is Via 
 
 ## Actuation and Sensors {#sensors}
 
->Sensors are attached directly into one of the grey input/output columns located on the robots onboard computer. (One sensor per column)
+> Sensors are attached directly into one of the grey input/output columns located on the robots onboard computer. (One sensor per column)
 
 Under I/O tab, you can examine the sensors that are attached
 You can use the radio buttons in the Tool Output to actuate
@@ -196,7 +195,7 @@ We use Scorpion, a free plugin for grasshopper, to perform simple actions with t
 </strong> Grasshopper is a programming plugin for Rhinoceros 3d and a favorite among architects. You should climb aboard the Grasshopper train!</div>
 
 
-#####Download the package and install. Open the example file in Grasshopper.
+##### Download the package and install. Open the example file in Grasshopper.
 
 >What the grasshopper components do is turn your geometry into robot commands (strings of text) and send them over a TCP/IP socket with unicode 8 encoding (Not to be confused with the robot's TCP).
 

@@ -22,25 +22,21 @@ The types of modeling technologies described here were developed for industrial 
 
 A surface can be defined in a number of ways depending on context, but for you're looking for an analogy, it could be likened to a flexible sheet which has no thickness. Like a single-sided printed sheet, **it has a front facing side and a back**. If you picked a point on that surface, not unlike marking a dot on a piece of paper, you could imagine an imaginary vector that sticks out perpendicular to the surface, toward the front face. This is known as a **surface normal**, for which there are infinite across the surface, all pointing out frontwards.
 
-<div class=centered>
 ![](./images/Surf_1.PNG)
-</div>
 
 Surface Modeling anecdotally can be conceived of having no ‘interior’ when cut. Because of this infinity thin surface, it affords a ‘light weight’ or low amount of data within the geometry or modeled artifact. This makes it a favorite among animation, film, video game design as it abstracts real-world geometry and does not accurately reflect real-world physical attributes ultimately affording more flexibility and complexity.
 
 
-##Solid Modeling
+## Solid Modeling
 
 
 Solid Modeling, conversely, has mass, or depth, to the surface. As such, aside from platonic solids, i.e. a sphere, it has three or more sides that comprise its three-dimensional geometry. Being a close, solid piece of computational geometry the normals, or direction, of any one surface that comprises the geometry, when closed, all have a uniform, outward facing direction.
 
 Solid modeling can be conceived as having an ‘interior’ when cut through or, anecdotally, similar to cutting through a block of wood. This makes it a favorite within the realms of BIM, industrial design, and engineering to name a few due to its ability to representing real-world geometry that accurately mirrors real-world physical attributes. Being inherently data-rich, the ability to analyze and extract information relative to fabrication … watertight
 
-<div class=centered>
 ![](./images/Surf_2.PNG)
-</div>
 
-##NURBS Surfaces
+## NURBS Surfaces
 
 >Non-Uniform Rational Basis Spline (NURBS) is a mathematical model commonly used in computer graphics for generating and representing curves and surfaces.
 
@@ -55,7 +51,7 @@ It offers great flexibility and precision for handling both analytic and modeled
 
 ![](./images/Surf_3.PNG)
 
-##Polygon Meshes
+## Polygon Meshes
 
 A Polygon Mesh (Mesh) is a collection of vertices, edges and faces.
 
@@ -92,19 +88,19 @@ Per the entaglement of modeling technologies and their industries, there are a n
 
 | | Nurbs Modeling | Solid Modeling | Mesh Modeling | Subdivision Modeling |
 | --- | --- | --- | --- | --- |
-| **Rhino** | x | x | x | x* |
-| **Maya** | x | | x | x |
-| **3DS Max**| x | | x | |
-| **Digital Project** | x | x | | |
-| **Solidworks** | | x | | |
-| **Alias Studio** | | x | | |
-| **FormZ**| | x | | |
-| **Sketchup** | | | x | |
-| **Blender** | | | x | |
-| **ZBrush**| | | x | |
-| **TopMod** | | | | x |
-| **Silo** | | | | x |
-| **Modo** | | | | x |
+| Rhino | x | x | x | x* |
+| Maya | x | | x | x |
+| 3DS Max | x | | x | |
+| Digital Project | x | x | | |
+| Solidworks | | x | | |
+| Alias Studio | | x | | |
+| FormZ | | x | | |
+| Sketchup | | | x | |
+| Blender | | | x | |
+| ZBrush | | | x | |
+| TopMod | | | | x |
+| Silo | | | | x |
+| Modo | | | | x |
 
 <div class="alert alert-success"><strong>Go rhino!</strong> The focus of this Field Guide will center around Rhino as a software platform utilizing NURBS towards the production of modeling computation geometry from curves to surfaces and solids.
 </div>
