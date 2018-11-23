@@ -46,7 +46,7 @@ The Lunchbox toolkit for **grasshopper** comes with a set of panelization tools 
 
   ![](.\images\LunchboxPanels.gif)
 
-
+---
 ## C# Scripting in Grasshopper (Quad Panels)
 
 You can write your own C# component for grasshopper to collect points of a surface into groups of quad panels. We will collect the points in the below order and use them to create polylines. 
