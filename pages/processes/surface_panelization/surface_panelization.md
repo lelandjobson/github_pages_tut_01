@@ -79,7 +79,7 @@ The walkthrough below will detail a simple approach with a flattened list of poi
     - This will be used to debug if necessary.
   - **Panels**
     - This will be a return a list of polylines.
-- Plug components into eachother as show above.
+- Plug components into eachother as shown above.
 
 ![0](.\images\flutter\1.PNG)
 
