@@ -1,0 +1,36 @@
+<!-- CONTENT -->
+<div class="container container-narrow container-content">
+  <p style="color: rgb(200,200,200); float: right; padding-right: 40px;">{{ page.field-guide | remove: 'Field Guide' }}</p>
+  <div class="content">
+    <div class="page-header">
+      <h1>{{ page.title }}</h1>
+    </div>
+    <div class="row-fluid post-full">
+      <div class="span12">
+        <div class="content">
+         <img src=".\images\{{ page.heroimg }}">
+          {{ content }}
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer>
+      <!-- SUPPORT OUT MISSION thing -->
+      <!-- <div class="alert alert-success" role="alert">
+        <strong>Support Our Mission!</strong> 
+        The <a href="http://itl.pratt.edu"><span class="label label-default">ITL</span></a> 
+        publishes online for free in our commitment to the design community and passion for education. 
+        Support us on <a href="http://www.drip.com"><span class="label label-info">Drip</span></a>. 
+        <i class="glyphicon glyphicon-book" aria-hidden="true"> </i>
+        <i class="glyphicon glyphicon-heart" aria-hidden="true"> </i>
+      </div> -->
+      <p><small>
+          <a href="https://itl.pratt.edu">Interdisciplinary Technology Lab</a>
+          <br>Field Guide v.0.1.2
+        </small></p>
+    </footer>
+</div>
+
+<!-- SCRIPTS -->
+<script src="{{ ASSET_PATH }}scripts/in-view/in-view.min.js"></script>
+<script src="{{ ASSET_PATH }}scripts/changeBg.js"></script>

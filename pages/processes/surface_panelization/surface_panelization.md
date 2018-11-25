@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: process
 title: Surface Panelization
 # aka: [ 'Polychains' ]
 category: Processes
@@ -8,16 +8,11 @@ description: How to turn a 3d surface into discrete panels.
 # description-credit: Merriam-Webster
 dependencies: [ 'Lines' ]
 platforms: [ 'Rhinoceros','Grasshopper' ]
+heroimg: fluttering.PNG
 order: 0
 ---
 
-
-![](.\images\flutter\fluttering.PNG)
-
 There are several cases in which a designer will need to discretize a form into smaller pieces. It's common to represent the extents of an enclosure system, for example, using a NURBS surface, and converting that surface into a faceted, panelized system that follows it as a guide. In parametric modeling, this mitigates many of the pain points which come with upstream changes in form. 
-
-
-
 
 ---
 # Techniques

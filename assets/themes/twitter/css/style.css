@@ -466,3 +466,10 @@ li a {
 .sketchfab-embed-wrapper {
   padding: 30px;
 }
+
+.sketchfab-embed-wrapper iframe {
+  max-width: 600px;
+  max-height: 500px;
+  width: 600px;
+  height: 500px;
+}

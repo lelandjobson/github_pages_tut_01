@@ -170,7 +170,7 @@ In this example, vectorBackgroundImage.png is the name of the background image w
 Showing a sketchfab model on our page is easy. Simply grab the embed code for the viewport from the Sketchfab website. It should look something like this:
 
 ``` html
-<iframe width="800" height="600" src="https://sketchfab.com/models/338f5aa603b24ec6b9303596867e3285/embed?autostart=1" frameborder="0" allowvr allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" onmousewheel=""></iframe>
+<iframe src="https://sketchfab.com/models/338f5aa603b24ec6b9303596867e3285/embed?autostart=1" frameborder="0" allowvr allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" onmousewheel=""></iframe>
 ```
 
 Simply add this to the front 

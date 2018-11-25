@@ -22,7 +22,8 @@ From these base scaffolds, processes for procedurally modeling can vary in degre
 
 ## Command Toolset
 
-<div class="alert alert-info"><span class="glyphicon glyphicon-hand-down" aria-hidden="true"> Helpfiles rule! In Rhino, go to help, command list, and type in any of the tools or commands sighted below in order to access further step by step information and parameters of each. Commands are denoted in **Labels**.</span>
+<div class="alert alert-info">
+<span class="glyphicon glyphicon-hand-down" aria-hidden="true"> Helpfiles rule! In Rhino, go to help, command list, and type in any of the tools or commands sighted below in order to access further step by step information and parameters of each.</span>
 </div>
 
 #### Polyline **Polyline** **Pline**
