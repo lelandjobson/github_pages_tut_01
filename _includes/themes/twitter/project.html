@@ -36,14 +36,14 @@
                                 {% if sitePage.title == process %}
                                     <div class="card" style="width: 18rem;">
                                         <div class="card-header">Prerequisite</div>
-                                        <img class="card-img-top" src="{{ BASE_PATH }}/github_pages_tut_01/{{ sitePage.dir }}\images\{{ sitePage.heroimg }}" alt="{{ sitePage.title }}" style="max-width: 16rem;">
+                                        <img class="card-img-top" src="{{ BASE_PATH }}{{ sitePage.dir }}\images\{{ sitePage.heroimg }}" alt="{{ sitePage.title }}" style="max-width: 16rem;">
                                         <div class="card-body">
                                         <h5 class="card-title" style="padding: 0px">{{ sitePage.title }}</h5>
                                         <p class="card-text"><small>{{ sitePage.description }}</small></p>
                                         <!-- {% for plat in sitePage.platforms %}
                                         <strong>{{ plat }} &nbsp;</strong>
                                         {% endfor %} -->
-                                        <a href="{{ sitePage.url }}" class="btn btn-primary">Read</a>
+                                        <a href="{{ BASE_PATH }}\{{ sitePage.url }}" class="btn btn-primary">Read</a>
                                         </div>
                                     </div>
                                 {% endif %}
