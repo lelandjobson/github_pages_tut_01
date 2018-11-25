@@ -20,6 +20,34 @@ We have come to believe that the ultimate user manual for implementing technolog
 
 This project, called the Future Craft Field Guides, or FCFG for short, are the consolidation of our knowledge base: technology’s manifold implementations in the arts are keyframed at the macro and micro levels, spanning from fundamentals to content creation. On its face, the Field Guide serves to broaden the technical prowess of our students, but our project is to also discover how technology, technique, craft and reason interlink our various disciplines - if we could draw that web, what would we learn? What could we do with it? FCFG is such an  asset.
 
+<div id="editors"></div>
+
+## Editors
+
+![]({{ BASE_PATH }}/github_pages_tut_01/assets/images/global/authors.png)
+
+#### Leland Jobson, Editor in Chief & Maintainer
+
+Leland Jobson is a computational designer at Thornton Tomasetti CORE Studio, Adjunct Professor at New York Institute of Technology's Graduate Architecture department, Visiting Assistant Professor at Pratt Institute and a founding member of the Interdisciplinary Technology Lab.
+
+#### David Mans, Managing Editor
+
+David Mans is an Associate Developer as Thornton Tomasetti CORE Studio, Visiting Assistant Professor at Pratt Institute and member of the Interdisciplinary Technology Lab. 
+
+#### Ted Ngai, Editor
+
+Ted Ngai is the founder of atelier nGai,  Professor of Practice at Renssellaer Polytechnic Institute, Visiting Assistant Professor at Pratt Institute and a founding member of the Interdisciplinary Technology Lab.
+
+#### Scott Sorenson, Editor
+
+Scott Sorenson is the founding partner of SOAP, Visiting Assistant Professor at Pratt Institute and a founding member of the Interdisciplinary Technology Lab.
+
+#### Richard Sarrach, Director
+
+Richard Sarrach is a co-founder of the Interdisciplinary Technology Lab and an Adjunct Professor at Pratt institute.
+
+
+
 ---
 # How to contribute
 ---
@@ -43,7 +71,7 @@ description: A top level introduction to the adobe suite and its products.
 field-guide: Adobe Field Guide
 order: 1
 ---
-``` 
+```
 - _layout: post_ Do not change this.
 - _title_ The title of this page
 - _description_ A short description of what this page is about
@@ -177,7 +205,7 @@ Simply add this to the front
 
 ``` html
 <div class="sketchfab-embed-wrapper">
-``` 
+```
 
 And this at the end
 
