@@ -51,13 +51,9 @@ The Lunchbox toolkit for **grasshopper** comes with a set of panelization tools 
 
 You can write your own C# component for grasshopper to collect points of a surface into groups of quad panels. We will collect the points in the below order and use them to create polylines. 
 
-![uviter2](.\images\uviter2.PNG)
-
-
 The walkthrough below will detail a simple approach with a flattened list of points coming from the **Divide Surface** component.
 
 > See the Surface UV and Multidimensional Array articles for more information on the techniques shown here.
-
 
 
 #### Walkthrough
