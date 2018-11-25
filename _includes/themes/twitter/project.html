@@ -35,7 +35,11 @@
                             {% for process in page.processes %}
                                 {% if sitePage.title == process %}
                                     <div class="card" style="width: 18rem;">
-                                        <div class="card-header">Refernced Process</div>
+                                        <div class="card-header" style="background-color:white;">
+                                        {% for plat in sitePage.platforms %}
+                                            <strong>{{ plat }} &nbsp;</strong>
+                                        {% endfor %}
+                                        </div>
                                         <img class="card-img-top" src="{{ BASE_PATH }}{{ sitePage.dir }}\images\{{ sitePage.heroimg }}" alt="{{ sitePage.title }}" style="max-width: 16rem;">
                                         <div class="card-body">
                                         <h5 class="card-title" style="padding: 0px">{{ sitePage.title }}</h5>
@@ -48,26 +52,7 @@
                         {% endfor %}
                 {% endif %}
                     </div>
-                    <hr>
-                {% if page.platforms != None %}
-                    <div class="d-flex justify-content-center">
-                    <!-- Platforms container -->
-                        <table class="principleTable platformTable" style="margin: 5px !important; padding: 5px !important;">
-                            <tr>
-                                <th colspan="2">Platforms Used</th>
-                            </tr>
-                            {% for plat in page.platforms %}
-                            <tr>
-                                <!-- TODO: Pathing to platform quick starts -->
-                                <!-- <td><a href=""><img src="{{ HOME_PATH }}/assets/images/global/platforms/{{ plat | downcase }}.png" style="margin: 0px !important;"></a></td> -->
-                                <td><i class="fa fa-cubes"></i></td>
-                                <td><a href="">{{ plat }}</a></td>
-                            </tr>
-                            {% endfor %}
-                        </table>
-                    </div>
-                {% endif %}
-            <hr>
+                <hr>
             {{ content }}              
           </div>
         </div>
