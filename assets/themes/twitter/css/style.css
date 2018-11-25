@@ -42,6 +42,7 @@ td {
   padding: 12px;
 }
 
+/* Overrides bold styling */
 strong {
   /* background-color: #ab86c8 !important; */
   border-style: solid;
@@ -56,6 +57,20 @@ strong {
   font-size: .9em;
   /* color: white; */
   margin-right: 2px;
+}
+
+
+u {
+  background-color: #d9ffc8 !important;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-left: 2px;
+  font-size: .9em;
+  display: block;
+  text-decoration: none;
+  padding-top: 5px;
+  text-align: center !important;
+  padding-bottom: 5px;
 }
 
 th tr td {
@@ -371,6 +386,7 @@ pre {
   background-color: #fafafa;
   overflow-x: hidden;
   padding-top: 90px;
+  padding-bottom: 30px;
   font-family: 'Roboto', monospace;
   border: #b3b3b3;
   border-style: solid;
