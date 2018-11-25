@@ -41,10 +41,11 @@ David Mans is an Associate Developer as Thornton Tomasetti CORE Studio, Visiting
 
 Ted Ngai is the founder of atelier nGai,  Professor of Practice at Renssellaer Polytechnic Institute, Visiting Assistant Professor at Pratt Institute and a founding member of the Interdisciplinary Technology Lab.
 
+#### Richard Sarrach, Director
+
+Richard Sarrach is a co-founder of the Interdisciplinary Technology Lab and an Adjunct Professor at Pratt institute.
+
 #### Scott Sorenson, Editor
 
 Scott Sorenson is the founding partner of SOAP, Visiting Assistant Professor at Pratt Institute and a founding member of the Interdisciplinary Technology Lab.
 
-#### Richard Sarrach, Director
-
-Richard Sarrach is a co-founder of the Interdisciplinary Technology Lab and an Adjunct Professor at Pratt institute.
