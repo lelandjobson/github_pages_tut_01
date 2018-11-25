@@ -11,15 +11,11 @@
   <!-- Enable responsive viewport -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
-  <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
   <!-- Le styles -->
   <link href="{{ ASSET_PATH }}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="{{ ASSET_PATH }}/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
   <link href="{{ ASSET_PATH }}/css/fonts.css" rel="stylesheet" type="text/css" media="all">
+  <link href="{{ ASSET_PATH }}/css/images.css" rel="stylesheet" type="text/css" media="all">
   <link href="{{ BASE_PATH }}/assets/themes/scripts/vakata-tree/themes/default/style.css" rel="stylesheet" />
 
   <!-- FontAwesome -->
@@ -36,7 +32,7 @@
   <!-- jsTree TreeView side navigation script -->
   <script src="{{ BASE_PATH }}/assets/themes/scripts/vakata-tree/jstree.js"></script>
 
-  <!-- Run the script to transform the sidenav into a treeview -->
+    <!-- Script to transform the sidenav into a treeview -->
   <script>
     $(function () { 
         // $('#jsTreeNav').jstree();        
@@ -56,8 +52,37 @@
             // }
           });
       });
+  </script>
+    <!-- Script to apply modal blow-ups to images on the page -->
+  <script>
+    // Get the modal
+    $(function () { 
+        var modal = document.getElementById('myModal');
+  
+        // Get the image and insert it inside the modal - use its "alt" text as a caption
+        var modalImg = $("#img01");
+        var captionText = document.getElementById("caption");
+        console.log($('.content'));
+        $("p").children('img').each(function (index, value) { 
+          console.log("Found an image",value);
+          value.click(function(){
+              modal.style.display = "block";
+              var newSrc = this.src;
+              modalImg.attr('src', newSrc);
+              captionText.innerHTML = this.alt;       
+            });
+        });
+        console.log("Hello im here");
+  
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+  
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+          modal.style.display = "none";
+        }
+    });
     </script>
-
 </head>
 
 <body class="wrapper">
@@ -175,6 +200,19 @@
     </div>
   </div>
   {% include JB/analytics %}
-</body>
 
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- The Close Button -->
+  <span class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
+
+  <!-- Modal Content (The Image) -->
+  <img class="modal-content" id="img01">
+
+  <!-- Modal Caption (Image Text) -->
+  <div id="caption"></div>
+</div>
+
+</body>
 </html>
