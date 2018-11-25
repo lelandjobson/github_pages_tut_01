@@ -95,14 +95,15 @@ TCP stands for Tool center point. When we command the robot to move to a positio
 >Polyscope is the built in programming interface and operating system of the robot. The language of communication is URScript.
 
 #### Example Program Walkthrough
-- On the pendant, Click Program
-- Click Empty Program to create a new program
+- On the pendant, Click **Program**
+- Click **Empty Program** to create a new program
 > Note - The program tree is the leftmost box showing the commands in order of sequence and parent/child. Commands are executed sequentially. Note - You can cut and paste commands on the command tree to nest the way you want them to using the on-screen cut and paste buttons.
 
 - Click Structure tab to access commands such as move, waypoint, wait, set, etc.
 - Programs consist of waypoints and motion between them.
 - Program tree shows the movements in their order
-- Motion Types
+
+## Motion Types
 - #### MoveL
 Linear motion type, straight line from one point to another. Where the path is important. Suited for motion in confined space.
 - MoveJ - Fastest between two points. Use where path of TCP is not important
