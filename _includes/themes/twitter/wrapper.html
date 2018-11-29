@@ -82,7 +82,57 @@
           modal.style.display = "none";
         }
     });
-    </script>
+  </script>
+<!-- Script to get thumbnails of sketchfab models via the api -->
+  <script>
+  const Http = new XMLHttpRequest();
+  const url='https://api.sketchfab.com/v3/models/';
+  async function GetSketchfabThumb(uuid) {
+    var x = await SFApiCallThumb(uuid);
+    console.log(x); // 10
+  }
+
+  function SFApiCallThumb(uuid) { 
+    return new Promise(resolve => {
+      setTimeout(() => {       
+        resolve(apiCall(uuid));
+      }, 2000);
+    });
+  }
+
+ function apiCall(uuid){
+  Http.open("GET", url + uuid);
+  Http.send();
+  Http.onreadystatechange=(e)=>{
+    try{
+      var jason = JSON.parse(Http.responseText);
+      var url = jason.thumbnails.images[2].url;
+      return url;
+    }
+    catch{
+      // reject('No dice'); 
+    }
+  }
+}
+
+
+
+  function ReLoadImages(){
+      $('img[data-lazyload]').each( function(){
+          //* set the img src from data-src
+          console.log( this )
+          $( this ).attr( 'src', $( this ).attr( 'data-lazyload' ) );
+          }
+      )};
+
+  document.addEventListener('readystatechange', event => {
+      if (event.target.readyState === "complete") {  //or at "complete" if you want it to execute in the most last state of window.
+          console.log("Ready")
+          ReLoadImages();
+      }
+  });
+
+  </script>
 </head>
 
 <body class="wrapper">

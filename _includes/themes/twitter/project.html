@@ -13,16 +13,22 @@
       <div class="row-fluid post-full">
         <div class="span12">
           <div class="content">
-                <p class="principleDescription">{{ page.description }}</p>
-
                 <!-- {% if page.description-credit %}
                 <br>
                 <p class="aka">- {{ page.description-credit }}</p>
                 {% endif %}
                 <br> -->
                 <br>
+                {% if page.sketchfabUUID != none %}
+                    <div class="sketchfab-embed-wrapper"><iframe src="https://sketchfab.com/models/{{ page.sketchfabUUID }}/embed" frameborder="0" allow="autoplay; fullscreen; vr" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></div>
+                {% endif %}
+                <br>
+                <p class="principleDescription">{{ page.description }}</p>
                 <!-- Process & Platforms container -->
                 {% if page.processes != None %}
+                    <br><br>
+                    <hr>
+                    <h1>Prerequisites</h1>
                     <!-- <div class="alert alert-warning">
                         <i class="fa fa-hand-o-down" aria-hidden="true"></i>
                         <span class="glyphicon glyphicon-hand-down" aria-hidden="true">Please review the following before starting this guide:</span>
@@ -51,6 +57,8 @@
                         {% endfor %}
                 {% endif %}
                     </div>
+                <hr>
+                <h1>Walkthrough</h1>
                 <hr>
             {{ content }}              
           </div>

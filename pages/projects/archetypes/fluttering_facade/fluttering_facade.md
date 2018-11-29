@@ -8,15 +8,8 @@ order: 1
 difficulty: easy
 processes: ['Surface Panelization']
 platforms: ['Rhinoceros','Grasshopper']
+sketchfabUUID: '1414a55e746f4fc6be1f94b67b7ba581'
 ---
-
-## Final Product
-
-<div class="sketchfab-embed-wrapper"><iframe src="https://sketchfab.com/models/1414a55e746f4fc6be1f94b67b7ba581/embed" frameborder="0" allow="autoplay; fullscreen; vr" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></div>
-
-
-
-### Walkthrough
 
 Begin by creating a flat four point surface in Rhinoceros using the **srfpt** or  **plane** commands. Turn on the control points of the surface and drag two opposite corners downward or upward to produce a hypar. This will be our base surface
 

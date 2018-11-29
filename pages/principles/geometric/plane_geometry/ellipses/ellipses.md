@@ -10,3 +10,25 @@ dependencies: [ 'Points' ]
 platforms: [ 'Rhinoceros', 'Illustrator', 'Grasshopper' ]
 order: 0
 ---
+
+
+
+![](.\images\Ellipse.gif)
+
+
+
+Ellipses contain two **foci** (singular: focus). Ellipses share a property that the sum of the distances from each focus to the edge of the ellipse is constant across all points of the ellipse - in a sense, it is a "radius" formed by two points.
+
+
+
+![](.\images\Circle.gif)
+
+All circles are ellipses but not all ellipses are circles.
+
+
+
+![](.\images\conic_section.PNG)
+
+
+
+An ellipse can be derived also from a **conic section**, with a titled plane.

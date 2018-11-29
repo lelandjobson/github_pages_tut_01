@@ -151,8 +151,7 @@ Changes the degree of a curve or surface.
 
 ## Selection Commands
 
-<div class="alert alert-info"><span class="glyphicon glyphicon-hand-down" aria-hidden="true">**<strong> Helpfiles rule!</strong> In Rhino, go to help, command list, and type in any of the tools or commands sighted below in order to access further step by step information and parameters of each. Commands are denoted in **Labels**.
-</div>
+<div class="alert alert-info"><span class="glyphicon glyphicon-hand-down" aria-hidden="true"><strong>Helpfiles rule!</strong> In Rhino, go to help, command list, and type in any of the tools or commands sighted below in order to access further step by step information and parameters of each. Commands are denoted in **Labels**.</span></div>
 
 #### Select Surfaces **SelSrf**
 
