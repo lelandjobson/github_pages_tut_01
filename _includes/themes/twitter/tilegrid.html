@@ -6,28 +6,18 @@
         <div class="row-fluid post-full">
           <div class="span12">
             <div class="content" style="padding-top: 23%">
-                <div class="card-columns">
+                <div id="projCards" class="card-columns">
                     {% assign projects = site.pages | where: "category", "Projects" %}
                     {% for proj in projects %}
-                      <div class="card">
-                          <img id="projCard" data-lazyload="" class="card-img-top" src="" alt="Card image cap">
-                          <div id="skUUid" myUUID="{{ proj.sketchfabUUID }}"></div>
-                          <script>
-                            var projUUID = $('#skUUid').attr("myUUID");
-                            document.getElementById("skUUid").outerHTML = "";
-                            console.log("My id is", projUUID);
-                            var x = GetSketchfabThumb(projUUID);
-                            console.log("My url is", x);
-                            $("#projCard").attr("data-lazyload", x.toString());;
-                          </script>
-                          <div class="card-body">
-                            <h5 class="card-title">{{ proj.title }}</h5>
-                            <p class="card-text">{{ proj.description }}</p>
-                          </div>
-                      </div>
+                      <script>
+                      let projName = '{{ proj.title }}';
+                      let projDesc = '{{ proj.description }}';
+                      let sfId = '{{ proj.sketchfabUUID }}';
+                      let projUrl = '{{ proj.url }}';
+                      CreateProjectCard(projName, projDesc, projUrl, sfId)
+                      </script>
                     {% endfor %}
                 </div>
-
               <!-- {{ content }} -->
             </div>
           </div>
