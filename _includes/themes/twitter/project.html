@@ -1,0 +1,87 @@
+<!-- CONTENT -->
+<div class="container container-narrow container-content">
+    <p style="color: rgb(200,200,200); float: right; padding-right: 40px;">{{ page.field-guide | remove: 'Field Guide' }}</p>
+    <div class="content">
+      <div class="page-header">             
+        <h1 class="bgChange" data-background="./thumb.png">{{ page.title }}</h1>
+        <!-- {% if page.aka %}
+        <small>
+            <p class="aka">Also known as: {% for aka in page.aka %}{{ aka }} {% endfor %}</p>
+        </small>
+        {% endif %} -->
+      </div>
+      <div class="row-fluid post-full">
+        <div class="span12">
+          <div class="content">
+                <!-- {% if page.description-credit %}
+                <br>
+                <p class="aka">- {{ page.description-credit }}</p>
+                {% endif %}
+                <br> -->
+                <br>
+                {% if page.sketchfabUUID != none %}
+                    <div class="sketchfab-embed-wrapper"><iframe src="https://sketchfab.com/models/{{ page.sketchfabUUID }}/embed" frameborder="0" allow="autoplay; fullscreen; vr" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></div>
+                {% endif %}
+                <br>
+                <p class="principleDescription">{{ page.description }}</p>
+                <!-- Process & Platforms container -->
+                {% if page.processes != None %}
+                    <br><br>
+                    <hr>
+                    <h1>Prerequisites</h1>
+                    <!-- <div class="alert alert-warning">
+                        <i class="fa fa-hand-o-down" aria-hidden="true"></i>
+                        <span class="glyphicon glyphicon-hand-down" aria-hidden="true">Please review the following before starting this guide:</span>
+                    </div> -->
+                    <hr>
+                    <div class="d-flex justify-content-center">
+                        <!-- Process container -->
+                        <!-- Find the relevant process page -->
+                        {% for sitePage in site.pages | where: "category", "Processes" %}
+                            {% for process in page.processes %}
+                                {% if sitePage.title == process %}
+                                    <div class="card" style="width: 18rem;">
+                                        <div class="card-header">Prerequisite</div>
+                                        <img class="card-img-top" src="{{ BASE_PATH }}{{ sitePage.dir }}\images\{{ sitePage.heroimg }}" alt="{{ sitePage.title }}" style="max-width: 16rem;">
+                                        <div class="card-body">
+                                        <h5 class="card-title" style="padding: 0px">{{ sitePage.title }}</h5>
+                                        <p class="card-text"><small>{{ sitePage.description }}</small></p>
+                                        <!-- {% for plat in sitePage.platforms %}
+                                        <strong>{{ plat }} &nbsp;</strong>
+                                        {% endfor %} -->
+                                        <a href="{{ BASE_PATH }}\{{ sitePage.url }}" class="btn btn-primary">Read</a>
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        {% endfor %}
+                {% endif %}
+                    </div>
+                <hr>
+                <h1>Walkthrough</h1>
+                <hr>
+            {{ content }}              
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer>
+        <!-- SUPPORT OUT MISSION thing -->
+        <!-- <div class="alert alert-success" role="alert">
+          <strong>Support Our Mission!</strong> 
+          The <a href="http://itl.pratt.edu"><span class="label label-default">ITL</span></a> 
+          publishes online for free in our commitment to the design community and passion for education. 
+          Support us on <a href="http://www.drip.com"><span class="label label-info">Drip</span></a>. 
+          <i class="glyphicon glyphicon-book" aria-hidden="true"> </i>
+          <i class="glyphicon glyphicon-heart" aria-hidden="true"> </i>
+        </div> -->
+        <p><small>
+            <a href="https://itl.pratt.edu">Interdisciplinary Technology Lab</a>
+            <br>Field Guide v.0.1.2
+          </small></p>
+      </footer>
+  </div>
+  
+  <!-- SCRIPTS -->
+  <script src="{{ ASSET_PATH }}scripts/in-view/in-view.min.js"></script>
+  <script src="{{ ASSET_PATH }}scripts/changeBg.js"></script>

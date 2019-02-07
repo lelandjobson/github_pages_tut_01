@@ -1,40 +1,28 @@
 <!-- CONTENT -->
-<div class="container container-narrow container-content">
-  <div class="content">
-      <div class="page-header">
-          <h1>{{ page.title }} {% if page.tagline %}<small>{{page.tagline}}</small>{% endif %}</h1>
-        </div>
-      <br>
-      {{ content }}
-  <hr>
-    <h5 style="text-align: center;" data-background-color="#27ae60">Field Guides</h5><br>
-    <div class="row">
-        {% for page in site.pages %}
-      <div class="card" style="width: 16rem; margin-bottom: 2%;">
-          <img class="card-img-top" src="{{ BASE_PATH }}/assets/images/286x180.png" alt="Field Guide">
-          <div class="card-body">
-            <h5 class="card-title">{{page.title}}</h5>
-            <p class="card-text">{{page.description}}</p>
-            <a href="{{page.url}}" class="btn btn-primary">Open</a>
+
+<body style="background-image: url(./assets/images/global/white.png)">
+  <div class="container container-narrow container-content">
+    <div class="content">
+      <div class="row-fluid post-full">
+        <div class="span12">
+          <div class="content" style="padding-top: 23%">
+            <h1>{{ page.title }} {% if page.tagline %}<small>{{page.tagline}}</small>{% endif %}</h1>
+            <br>
+            {{ content }}
           </div>
-      </div>
-      {% endfor %}
-    </div>
-    <hr>
-    <footer>
-        <div class="alert alert-success" role="alert">
-          <strong>Support Our Mission!</strong> 
-          The <a href="http://itl.pratt.edu"><span class="label label-default">ITL</span></a> 
-          publishes online for free in our commitment to the design community and passion for education. 
-          Support us on <a href="http://www.drip.com"><span class="label label-info">Drip</span></a>. 
-          <i class="glyphicon glyphicon-book" aria-hidden="true"> </i>
-          <i class="glyphicon glyphicon-heart" aria-hidden="true"> </i>
+          
+          <hr>
+          <footer>
+            <p><small>
+                <a href="https://itl.pratt.edu">Interdisciplinary Technology Lab</a>
+                <br>Field Guide v.0.12
+              </small></p>
+          </footer>
         </div>
-      <p><small>
-        <!-- <a href="https://creativecommons.org/publicdomain/zero/1.0/"><img src="https://i.creativecommons.org/p/zero/1.0/88x31.png" alt="CC0"/></a> &nbsp; -->
-        <a href="https://itl.pratt.edu">Interdisciplinary Technology Lab</a> 
-        <br>Field Guide v.0.12
-      </small></p>
-    </footer>
-  </div>
-</div>
+      </div>
+
+      <!-- SCRIPTS -->
+      <script src="{{ ASSET_PATH }}scripts/in-view/in-view.min.js"></script>
+      <script src="{{ ASSET_PATH }}scripts/changeBg.js"></script>
+
+</body>
