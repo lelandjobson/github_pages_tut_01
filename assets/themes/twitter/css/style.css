@@ -15,14 +15,14 @@ body {
   align-items: stretch;
 }
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   #sidebar {
       margin-left: -250px;
   }
   #sidebar.active {
       margin-left: 0;
   }
-}
+} */
 
 a[data-toggle="collapse"] {
   position: relative;
@@ -37,21 +37,45 @@ a[data-toggle="collapse"] {
 }
 
 #sidebar {
-  width: 350px;
+  /* width: 350px; */
   position: fixed;
   top: 0;
   left: 0;
   height: 100vh;
-  z-index: 999;
-  background: #091134;
-  color: #fff;
+  z-index: 990;
+  background: #ffffffed;
+  color: #091134;
   transition: all 0.3s;
   padding: 20px;
-  padding-top: 100px;
+  /* padding-top: 100px; */
 }
 
 #sidebar.active {
   margin-left: -350px;
+}
+
+#openSidebar {
+  position: fixed; 
+  left: 20px; 
+  top: 20px;
+  transition: all 0.3s;
+  z-index: 999;
+}
+
+.fixedRightOver {
+  left: 300px !important;
+}
+
+.top-right {
+  position: fixed; right: 20px; top: 20px
+}
+
+.bottom-right {
+  position: fixed; right: 20px; bottom: -10px;
+}
+
+.bottom-right img {
+  max-width: initial;
 }
 
 
@@ -178,8 +202,8 @@ th {
 
 .container-narrow {
   margin: 0 auto;
-  min-width: 500px !important;
-  max-width: 1000px !important;
+  min-width: 300px !important;
+  max-width: 1300px !important;
 }
 
 .container-content {
@@ -202,11 +226,6 @@ th {
   border: none;
   border-radius: 0;
 }
-
-/* .navbar {
-  background-image: linear-gradient(to right, black, rgb(34, 34, 34), black);
-  font-family: 'Roboto', monospace;
-} */
 
 .brand {
   font-family: 'Inconsolata', monospace;
@@ -284,14 +303,7 @@ th {
 }
 
 .content {
-  /* font-family: 'Ibm Plex Sans', sans-serif;
-  background-color: white;
-  padding-left: 60px;
-  padding-right: 60px;
-  padding-top: 30px;
-  padding-bottom: 60px;
-  line-height: 20pt; */
-  padding: 20px;
+  padding: 60px;
   background-color: white;
 }
 
@@ -303,12 +315,12 @@ blockquote {
   padding-left: 40px;
   margin-top: 10px;
   margin-bottom: 40px;
-  font-family: 'IBM Plex Mono';
 }
 
 blockquote p {
   font-size: 20px;
   line-height: 30px;
+  font-family: 'IBM Plex Mono', sans-serif !important;
 }
 
 .introtext {
@@ -327,6 +339,16 @@ blockquote p {
   line-height: 26px
 }
 
+/*
+.##.....##.########....###....########..########.########.
+.##.....##.##.........##.##...##.....##.##.......##.....##
+.##.....##.##........##...##..##.....##.##.......##.....##
+.#########.######...##.....##.##.....##.######...########.
+.##.....##.##.......#########.##.....##.##.......##...##..
+.##.....##.##.......##.....##.##.....##.##.......##....##.
+.##.....##.########.##.....##.########..########.##.....##
+*/
+
 h2,
 h3,
 h4,
@@ -343,6 +365,16 @@ h2 {
   padding-top: 30px;
   padding-bottom: 30px;
 }
+
+/*
+..######..########.##......
+.##....##.##.......##......
+.##.......##.......##......
+..######..######...##......
+.......##.##.......##......
+.##....##.##.......##......
+..######..########.########
+*/
 
 p::-moz-selection {
   background: #fff2a8;
@@ -387,7 +419,7 @@ pre {
   padding-top: 100px;
   padding-bottom: 45px;
   text-align: center;
-  font-family: 'IBM Plex Sans',sans-serif;
+  /* font-family: 'IBM Plex Sans',sans-serif; */
   font-style: italic;
 }
 
@@ -398,28 +430,26 @@ pre {
     color: gray;
 }
 
-/* The sidebar menu */
-.sidenav {
-  /* height: 100%;
-  width: 300px;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  color: rgb(22, 22, 22);
-  overflow-x: hidden;
-  background-color: #fafafa;
-  overflow-x: hidden;
-  padding-top: 90px;
-  padding-bottom: 30px;
-  font-family: 'Roboto', monospace;
-  border: #b3b3b3;
-  border-style: solid;
-  border-width: 1px; */
-}
+/*
+.......##..######..########.########..########.########
+.......##.##....##....##....##.....##.##.......##......
+.......##.##..........##....##.....##.##.......##......
+.......##..######.....##....########..######...######..
+.##....##.......##....##....##...##...##.......##......
+.##....##.##....##....##....##....##..##.......##......
+..######...######.....##....##.....##.########.########
+*/
 
 .jstree-container-ul.jstree-children {
   padding-left: 10px;
+}
+
+.jstree-default .jstree-clicked {
+  background: #fffe9e !important;
+}
+
+.jstree-default .jstree-hovered {
+  background: #fffe9e !important;
 }
 
 li a {
@@ -441,16 +471,16 @@ li a {
   padding: 0px 10px;
 }
 
-/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
-@media screen and (max-height: 450px) {
-  .sidenav {
-    width: 200px;
-  }
 
-  .sidenav a {
-    font-size: 18px;
-  }
-}
+/*
+.##......##.########.########..##....##.####.########
+.##..##..##.##.......##.....##.##...##...##.....##...
+.##..##..##.##.......##.....##.##..##....##.....##...
+.##..##..##.######...########..#####.....##.....##...
+.##..##..##.##.......##.....##.##..##....##.....##...
+.##..##..##.##.......##.....##.##...##...##.....##...
+..###..###..########.########..##....##.####....##...
+*/
 
 /* width */
 ::-webkit-scrollbar {
@@ -472,21 +502,16 @@ li a {
   background: #555;
 }
 
-/* New item background badge */
-.newitem {
-  background-image: url(../../../images/global/new_tag.png);
-  background-position: fixed;
-  background-position: right 30px center;
-  background-repeat: no-repeat;
-}
 
-/* Modified item background badge */
-.moditem {
-  background-image: url(../../../images/global/mod_tag.png);
-  background-position: fixed;
-  background-position: right 30px center;
-  background-repeat: no-repeat;
-}
+/*
+..######..##....##.########.########..######..##.....##.########....###....########.
+.##....##.##...##..##..........##....##....##.##.....##.##.........##.##...##.....##
+.##.......##..##...##..........##....##.......##.....##.##........##...##..##.....##
+..######..#####....######......##....##.......#########.######...##.....##.########.
+.......##.##..##...##..........##....##.......##.....##.##.......#########.##.....##
+.##....##.##...##..##..........##....##....##.##.....##.##.......##.....##.##.....##
+..######..##....##.########....##.....######..##.....##.##.......##.....##.########.
+*/
 
 .sketchfab-embed-wrapper {
   /* padding: 30px; */
