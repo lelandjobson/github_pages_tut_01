@@ -32,6 +32,35 @@
   <!-- jsTree TreeView side navigation script -->
   <script src="{{ BASE_PATH }}/assets/themes/scripts/vakata-tree/jstree.js"></script>
 
+  <!-- sideComments -->
+  <script src="{{ BASE_PATH }}/comments/side-comments.js"></script>
+  <link href="{{ BASE_PATH }}/comments/side-comments.css" rel="stylesheet" />
+  <link href="{{ BASE_PATH }}/comments/themes/default-theme.css" rel="stylesheet" />
+
+  <script>
+  $(function (){
+    // // First require it.
+    // import * as SideComments from  '../../../_comments/side-comments.js';
+    console.log("I am sidecomments", SideComments);
+    let currentUser = {
+        id: 1,
+        avatarUrl: "http://f.cl.ly/items/0s1a0q1y2Z2k2I193k1y/default-user.png",
+        name: "You"
+      };
+    
+    let existingComments = [];
+
+    // Then, create a new SideComments instance, passing in the wrapper element and the optional the current user and any existing comments.
+    sideComments = new SideComments('#commentable-area', currentUser, existingComments);
+
+    // Listen to "commentPosted", and send a request to your backend to save the comment.
+    // More about this event in the "docs" section.
+    sideComments.on('commentPosted', function( comment ) {
+      console.log("Comment posted!");
+    });
+  });
+  </script>
+
   <!-- Script to transform the sidenav into a treeview -->
   <script>
     $(function () {
@@ -246,6 +275,18 @@
         </div>
         <!-- CONTENT -->
         <div class="container container-narrow">
+          <!-- TEST SIDE COMMENTS -->
+          <div id="commentable-area">
+              <p data-section-id="1" class="commentable-section">
+                This is a section that can be commented on.
+              </p>
+              <p data-section-id="2" class="commentable-section">
+                This is a another section that can be commented on.
+              </p>
+              <p data-section-id="3" class="commentable-section">
+                This is yet another section that can be commented on.
+              </p>
+            </div>
             {{ content }}
         </div>
     </div>
