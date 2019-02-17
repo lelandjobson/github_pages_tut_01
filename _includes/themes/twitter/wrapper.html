@@ -22,6 +22,12 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
     crossorigin="anonymous">
 
+  <!-- Firebase -->
+  <script src="https://cdn.firebase.com/js/client/2.2.1/firebase.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.0/moment.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-md5/2.1.0/js/md5.js"></script>
+
   <!-- atom & rss feed -->
   <!-- <link href="{{ BASE_PATH }}{{ site.JB.atom_path }}" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
     <link href="{{ BASE_PATH }}{{ site.JB.rss_path }}" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">   -->
@@ -127,6 +133,24 @@
       $('#projCards').append(card);
     });
   }
+  </script>
+  <!-- Firebase scripts -->
+  <script>
+    // Remove ampersands from strings
+    function slugify(text) {
+      return text.toString().toLowerCase().trim()
+        .replace(/&/g, '-and-')
+        .replace(/[\s\W-]+/g, '-')
+        .replace(/[^a-zA-Z0-9-_]+/g,'');
+    }
+    // Get post ref url
+    function getPostRef(ref){
+      return ref.child(slugify(window.location.pathname));
+    }
+    // Initialize firebase
+    $(function(){
+      var ref = new Firebase("https://itl-fgfc.firebaseio.com/");
+    })
   </script>
 
   <!-- Popper.JS -->
