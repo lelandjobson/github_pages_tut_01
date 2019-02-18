@@ -8,9 +8,9 @@ require.config({
         "blueImp" : "https://cdnjs.cloudflare.com/ajax/libs/blueimp-md5/2.1.0/js/md5",
         "mCustomScrollbar" : "https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min",
         "popper" : "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper",
-        "sideComments" : "/scripts/js/sideComments/side-comments",
-        "jsTree" : "/scripts/js/jstree/jstree.min",
-        "inView" : "/scripts/js/in-view/in-view.min",
+        "sideComments" : window.basePath + "/scripts/js/sideComments/side-comments",
+        "jsTree" : window.basePath + "/scripts/js/jstree/jstree.min",
+        "inView" : window.basePath + "/scripts/js/in-view/in-view.min",
         "lodash" : "https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.min"
     },
   
@@ -227,7 +227,6 @@ function getPostLoc(){
 function initOther(){
 
     //applyModalBlowups();
-    initSketchFab();
 
     function applyModalBlowups(){
         // Get the modal
@@ -261,29 +260,5 @@ function initOther(){
             }
         });
     };
-
-    function initSketchFab(){
-        const sfUrl ='https://api.sketchfab.com/v3/models/'
-        // Test id
-        function CreateProjectCard(projName, projDesc, projUrl, sfId){
-          let sfThumbUrl = sfUrl + sfId;
-          fetch(sfThumbUrl)
-          .then((response => response.json()))
-          .then(function(data){
-            console.log("This is my data",data);
-            let thumb = data ? data.thumbnails.images[2].url : '';
-            // Generate card
-            let card = '';
-            card += '<div class="card">'
-              card += '<img class="card-img-top" src="'+ thumb + '">';
-              card += '<div class="card-body">'
-                card += '<h5 class="card-title">'+ projName +'</h5>';
-                card += '<p class="card-text">' + projDesc + '</p>';
-              card += '</div>';
-            card += '</div>';
-            $('#projCards').append(card);
-          });
-        }
-    }
 }
 })();

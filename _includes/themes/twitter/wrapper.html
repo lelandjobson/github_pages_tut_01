@@ -10,10 +10,18 @@
 
   <!-- Enable responsive viewport -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- 
+  Pass jekyll template into global scope -->
+  <script>
+    window.basePath = "{{ BASE_PATH }}";
+  </script>
+  
+  <!-- Sketchfab project cards -->
+  <script src="{{ BASE_PATH }}/scripts/js/sketchfab/main.js"></script>
   
   <!-- requireJS -->
   <script data-main="{{ BASE_PATH }}/scripts/main" src="{{ BASE_PATH }}/scripts/require.js"></script>
-
+  
   <!-- Le styles -->
   <link href="{{ ASSET_PATH }}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="{{ ASSET_PATH }}/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">

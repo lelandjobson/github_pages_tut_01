@@ -10,11 +10,11 @@
                     {% assign projects = site.pages | where: "category", "Projects" %}
                     {% for proj in projects %}
                       <script>
-                      let projName = '{{ proj.title }}';
-                      let projDesc = '{{ proj.description }}';
-                      let sfId = '{{ proj.sketchfabUUID }}';
-                      let projUrl = '{{ proj.url }}';
-                      CreateProjectCard(projName, projDesc, projUrl, sfId)
+                        let projName = '{{ proj.title }}';
+                        let projDesc = '{{ proj.description }}';
+                        let sfId = '{{ proj.sketchfabUUID }}';
+                        let projUrl = '{{ proj.url }}';
+                        window.CreateProjectCard(projName, projDesc, projUrl, sfId)
                       </script>
                     {% endfor %}
                 </div>
