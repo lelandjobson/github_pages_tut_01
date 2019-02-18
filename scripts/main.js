@@ -190,7 +190,7 @@ function initOther(){
             modal.style.display = "none";
             }
         });
-    })()
+    })();
 
     (function initSketchFab(){
         const sfUrl ='https://api.sketchfab.com/v3/models/'
@@ -214,5 +214,5 @@ function initOther(){
             $('#projCards').append(card);
           });
         }
-    })()
+    })();
 }
