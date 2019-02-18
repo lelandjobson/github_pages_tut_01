@@ -138,7 +138,7 @@ function initFireBase($, firebase, SideComments){
     let currentUser = {
         id: 1,
         avatarUrl: "https://ca.slack-edge.com/T7XBZV1UL-U7XAKB1HQ-gbfbc3587f0e-48",
-        name: "You"
+        name: "Guest"
         };
 
         if($(".commentable-section").length == 0){ return; }        
@@ -149,10 +149,12 @@ function initFireBase($, firebase, SideComments){
     firebase.database().ref('comments' + getPostLoc()).once('value').then(function(data) {
         let val = data.val();
         if(val){
+            // Convert val into a array from its own keys
+            let comms = Object.keys(val).map(k => val[k]);
             // If there are multiple comments on this page
-            if(Array.isArray(val)){
+            if(Array.isArray(comms)){
                 sectionIdObjs = {};
-                val.forEach(c => {
+                comms.forEach(c => {
                     if(!sectionIdObjs[c.sectionId]){
                         sectionIdObjs[c.sectionId] = [];
                     } 
@@ -167,8 +169,8 @@ function initFireBase($, firebase, SideComments){
             // If there is a single comment on this page
             } else {
                 existingComments.push({
-                    sectionId: val.sectionId,
-                    comments: [val]
+                    sectionId: comms.sectionId,
+                    comments: [comms]
                 })
             }
         }
@@ -178,12 +180,20 @@ function initFireBase($, firebase, SideComments){
         // Listen to "commentPosted", and send a request to your backend to save the comment.
         // More about this event in the "docs" section.
         sideComments.on('commentPosted', function( comment ) {
-            firebase.database().ref('comments' + getPostLoc()).set({
+            let loc ='comments' + getPostLoc();
+            let postData = {
                 sectionId: comment.sectionId,
                 authorAvatarUrl: currentUser.avatarUrl,
                 authorName: currentUser.name,
                 comment: comment.comment
-            });
+            }
+            // Get a key for a new Post.
+            var newPostKey = firebase.database().ref(loc).push().key;
+
+            // Write the new post's data simultaneously in the posts list and the user's post list.
+            var updates = {};
+            updates['/' + loc + '/' + newPostKey] = postData;
+            firebase.database().ref().update(updates);
             sideComments.insertComment(comment);
         });
 
