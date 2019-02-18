@@ -1,15 +1,16 @@
+(function (){
 require.config({
     paths: {
         "jquery": "https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min",
         "bootstrap": "https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min",
-        "firebase" : "https://cdn.firebase.com/js/client/2.2.1/firebase",
+        "firebase" : "https://www.gstatic.com/firebasejs/5.8.3/firebase",
         "moment" : "https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.0/moment",
         "blueImp" : "https://cdnjs.cloudflare.com/ajax/libs/blueimp-md5/2.1.0/js/md5",
         "mCustomScrollbar" : "https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min",
         "popper" : "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper",
-        "sideComments" : "./js/sideComments/side-comments",
-        "jsTree" : "./js/jstree/jstree.min",
-        "inView" : "./js/in-view/in-view.min",
+        "sideComments" : "/scripts/js/sideComments/side-comments",
+        "jsTree" : "/scripts/js/jstree/jstree.min",
+        "inView" : "/scripts/js/in-view/in-view.min",
         "lodash" : "https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.min"
     },
   
@@ -57,15 +58,13 @@ requirejs(['jquery', 'bootstrap', 'jsTree', 'sideComments', 'firebase', 'moment'
 function   ($,        bootstrap,   jsTree,   sideComments,   firebase,   moment,   blueimp,   mCustomScrollbar,   popper) {
     // Add jquery to window
     window.$ = $;
-    // $.getScript("./js/sideComments/side-comments.js");
-    initCommentableSections($,sideComments);
     initJsTree($,jsTree);
     initMCustomScrollbar($, mCustomScrollbar);
-    initFireBase($, firebase);
     initOther($);
+    initCommentableSections($,sideComments, firebase);
 });
 
-function initCommentableSections($, SideComments){
+function initCommentableSections($, SideComments, firebase){
     $(function(){
         $('#commentable-area h2').addClass('commentable-section')
         .each(function(i){ 
@@ -73,29 +72,8 @@ function initCommentableSections($, SideComments){
             e.attr('data-section-id',e.attr('id')); 
         });
 
-        initSideComments($,SideComments)
-    })
-
-    function initSideComments($,SideComments){
-        $.getScript("./js/sideComments/side-comments.js");
-        let currentUser = {
-            id: 1,
-            avatarUrl: "https://ca.slack-edge.com/T7XBZV1UL-U7XAKB1HQ-gbfbc3587f0e-48",
-            name: "You"
-          };
-        
-        let existingComments = [];
-        
-        // Then, create a new SideComments instance, passing in the wrapper element and the optional the current user and any existing comments.
-        sideComments = new SideComments('#commentable-area', currentUser, existingComments);
-        
-        // Listen to "commentPosted", and send a request to your backend to save the comment.
-        // More about this event in the "docs" section.
-        sideComments.on('commentPosted', function( comment ) {
-          console.log("Comment posted!");
-        });
-    
-    }
+        initFireBase($, firebase, SideComments);
+    })    
 }
 
 
@@ -143,26 +121,105 @@ function initMCustomScrollbar($, mCustomScrollbar){
       });
 }
 
-function initFireBase($, firebase){
+function initFireBase($, firebase, SideComments){
+     // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyD1Kn5LED_bdfFktGEbb5XEyN5hw5K7dm8",
+        authDomain: "itl-fgfc.firebaseapp.com",
+        databaseURL: "https://itl-fgfc.firebaseio.com",
+        projectId: "itl-fgfc",
+        storageBucket: "itl-fgfc.appspot.com",
+        messagingSenderId: "282845883654"
+    };
+    firebase.initializeApp(config);
+    var database = firebase.database();
+
+    // Init current user for side comments
+    let currentUser = {
+        id: 1,
+        avatarUrl: "https://ca.slack-edge.com/T7XBZV1UL-U7XAKB1HQ-gbfbc3587f0e-48",
+        name: "You"
+        };
+
+        if($(".commentable-section").length == 0){ return; }        
+    
+
+    // Get existing comments
+    let existingComments = [];
+    firebase.database().ref('comments' + getPostLoc()).once('value').then(function(data) {
+        let val = data.val();
+        if(val){
+            // If there are multiple comments on this page
+            if(Array.isArray(val)){
+                sectionIdObjs = {};
+                val.forEach(c => {
+                    if(!sectionIdObjs[c.sectionId]){
+                        sectionIdObjs[c.sectionId] = [];
+                    } 
+                    sectionIdObjs[c.sectionId].push(c);
+                })
+                Object.keys(sectionIdObjs).forEach(k => {
+                    existingComments.push({ 
+                        sectionId: k,
+                        comments: sectionIdObjs[k]
+                    });
+                })
+            // If there is a single comment on this page
+            } else {
+                existingComments.push({
+                    sectionId: val.sectionId,
+                    comments: [val]
+                })
+            }
+        }
+        // Then, create a new SideComments instance, passing in the wrapper element and the optional the current user and any existing comments.
+        var sideComments = new SideComments('#commentable-area', currentUser, existingComments);
+
+        // Listen to "commentPosted", and send a request to your backend to save the comment.
+        // More about this event in the "docs" section.
+        sideComments.on('commentPosted', function( comment ) {
+            firebase.database().ref('comments' + getPostLoc()).set({
+                sectionId: comment.sectionId,
+                authorAvatarUrl: currentUser.avatarUrl,
+                authorName: currentUser.name,
+                comment: comment.comment
+            });
+            sideComments.insertComment(comment);
+        });
+
+        // Listen to "commentDeleted" and send a request to your backend to delete the comment.
+        // More about this event in the "docs" section.
+        // sideComments.on('commentDeleted', function( commentId ) {
+        //     $.ajax({
+        //         url: '/comments/' + commentId,
+        //         type: 'DELETE',
+        //         success: function( success ) {
+        //             // Do something.
+        //         }
+        //     });
+        // });  
+    });
+}
+
 // Remove ampersands from strings
 function slugify(text) {
     return text.toString().toLowerCase().trim()
         .replace(/&/g, '-and-')
         .replace(/[\s\W-]+/g, '-')
         .replace(/[^a-zA-Z0-9-_]+/g,'');
-    }
-    // Get post ref url
-    function getPostRef(ref){
-    return ref.child(slugify(window.location.pathname));
-    }
-    // Initialize firebase
-    $(function(){
-    var ref = new Firebase("https://itl-fgfc.firebaseio.com/");
-    })
+}
+
+// Gets the current window path
+function getPostLoc(){
+    return slugify(window.location.pathname + '/');
 }
 
 function initOther(){
-    (function applyModalBlowups(){
+
+    //applyModalBlowups();
+    initSketchFab();
+
+    function applyModalBlowups(){
         // Get the modal
         $(function () {
             var modal = document.getElementById('myModal');
@@ -183,16 +240,19 @@ function initOther(){
             console.log("Hello im here");
 
             // Get the <span> element that closes the modal
-            var span = document.getElementsByClassName("close")[0];
+            var spans = document.getElementsByClassName("close");
+            if(spans.length == 0){ return; }
+            var span = spans[0];
+            if(!span || span == null || span == undefined) { return ;}
 
             // When the user clicks on <span> (x), close the modal
             span.onclick = function() {
             modal.style.display = "none";
             }
         });
-    })();
+    };
 
-    (function initSketchFab(){
+    function initSketchFab(){
         const sfUrl ='https://api.sketchfab.com/v3/models/'
         // Test id
         function CreateProjectCard(projName, projDesc, projUrl, sfId){
@@ -214,5 +274,6 @@ function initOther(){
             $('#projCards').append(card);
           });
         }
-    })();
+    }
 }
+})();
