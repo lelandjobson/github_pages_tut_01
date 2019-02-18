@@ -8,7 +8,8 @@ require.config({
         "mCustomScrollbar" : "https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min",
         "popper" : "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper",
         "sideComments" : "./js/sideComments/side-comments",
-        "jsTree" : "./js/in-view/in-view.min",
+        "jsTree" : "https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min",
+        "inView" : "./js/in-view/in-view.min",
         "lodash" : "https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.min"
     },
   
@@ -37,6 +38,9 @@ require.config({
         },
         "lodash" : {
             deps:["jquery"]
+        },
+        "inView" : {
+            deps:["jquery"]
         }
     },
     // This adds popper to the window, allowing Bootstrap to function correctly.
@@ -53,7 +57,7 @@ requirejs(['jquery', 'bootstrap', 'jsTree', 'sideComments', 'firebase', 'moment'
 function   ($,        bootstrap,   jsTree,   sideComments,   firebase,   moment,   blueimp,   mCustomScrollbar,   popper) {
     // Add jquery to window
     window.$ = $;
-    $.getScript("./js/sideComments/side-comments.js");
+    // $.getScript("./js/sideComments/side-comments.js");
     initSideComments($,sideComments);
     initJsTree($,jsTree);
     initMCustomScrollbar($, mCustomScrollbar);
@@ -62,9 +66,6 @@ function   ($,        bootstrap,   jsTree,   sideComments,   firebase,   moment,
 });
 
 function initSideComments($,SideComments){
-
-    console.log("Init - JQuery", $);
-    console.log("Init - SideComments", SideComments);
 
     let currentUser = {
         id: 1,
@@ -82,9 +83,11 @@ function initSideComments($,SideComments){
     sideComments.on('commentPosted', function( comment ) {
       console.log("Comment posted!");
     });
+    
 }
 
 function initJsTree($,jsTree){
+    window.jsTree = jsTree;
     $(function () {
         // $('#jsTreeNav').jstree();
         $('#jsTreeNav')
