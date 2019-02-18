@@ -16,9 +16,11 @@
   padding-bottom: 20px;
 }
 .side-comment .marker {
-  width: 20px;
   height: 18px;
   background: #DEDEDC;
+  width: 27px;
+  height: 25px;
+  background: #555555;
   border-radius: 2px;
   text-decoration: none;
 }
@@ -26,10 +28,10 @@
 .side-comment .marker span {
   content: "+";
   position: absolute;
-  width: 20px;
+  width: 27px;
   height: 18px;
-  line-height: 16px;
-  font-size: 14px;
+  line-height: 25px !important;
+  font-size: 20px !important;
   color: #FFF;
   text-align: center;
 }
@@ -46,7 +48,7 @@
   width: 0;
   border-width: 7px 8px 0 0;
   border-style: solid;
-  border-color: #DEDEDC transparent;
+  border-color: #555555 transparent;
 }
 .side-comment .marker:hover,
 .side-comment.active .marker {
@@ -193,6 +195,7 @@
 }
 @media (max-width: 768px) {
   .side-comments-open {
+    transition: transform .2s ease-in-out;
     -webkit-transform: translate(-220px, 0);
         -ms-transform: translate(-220px, 0);
             transform: translate(-220px, 0);

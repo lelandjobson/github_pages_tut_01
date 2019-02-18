@@ -36,9 +36,9 @@
   display: none;
 }
 .side-comment .marker {
-  display: none;
+  /* display: none; */
   position: absolute;
-  top: 0;
+  top: 6px;
   right: 0;
   cursor: pointer;
 }

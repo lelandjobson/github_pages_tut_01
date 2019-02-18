@@ -8,7 +8,7 @@ require.config({
         "mCustomScrollbar" : "https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min",
         "popper" : "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper",
         "sideComments" : "./js/sideComments/side-comments",
-        "jsTree" : "https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min",
+        "jsTree" : "./js/jstree/jstree.min",
         "inView" : "./js/in-view/in-view.min",
         "lodash" : "https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.min"
     },
@@ -58,33 +58,47 @@ function   ($,        bootstrap,   jsTree,   sideComments,   firebase,   moment,
     // Add jquery to window
     window.$ = $;
     // $.getScript("./js/sideComments/side-comments.js");
-    initSideComments($,sideComments);
+    initCommentableSections($,sideComments);
     initJsTree($,jsTree);
     initMCustomScrollbar($, mCustomScrollbar);
     initFireBase($, firebase);
     initOther($);
 });
 
-function initSideComments($,SideComments){
+function initCommentableSections($, SideComments){
+    $(function(){
+        $('#commentable-area h2').addClass('commentable-section')
+        .each(function(i){ 
+            let e = $(this);
+            e.attr('data-section-id',e.attr('id')); 
+        });
 
-    let currentUser = {
-        id: 1,
-        avatarUrl: "http://f.cl.ly/items/0s1a0q1y2Z2k2I193k1y/default-user.png",
-        name: "You"
-      };
+        initSideComments($,SideComments)
+    })
+
+    function initSideComments($,SideComments){
+        $.getScript("./js/sideComments/side-comments.js");
+        let currentUser = {
+            id: 1,
+            avatarUrl: "https://ca.slack-edge.com/T7XBZV1UL-U7XAKB1HQ-gbfbc3587f0e-48",
+            name: "You"
+          };
+        
+        let existingComments = [];
+        
+        // Then, create a new SideComments instance, passing in the wrapper element and the optional the current user and any existing comments.
+        sideComments = new SideComments('#commentable-area', currentUser, existingComments);
+        
+        // Listen to "commentPosted", and send a request to your backend to save the comment.
+        // More about this event in the "docs" section.
+        sideComments.on('commentPosted', function( comment ) {
+          console.log("Comment posted!");
+        });
     
-    let existingComments = [];
-    
-    // Then, create a new SideComments instance, passing in the wrapper element and the optional the current user and any existing comments.
-    sideComments = new SideComments('#commentable-area', currentUser, existingComments);
-    
-    // Listen to "commentPosted", and send a request to your backend to save the comment.
-    // More about this event in the "docs" section.
-    sideComments.on('commentPosted', function( comment ) {
-      console.log("Comment posted!");
-    });
-    
+    }
 }
+
+
 
 function initJsTree($,jsTree){
     window.jsTree = jsTree;
