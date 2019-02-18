@@ -69,7 +69,7 @@ function initCommentableSections($, SideComments, firebase){
         $('#commentable-area h2').addClass('commentable-section')
         .each(function(i){ 
             let e = $(this);
-            e.attr('data-section-id',e.attr('id')); 
+            e.attr('data-section-id',(e.attr('id') || e.text())); 
         });
 
         initFireBase($, firebase, SideComments);
