@@ -10,6 +10,10 @@
 
   <!-- Enable responsive viewport -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- requireJS -->
+  <script data-main="{{ BASE_PATH }}/scripts/main" src="{{ BASE_PATH }}/scripts/require.js"></script>
+
 
   <!-- Le styles -->
   <link href="{{ ASSET_PATH }}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -22,125 +26,12 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
     crossorigin="anonymous">
 
-  <!-- atom & rss feed -->
-  <!-- <link href="{{ BASE_PATH }}{{ site.JB.atom_path }}" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
-    <link href="{{ BASE_PATH }}{{ site.JB.rss_path }}" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">   -->
+  <!-- SideComments -->
+  <link href="{{ BASE_PATH }}/comments/side-comments.css" rel="stylesheet" />
+  <link href="{{ BASE_PATH }}/comments/themes/default-theme.css" rel="stylesheet" />
 
-  <!-- jquery is used in the nav and the bg change  -->
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-
-  <!-- jsTree TreeView side navigation script -->
-  <script src="{{ BASE_PATH }}/assets/themes/scripts/vakata-tree/jstree.js"></script>
-
-  <!-- Script to transform the sidenav into a treeview -->
-  <script>
-    $(function () {
-        // $('#jsTreeNav').jstree();
-        $('#jsTreeNav')
-          // listen for event
-          .on('select_node.jstree', function (e, data) {
-            console.log("Tree item selected", data.node.a_attr.href);
-            if(data.node.a_attr.href != "" && data.node.a_attr.href != "#"){ window.location.href = data.node.a_attr.href; }
-          })
-          .on('click', '.jstree-anchor', function (e) {
-            $('#jsTreeNav').jstree(true).toggle_node(e.target);
-          })
-          // create the instance
-          .jstree({
-            // core : {
-            //   dblclick_toggle : false
-            // }
-          });
-      });
-  </script>
-  <!-- Script to apply collapsible behavior to the sidebar -->
-  <script>
-    $(document).ready(function () {
-      $("#sidebar").mCustomScrollbar({
-          theme: "minimal"
-      });
-      $('#sidebarCollapse').on('click', function () {
-          // open or close navbar
-          $('#sidebar').toggleClass('active');
-
-          // move the open-close button
-          $('#openSidebar').toggleClass('fixedRightOver')
-
-          // close dropdowns
-          $('.collapse.in').toggleClass('in');
-          // and also adjust aria-expanded attributes we use for the open/closed arrows
-          // in our CSS
-          $('a[aria-expanded=true]').attr('aria-expanded', 'false');
-      });
-    });
-  </script>
-  <!-- Script to apply modal blow-ups to images on the page -->
-  <script>
-    // Get the modal
-    $(function () {
-        var modal = document.getElementById('myModal');
-
-        // Get the image and insert it inside the modal - use its "alt" text as a caption
-        var modalImg = $("#img01");
-        var captionText = document.getElementById("caption");
-        console.log($('.content'));
-        $("p").children('img').each(function (index, value) {
-          console.log("Found an image",value);
-          value.click(function(){
-              modal.style.display = "block";
-              var newSrc = this.src;
-              modalImg.attr('src', newSrc);
-              captionText.innerHTML = this.alt;
-            });
-        });
-        console.log("Hello im here");
-
-        // Get the <span> element that closes the modal
-        var span = document.getElementsByClassName("close")[0];
-
-        // When the user clicks on <span> (x), close the modal
-        span.onclick = function() {
-          modal.style.display = "none";
-        }
-    });
-  </script>
-  <!-- Script to get thumbnails of sketchfab models via the api -->
-  <script>
-    const sfUrl ='https://api.sketchfab.com/v3/models/'
-  // Test id
-  function CreateProjectCard(projName, projDesc, projUrl, sfId){
-    let sfThumbUrl = sfUrl + sfId;
-    fetch(sfThumbUrl)
-    .then((response => response.json()))
-    .then(function(data){
-      console.log("This is my data",data);
-      let thumb = data ? data.thumbnails.images[2].url : '';
-      // Generate card
-      let card = '';
-      card += '<div class="card">'
-        card += '<img class="card-img-top" src="'+ thumb + '">';
-        card += '<div class="card-body">'
-          card += '<h5 class="card-title">'+ projName +'</h5>';
-          card += '<p class="card-text">' + projDesc + '</p>';
-        card += '</div>';
-      card += '</div>';
-      $('#projCards').append(card);
-    });
-  }
-  </script>
-
-  <!-- Popper.JS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
-    crossorigin="anonymous"></script>
-  <!-- Bootstrap JS -->
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
-    crossorigin="anonymous"></script>
-  <!-- jQuery Custom Scroller CDN -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
-  <!-- Scrollbar Custom CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
-
-</head>
+  <!-- CustomScrollbar -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css"></head>
 
 <body>
   <!-- SIDEBAR AND CONTENT -->
@@ -246,6 +137,7 @@
         </div>
         <!-- CONTENT -->
         <div class="container container-narrow">
+          <!-- TEST SIDE COMMENTS -->
             {{ content }}
         </div>
     </div>
