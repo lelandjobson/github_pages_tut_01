@@ -37,7 +37,6 @@ a[data-toggle="collapse"] {
 }
 
 #sidebar {
-  /* width: 350px; */
   position: fixed;
   top: 0;
   left: 0;
@@ -47,7 +46,12 @@ a[data-toggle="collapse"] {
   color: #091134;
   transition: all 0.3s;
   padding: 20px;
-  /* padding-top: 100px; */
+  border-style: solid;
+  border-bottom: none;
+  border-top: none;
+  border-right: none;
+  border-color: lightcoral;
+  border-width: 10px;
 }
 
 #sidebar.active {
@@ -71,7 +75,7 @@ a[data-toggle="collapse"] {
 }
 
 .bottom-right {
-  position: fixed; right: 20px; bottom: -10px;
+  position: fixed; right: 35px; bottom: 40px;
 }
 
 .bottom-right img {
@@ -204,6 +208,10 @@ th {
   margin: 0 auto;
   min-width: 300px !important;
   max-width: 1300px !important;
+  border-style: solid;
+  border-color: lightcoral;
+  border-right: none;
+  border-left: none;
 }
 
 .container-content {
@@ -494,7 +502,7 @@ li a {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: rgb(0, 153, 140);
+  background: lightcoral;
 }
 
 /* Handle on hover */
