@@ -54,6 +54,10 @@ a[data-toggle="collapse"] {
   border-width: 10px;
 }
 
+#sidebarCollapse {
+  font-size: 1.5rem !important;
+}
+
 #sidebar.active {
   margin-left: -350px;
 }
@@ -393,7 +397,7 @@ p::selection {
 }
 
 strong::selection {
-  background: rgb(137, 245, 182);
+  background: #fff2a8;
 }
 
 a::selection {
@@ -545,6 +549,3 @@ li a {
   border: none;
 }
 
-#sidebarCollapse {
-  font-size: 1.5rem !important;
-}
