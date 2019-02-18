@@ -10,6 +10,10 @@
 
   <!-- Enable responsive viewport -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- requireJS -->
+  <script data-main="{{ BASE_PATH }}/scripts/main" src="{{ BASE_PATH }}/scripts/require.js"></script>
+
 
   <!-- Le styles -->
   <link href="{{ ASSET_PATH }}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -22,221 +26,124 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
     crossorigin="anonymous">
 
-  <!-- atom & rss feed -->
-  <!-- <link href="{{ BASE_PATH }}{{ site.JB.atom_path }}" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
-    <link href="{{ BASE_PATH }}{{ site.JB.rss_path }}" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">   -->
+  <!-- SideComments -->
+  <link href="{{ BASE_PATH }}/comments/side-comments.css" rel="stylesheet" />
+  <link href="{{ BASE_PATH }}/comments/themes/default-theme.css" rel="stylesheet" />
 
-  <!-- jquery is used in the nav and the bg change  -->
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <!-- CustomScrollbar -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css"></head>
 
-  <!-- jsTree TreeView side navigation script -->
-  <script src="{{ BASE_PATH }}/assets/themes/scripts/vakata-tree/jstree.js"></script>
+<body>
+  <!-- SIDEBAR AND CONTENT -->
+  <div class="wrapper">
 
-  <!-- Script to transform the sidenav into a treeview -->
-  <script>
-    $(function () { 
-        // $('#jsTreeNav').jstree();        
-        $('#jsTreeNav')
-          // listen for event
-          .on('select_node.jstree', function (e, data) {
-            console.log("Tree item selected", data.node.a_attr.href);
-            if(data.node.a_attr.href != "" && data.node.a_attr.href != "#"){ window.location.href = data.node.a_attr.href; }
-          })
-          .on('click', '.jstree-anchor', function (e) {
-            $('#jsTreeNav').jstree(true).toggle_node(e.target);
-          })
-          // create the instance
-          .jstree({
-            // core : {
-            //   dblclick_toggle : false
-            // }
-          });
-      });
-  </script>
-  <!-- Script to apply modal blow-ups to images on the page -->
-  <script>
-    // Get the modal
-    $(function () { 
-        var modal = document.getElementById('myModal');
-  
-        // Get the image and insert it inside the modal - use its "alt" text as a caption
-        var modalImg = $("#img01");
-        var captionText = document.getElementById("caption");
-        console.log($('.content'));
-        $("p").children('img').each(function (index, value) { 
-          console.log("Found an image",value);
-          value.click(function(){
-              modal.style.display = "block";
-              var newSrc = this.src;
-              modalImg.attr('src', newSrc);
-              captionText.innerHTML = this.alt;       
-            });
-        });
-        console.log("Hello im here");
-  
-        // Get the <span> element that closes the modal
-        var span = document.getElementsByClassName("close")[0];
-  
-        // When the user clicks on <span> (x), close the modal
-        span.onclick = function() {
-          modal.style.display = "none";
-        }
-    });
-  </script>
-  <!-- Script to get thumbnails of sketchfab models via the api -->
-  <script>
-  const sfUrl ='https://api.sketchfab.com/v3/models/'
-  // Test id
-  function CreateProjectCard(projName, projDesc, projUrl, sfId){
-    let sfThumbUrl = sfUrl + sfId;
-    fetch(sfThumbUrl)
-    .then((response => response.json()))
-    .then(function(data){ 
-      console.log("This is my data",data); 
-      let thumb = data ? data.thumbnails.images[2].url : ''; 
-      // Generate card
-      let card = '';
-      card += '<div class="card">'
-        card += '<img class="card-img-top" src="'+ thumb + '">';
-        card += '<div class="card-body">'
-          card += '<h5 class="card-title">'+ projName +'</h5>';
-          card += '<p class="card-text">' + projDesc + '</p>';
-        card += '</div>';
-      card += '</div>';
-      $('#projCards').append(card);
-    });
-  }
-  </script>
-</head>
-
-<body class="wrapper">
-  <!-- TOP NAVIGATION -->
-  <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
-    <div class="container">
-       <!-- <img class=" navbar-brand "src="{{ HOME_PATH }}/assets/images/global/pratt_white_clear.png" style="margin: 0; margin-right: 40px; padding-right: 10px;"> -->
-      <img class=" navbar-brand "src="{{ HOME_PATH }}/assets/images/global/itl_white_clear.png" style="margin: 0; margin-right: 40px">
-      <a class="navbar-brand" href="{{ HOME_PATH }}">{{ site.title }}</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarText">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-              <a class="nav-link" href="{{ HOME_PATH }}#editors">Editors</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ HOME_PATH }}#ourProject">About</a>
-          </li>
-          <!-- <li class="nav-item">
-            <a class="nav-link" href="#">Contribute</a>
-          </li> -->
-        </ul>
-        <span class="navbar-text">
-          v.0.1.2
-        </span>
-      </div>
-    </div>
-  </nav>
-  <div class="container-fluid">
-    <div class="row">
-      <!-- SIDE NAVIGATION -->
-      <div class="col-2">
-        <div id="jsTreeNav" class="sidenav">
-          <ul>
-            {% assign myCats = site.pages | group_by: 'category' %}
-              {% for cat in myCats %}
-                <!-- Create the category header -->
-                {% if cat.name != "" %}
-                <li data-jstree='{"opened":true, "icon":"fa fa-cubes"}'>{{ cat.name}}
+    <!-- SIDEBAR -->
+    <nav id="sidebar" class="active">
+      <h4 style="padding-left: 20px; padding-bottom: 20px;">Navigation</h4>
+      <div>
+            <div id="jsTreeNav" class="sidenav">
                 <ul>
-                {% assign subCats = cat.items | group_by: 'subcategory' %}
-                {% for subcat in subCats %}   
-
-                  {% if subcat.name != "None" %}
-
-                    {% assign items = subcat.items | sort: 'order' %}
-                    
-                    {% if page.field-guide == subcat.name %}
-                      <li data-jstree='{"opened":true, "icon":"fa fa-book"}' class="nav-header currentguide">{{ subcat.name }}
-                    {% else %}
-                      <li data-jstree='{"icon":"fa fa-book"}' class="nav-header currentguide">{{ subcat.name }}
-                    {% endif %}
+                  {% assign myCats = site.pages | group_by: 'category' %}
+                  {% for cat in myCats %}
+                  <!-- Create the category header -->
+                  {% if cat.name != "" %}
+                  <li data-jstree='{"opened":true, "icon":"fa fa-cubes"}'>{{ cat.name}}
                     <ul>
-                      {% for item in items %}
-                        <!-- {% capture nowunix %}{{'now' | date: '%s'}}{% endcapture %} -->
-
-                        {% if item.title == "Quick Start" %}
-
-                          {% if item.url == page.url %}
-                              <li data-jstree='{"selected":true,"icon":"fa fa-bolt"}'
-                              class="nav-item current newItem"><a>{{ item.title }}</a></li>
-                          {% else %}
-                              <li data-jstree='{"icon":"fa fa-bolt"}' class="nav-item"><a
-                              href="{{ BASE_PATH }}{{ item.url }}">{{ item.title }}</a></li>
-                          {% endif %}
-
+                      {% assign subCats = cat.items | group_by: 'subcategory' %}
+                      {% for subcat in subCats %}
+        
+                      {% if subcat.name != "None" %}
+        
+                      {% assign items = subcat.items | sort: 'order' %}
+        
+                      {% if page.field-guide == subcat.name %}
+                      <li data-jstree='{"opened":true, "icon":"fa fa-book"}' class="nav-header currentguide">{{ subcat.name }}
                         {% else %}
-
-                          {% case cat.name %}
-                            {% when 'Principles' %}  
-                              {% assign myIcon = '"fa fa-code-branch"' %}   
-                            {% when 'Processes' %}    
-                              {% assign myIcon = '"fa fa-link"' %}   
-                            {% when 'Projects' %}    
-                              {% assign myIcon = '"fa fa-project-diagram"' %}  
-                            {% when 'Platforms' %}    
-                              {% capture myIcon %}
-                                "{{ BASE_PATH }}{{ item.dir }}/{{ item.title | downcase }}.png"
-                              {% endcapture %}
-                            {% else %}
-                              {% assign myIcon = "fa fa-book" %}   
-                          {% endcase %}     
-
-                          {% if item.url == page.url %}
-                            <li data-jstree='{"selected":true,"icon":{{ myIcon }} }'
-                            class="nav-item current newItem"><a>{{ item.title }}</a></li>
-                          {% else %}
-                            <li data-jstree='{"icon":{{ myIcon }} }' class="nav-item"><a
-                            href="{{ BASE_PATH }}{{ item.url }}">{{ item.title }}</a></li>
-                          {% endif %}
-
+                      <li data-jstree='{"icon":"fa fa-book"}' class="nav-header currentguide">{{ subcat.name }}
                         {% endif %}
-
+                        <ul>
+                          {% for item in items %}
+                          <!-- {% capture nowunix %}{{'now' | date: '%s'}}{% endcapture %} -->
+        
+                          {% if item.title == "Quick Start" %}
+        
+                          {% if item.url == page.url %}
+                          <li data-jstree='{"selected":true,"icon":"fa fa-bolt"}' class="nav-item current newItem"><a>{{
+                              item.title }}</a></li>
+                          {% else %}
+                          <li data-jstree='{"icon":"fa fa-bolt"}' class="nav-item"><a href="{{ BASE_PATH }}{{ item.url }}">{{
+                              item.title }}</a></li>
+                          {% endif %}
+        
+                          {% else %}
+        
+                          {% case cat.name %}
+                          {% when 'Principles' %}
+                          {% assign myIcon = '"fa fa-code-branch"' %}
+                          {% when 'Processes' %}
+                          {% assign myIcon = '"fa fa-link"' %}
+                          {% when 'Projects' %}
+                          {% assign myIcon = '"fa fa-project-diagram"' %}
+                          {% when 'Platforms' %}
+                          {% capture myIcon %}
+                          "{{ BASE_PATH }}{{ item.dir }}/{{ item.title | downcase }}.png"
+                          {% endcapture %}
+                          {% else %}
+                          {% assign myIcon = "fa fa-book" %}
+                          {% endcase %}
+        
+                          {% if item.url == page.url %}
+                          <li data-jstree='{"selected":true,"icon":{{ myIcon }} }' class="nav-item current newItem"><a>{{
+                              item.title }}</a></li>
+                          {% else %}
+                          <li data-jstree='{"icon":{{ myIcon }} }' class="nav-item"><a href="{{ BASE_PATH }}{{ item.url }}">{{
+                              item.title }}</a></li>
+                          {% endif %}
+        
+                          {% endif %}
+        
+                          {% endfor %}
+        
+                        </ul>
+                        {% endif %}
+                      </li>
                       {% endfor %}
-
                     </ul>
-                {% endif %}
-              </li>
-              {% endfor %}
-            </ul>
-            </li>
-            {% endif %}
-            {% endfor %}
-          </ul>
+                  </li>
+                  {% endif %}
+                  {% endfor %}
+                </ul>
+              </div>
+
+      </div>
+    </nav>
+    <!-- CONTENT (post.html, home.html, etc.) -->
+    <div id="content">
+        <!-- TOP NAV -->
+        <div id="openSidebar">        
+            <button id="sidebarCollapse" class="btn btn-outline-secondary my-2 my-sm-0" type="button">
+                <i class="fa fa-book-open"></i>
+            </button>
+          </div>
+
+        <div class="bottom-right">
+          <img src="https://lelandjobson.github.io/github_pages_tut_01/assets/images/global/itl_black_clear.png">
         </div>
-      </div>
-      <!-- CONTENT (post.html, home.html, etc.) -->
-      <div class="col-10">
-        {{ content }}
-      </div>
-      <hr>
+
+        <div class="top-right">
+            <form class="form-inline my-2 my-lg-0"></form>
+              <input class="form-control mr-sm-2" type="search" placeholder="Search Topics" aria-label="Search">
+            </form>
+        </div>
+        <!-- CONTENT -->
+        <div class="container container-narrow">
+          <!-- TEST SIDE COMMENTS -->
+            {{ content }}
+        </div>
     </div>
+
   </div>
-  {% include JB/analytics %}
-
-<!-- The Modal -->
-<div id="myModal" class="modal">
-
-  <!-- The Close Button -->
-  <span class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
-
-  <!-- Modal Content (The Image) -->
-  <img class="modal-content" id="img01">
-
-  <!-- Modal Caption (Image Text) -->
-  <div id="caption"></div>
-</div>
 
 </body>
+
 </html>

@@ -1,5 +1,5 @@
 body {
-  opacity: 1.0;
+  /* opacity: 1.0;
   -webkit-transition: background 1.5s linear;
   -moz-transition: background 1.5s linear;
   -o-transition: background 1.5s linear;
@@ -7,8 +7,85 @@ body {
   transition: background 1.5s linear;
   transition: background-image 1s ease-in-out;
   background-image: url(../../../images/global/white.png);
-  padding-top: 20px;
+  padding-top: 20px; */
 }
+
+.wrapper {
+  width: 100%;
+  align-items: stretch;
+}
+
+/* @media (max-width: 768px) {
+  #sidebar {
+      margin-left: -250px;
+  }
+  #sidebar.active {
+      margin-left: 0;
+  }
+} */
+
+a[data-toggle="collapse"] {
+  position: relative;
+}
+
+.dropdown-toggle::after {
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+}
+
+#sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  z-index: 990;
+  background: #ffffffed;
+  color: #091134;
+  transition: all 0.3s;
+  padding: 20px;
+  border-style: solid;
+  border-bottom: none;
+  border-top: none;
+  border-right: none;
+  border-color: lightcoral;
+  border-width: 10px;
+}
+
+#sidebarCollapse {
+  font-size: 1.5rem !important;
+}
+
+#sidebar.active {
+  margin-left: -350px;
+}
+
+#openSidebar {
+  position: fixed; 
+  left: 20px; 
+  top: 20px;
+  transition: all 0.3s;
+  z-index: 999;
+}
+
+.fixedRightOver {
+  left: 300px !important;
+}
+
+.top-right {
+  position: fixed; right: 20px; top: 20px
+}
+
+.bottom-right {
+  position: fixed; right: 35px; bottom: 40px;
+}
+
+.bottom-right img {
+  max-width: initial;
+}
+
 
 /* @media screen and (max-width: 768px) {
     body { padding-top: 0px; }
@@ -19,15 +96,14 @@ p {
   line-height: 1.65;
   padding-bottom: 10px;
   padding-top: 10px;
+  font-family: 'Rubik', sans-serif;
 }
 
 h1 {
-  font-size: 2.8rem;
+  font-size: 4.8rem;
   color: rgb(44, 44, 44);
   text-rendering: geometricPrecision;
   text-align: center;
-  /* font-family: 'Ibm Plex Mono', monospace; */
-  font-family: 'Rubik', sans-serif;
 }
 
 hr {
@@ -127,11 +203,6 @@ th {
   background-color: #d9ffae;
 }
 
-
-.wrapper {
-  font-family: 'IBM Plex Mono';
-}
-
 .cards {
   margin-right: auto;
   margin-left: auto;
@@ -139,8 +210,12 @@ th {
 
 .container-narrow {
   margin: 0 auto;
-  min-width: 700px !important;
-  max-width: 1000px !important;
+  min-width: 300px !important;
+  max-width: 1300px !important;
+  border-style: solid;
+  border-color: lightcoral;
+  border-right: none;
+  border-left: none;
 }
 
 .container-content {
@@ -162,11 +237,6 @@ th {
 .navbar-inner {
   border: none;
   border-radius: 0;
-}
-
-.navbar {
-  background-image: linear-gradient(to right, black, rgb(34, 34, 34), black);
-  font-family: 'Roboto', monospace;
 }
 
 .brand {
@@ -245,13 +315,8 @@ th {
 }
 
 .content {
-  font-family: 'Ibm Plex Sans', sans-serif;
+  padding: 60px;
   background-color: white;
-  padding-left: 60px;
-  padding-right: 60px;
-  padding-top: 30px;
-  padding-bottom: 60px;
-  line-height: 20pt;
 }
 
 blockquote {
@@ -267,6 +332,7 @@ blockquote {
 blockquote p {
   font-size: 20px;
   line-height: 30px;
+  font-family: 'IBM Plex Mono', sans-serif !important;
 }
 
 .introtext {
@@ -285,6 +351,16 @@ blockquote p {
   line-height: 26px
 }
 
+/*
+.##.....##.########....###....########..########.########.
+.##.....##.##.........##.##...##.....##.##.......##.....##
+.##.....##.##........##...##..##.....##.##.......##.....##
+.#########.######...##.....##.##.....##.######...########.
+.##.....##.##.......#########.##.....##.##.......##...##..
+.##.....##.##.......##.....##.##.....##.##.......##....##.
+.##.....##.########.##.....##.########..########.##.....##
+*/
+
 h2,
 h3,
 h4,
@@ -294,13 +370,23 @@ h5 {
 }
 
 h2 {
-  margin: 20px;
-  margin-left: 0px;
   text-rendering: geometricPrecision;
   font-size: 2.3em;
-  padding-top: 30px;
   padding-bottom: 30px;
+  margin-top: 60px;
+  font-size: 3.4em;
+  font-family: 'Rubik', sans-serif;
 }
+
+/*
+..######..########.##......
+.##....##.##.......##......
+.##.......##.......##......
+..######..######...##......
+.......##.##.......##......
+.##....##.##.......##......
+..######..########.########
+*/
 
 p::-moz-selection {
   background: #fff2a8;
@@ -342,9 +428,11 @@ pre {
 }
 
 .page-header {
-  padding-top: 80px;
-  padding-bottom: 9px;
+  padding-top: 100px;
+  padding-bottom: 45px;
   text-align: center;
+  /* font-family: 'IBM Plex Sans',sans-serif; */
+  font-style: italic;
 }
 
 .principle-desription {
@@ -354,30 +442,26 @@ pre {
     color: gray;
 }
 
-/* The sidebar menu */
-.sidenav {
-  height: 100%;
-  width: 300px;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  /* font-size: 17px; */
-  /* line-height: 20px; */
-  left: 0;
-  color: rgb(22, 22, 22);
-  overflow-x: hidden;
-  background-color: #fafafa;
-  overflow-x: hidden;
-  padding-top: 90px;
-  padding-bottom: 30px;
-  font-family: 'Roboto', monospace;
-  border: #b3b3b3;
-  border-style: solid;
-  border-width: 1px;
-}
+/*
+.......##..######..########.########..########.########
+.......##.##....##....##....##.....##.##.......##......
+.......##.##..........##....##.....##.##.......##......
+.......##..######.....##....########..######...######..
+.##....##.......##....##....##...##...##.......##......
+.##....##.##....##....##....##....##..##.......##......
+..######...######.....##....##.....##.########.########
+*/
 
 .jstree-container-ul.jstree-children {
   padding-left: 10px;
+}
+
+.jstree-default .jstree-clicked {
+  background: #fffe9e !important;
+}
+
+.jstree-default .jstree-hovered {
+  background: #fffe9e !important;
 }
 
 li a {
@@ -399,16 +483,16 @@ li a {
   padding: 0px 10px;
 }
 
-/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
-@media screen and (max-height: 450px) {
-  .sidenav {
-    width: 200px;
-  }
 
-  .sidenav a {
-    font-size: 18px;
-  }
-}
+/*
+.##......##.########.########..##....##.####.########
+.##..##..##.##.......##.....##.##...##...##.....##...
+.##..##..##.##.......##.....##.##..##....##.....##...
+.##..##..##.######...########..#####.....##.....##...
+.##..##..##.##.......##.....##.##..##....##.....##...
+.##..##..##.##.......##.....##.##...##...##.....##...
+..###..###..########.########..##....##.####....##...
+*/
 
 /* width */
 ::-webkit-scrollbar {
@@ -422,7 +506,7 @@ li a {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: rgb(0, 153, 140);
+  background: lightcoral;
 }
 
 /* Handle on hover */
@@ -430,21 +514,16 @@ li a {
   background: #555;
 }
 
-/* New item background badge */
-.newitem {
-  background-image: url(../../../images/global/new_tag.png);
-  background-position: fixed;
-  background-position: right 30px center;
-  background-repeat: no-repeat;
-}
 
-/* Modified item background badge */
-.moditem {
-  background-image: url(../../../images/global/mod_tag.png);
-  background-position: fixed;
-  background-position: right 30px center;
-  background-repeat: no-repeat;
-}
+/*
+..######..##....##.########.########..######..##.....##.########....###....########.
+.##....##.##...##..##..........##....##....##.##.....##.##.........##.##...##.....##
+.##.......##..##...##..........##....##.......##.....##.##........##...##..##.....##
+..######..#####....######......##....##.......#########.######...##.....##.########.
+.......##.##..##...##..........##....##.......##.....##.##.......#########.##.....##
+.##....##.##...##..##..........##....##....##.##.....##.##.......##.....##.##.....##
+..######..##....##.########....##.....######..##.....##.##.......##.....##.########.
+*/
 
 .sketchfab-embed-wrapper {
   /* padding: 30px; */
@@ -454,3 +533,19 @@ li a {
   min-width: -webkit-fill-available;
   min-height: -webkit-fill-available;
 }
+
+/*
+.########...######.
+.##.....##.##....##
+.##.....##.##......
+.########...######.
+.##.....##.......##
+.##.....##.##....##
+.########...######.
+*/
+
+.btn-outline-secondary {
+  color: #3c3c3c;
+  border: none;
+}
+
