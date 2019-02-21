@@ -1,27 +1,29 @@
 <!-- CONTENT -->
 
 <body style="background-image: url(./assets/images/global/white.png)">
-    <div class="container container-narrow container-content">
-      <div class="content">
-        <div class="row-fluid post-full">
-          <div class="span12">
-            <div class="content" style="padding-top: 23%">
-                <div id="projCards" class="card-columns">
-                    {% assign projects = site.pages | where: "category", "Projects" %}
-                    {% for proj in projects %}
-                      <script>
-                        let projName = '{{ proj.title }}';
-                        let projDesc = '{{ proj.description }}';
-                        let sfId = '{{ proj.sketchfabUUID }}';
-                        let projUrl = '{{ proj.url }}';
-                        window.CreateProjectCard(projName, projDesc, projUrl, sfId)
-                      </script>
-                    {% endfor %}
-                </div>
-              <!-- {{ content }} -->
+  <div class="container container-narrow container-content">
+      <div class="row-fluid post-full">
+        <div class="span12">
+          <div class="content">
+            <h2 class="heading-home">Projects</h2>
+            <div id="projCards" class="card-columns">
+              <!-- PROJECTS -->
+              {% assign projects = site.pages | where: "category", "Projects" %}
+              {% for proj in projects %}
+              <script>
+                let projName = '{{ proj.title }}';
+                let projDesc = '{{ proj.description }}';
+                let sfId = '{{ proj.sketchfabUUID }}';
+                let projUrl = '{{ proj.url }}';
+                window.CreateProjectCard(projName, projDesc, projUrl, sfId)
+                window.CreateProjectCard(projName, projDesc, projUrl, sfId)
+                window.CreateProjectCard(projName, projDesc, projUrl, sfId)
+              </script>
+              {% endfor %}
             </div>
+            <!-- {{ content }} -->
           </div>
         </div>
       </div>
-    </div>
-  </body>
+  </div>
+</body>
