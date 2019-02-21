@@ -6,6 +6,7 @@ field-guide: Adobe Field Guide
 category: Platforms
 subcategory: Adobe
 order: 1
+author: Scott Sorenson
 ---
 
 This field guide highlights the basics of Adobe Suite - primarily Illustrator, Photoshop, Indesign and Bridge. This brief has been assembled to work parallel with imagery and video references illuminating core topics through exercises and demonstrations. The resources contained at the end of this document provide support content, tutorials and inspiration and should be utilized as such.

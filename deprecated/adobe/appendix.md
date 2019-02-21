@@ -6,6 +6,7 @@ field-guide: Adobe Field Guide
 category: Platforms
 subcategory: Adobe
 order: 6
+author: Scott Sorenson
 ---
 
 

@@ -63,8 +63,8 @@ a[data-toggle="collapse"] {
 }
 
 #openSidebar {
-  position: fixed; 
-  left: 20px; 
+  position: fixed;
+  left: 20px;
   top: 20px;
   transition: all 0.3s;
   z-index: 999;
@@ -75,21 +75,28 @@ a[data-toggle="collapse"] {
 }
 
 .top-right {
-  position: fixed; right: 20px; top: 20px
+  position: fixed;
+  right: 20px;
+  top: 20px
 }
 
 .bottom-right {
-  position: fixed; right: 35px; bottom: 40px;
+  position: fixed;
+  right: 35px;
+  bottom: 40px;
 }
 
 .bottom-right img {
   max-width: initial;
 }
 
-
-/* @media screen and (max-width: 768px) {
-    body { padding-top: 0px; }
-} */
+.topnav {
+  margin-left: 100px;
+  margin-right: 100px;
+  background-color: white !important;
+  border-top-color: orange;
+  /* border-top-style: solid; */
+}
 
 p {
   font-size: 1.2rem;
@@ -172,26 +179,28 @@ th {
   font-size: 1em;
 }
 
-.table a
-{
-    display:block;
-    text-decoration:none;
+.table a {
+  display: block;
+  text-decoration: none;
 }
 
 .principleDescription {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  text-align: center; 
+  text-align: center;
   padding-top: 20px;
   padding-bottom: 0;
   max-width: 600px;
 }
 
 .principleTable {
-  border: none;  
+  border: none;
 }
-.principleTable tr,td,th {
+
+.principleTable tr,
+td,
+th {
   border: none;
 }
 
@@ -212,10 +221,6 @@ th {
   margin: 0 auto;
   min-width: 300px !important;
   max-width: 1300px !important;
-  border-style: solid;
-  border-color: lightcoral;
-  border-right: none;
-  border-left: none;
 }
 
 .container-content {
@@ -428,18 +433,16 @@ pre {
 }
 
 .page-header {
-  padding-top: 100px;
-  padding-bottom: 45px;
+  padding-top: 50px;
   text-align: center;
-  /* font-family: 'IBM Plex Sans',sans-serif; */
   font-style: italic;
 }
 
 .principle-desription {
-    font-family: 'Frank Ruhl Libre', serif;
-    font-size: 40px;
-    line-height: 40px;
-    color: gray;
+  font-family: 'Frank Ruhl Libre', serif;
+  font-size: 40px;
+  line-height: 40px;
+  color: gray;
 }
 
 /*
@@ -548,4 +551,3 @@ li a {
   color: #3c3c3c;
   border: none;
 }
-

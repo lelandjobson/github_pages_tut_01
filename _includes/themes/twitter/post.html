@@ -1,9 +1,14 @@
 <!-- CONTENT -->
 <div class="container container-narrow">
-  <p style="color: rgb(200,200,200); float: right; padding-right: 40px;">{{ page.field-guide | remove: 'Field Guide' }}</p>
+  <!-- <p style="color: rgb(200,200,200); float: right; padding-right: 40px;">{{ page.field-guide | remove: 'Field Guide' }}</p> -->
   <div class="content">
     <div class="page-header">
       <h1>{{ page.title }}</h1>
+      {% if page.author %}
+      <p style="color: #1a1a1a;padding-top: 40px;font-size: 19px;font-style: normal;">
+          Written by {{ page.author}}
+      </p>
+      {% endif %}
     </div>
     <div class="row-fluid post-full">
       <div class="span12">
