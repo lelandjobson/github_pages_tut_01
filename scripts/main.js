@@ -76,8 +76,6 @@ function initCommentableSections($, SideComments, firebase){
     })    
 }
 
-
-
 function initJsTree($,jsTree){
     window.jsTree = jsTree;
     $(function () {
