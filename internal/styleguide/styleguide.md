@@ -1,3 +1,10 @@
+---
+title: "Style & Asset Creation Guide"
+layout: page
+description: A quickstart guide for creating content for the Field guide
+---
+
+
 # Style & Asset Creation Guide
 
 This guide shows:
