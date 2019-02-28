@@ -178,6 +178,10 @@ th {
   text-decoration: none;
 }
 
+a {
+  color: #000000 !important;
+}
+
 .principleDescription {
   display: block;
   margin-left: auto;
@@ -565,13 +569,10 @@ li a {
   margin-top: 10px;
 }
 
-.card-project {
-  border-color: lightcoral !important;
-}
-
 .card-home {
-  border-width: 2px !important;
+  /* border-width: 2px !important;
   border-style: dashed !important;
+   */
   border-radius: 0 !important;
   font-family: 'IBM Plex Mono', monospace !important;
 }
@@ -581,7 +582,8 @@ li a {
 }
 
 .card-home a {
-  background-color: #ffbea6;
+  /* background-color: #ffbea6; */
+  background-color: #f4f4f4;
   padding: 5px;
   padding-left: 10px;
   padding-right: 10px;
@@ -605,4 +607,8 @@ li a {
   max-height: 250px !important;
   width: auto !important;
   padding-top: 20px !important;
+}
+
+.card {
+  /* border: 0 */
 }
