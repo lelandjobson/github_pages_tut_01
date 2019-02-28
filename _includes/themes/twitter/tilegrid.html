@@ -18,7 +18,9 @@
         if(!thumb || thumb === null || thumb === undefined){
             thumb = defaultThumb;
         }
-        let card = createCard(projName, projDesc, projUrl, thumb ? (dir + '/images/' + thumb) : undefined);
+        let pathStart = '{{ BASE_PATH }}';
+        pathStart = pathStart ? pathStart : "";
+        let card = createCard(projName, projDesc, projUrl, thumb ? ('{{ BASE_PATH }}' + dir + '/images/' + thumb) : undefined);
         document.getElementById(sectionId).appendChild(card);      
     }
 
