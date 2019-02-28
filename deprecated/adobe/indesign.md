@@ -8,6 +8,7 @@ order: 4
 category: Platforms
 subcategory: Adobe
 author: Scott Sorenson
+thumb: ID.png
 ---
 
 Adobe InDesign is the industry standard app for publishing projects ranging from all types of print projects to digital publications that you can view on any device. 

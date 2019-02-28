@@ -14,11 +14,11 @@
         });
     }
     const defaultThumb = '';
-    window.CreateImageCard = function(projName, projDesc, projUrl, thumb, sectionId){
+    window.CreateImageCard = function(projName, projDesc, projUrl, dir, thumb, sectionId){
         if(!thumb || thumb === null || thumb === undefined){
             thumb = defaultThumb;
         }
-        let card = createCard(projName, projDesc, projUrl, projUrl + '/images/' + thumb);
+        let card = createCard(projName, projDesc, projUrl, dir + '/images/' + thumb);
         document.getElementById(sectionId).appendChild(card);       
     }
 
@@ -62,6 +62,7 @@
             window.CreateImageCard('{{ proc.title }}',
               '{{ proc.description }}',
               '{{ proc.url }}',
+              '{{ proc.dir }}',
               '{{ proc.thumb }}',
               'procCards');
           </script>
@@ -86,6 +87,7 @@
             window.CreateImageCard('{{ plat.title }}',
               '{{ plat.description }}',
               '{{ plat.url }}',
+              '{{ plat.dir }}',
               '{{ plat.thumb }}',
               'platCards');
           </script>
@@ -110,6 +112,7 @@
             window.CreateImageCard('{{ plat.title }}',
               '{{ proj.description }}',
               '{{ proj.url }}',
+              '{{ proj.dir }}',
               '{{ proj.thumb }}',
               'projCards');
           </script>

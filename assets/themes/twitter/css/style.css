@@ -46,12 +46,6 @@ a[data-toggle="collapse"] {
   color: #091134;
   transition: all 0.3s;
   padding: 20px;
-  border-style: solid;
-  border-bottom: none;
-  border-top: none;
-  border-right: none;
-  border-color: lightcoral;
-  border-width: 10px;
 }
 
 #sidebarCollapse {
@@ -99,7 +93,7 @@ a[data-toggle="collapse"] {
 }
 
 p {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   line-height: 1.65;
   padding-bottom: 10px;
   padding-top: 10px;
@@ -383,6 +377,11 @@ h2 {
   font-family: 'Rubik', sans-serif;
 }
 
+
+h4 {
+  font-size: 1.8em !important;
+}
+
 /*
 ..######..########.##......
 .##....##.##.......##......
@@ -468,7 +467,7 @@ pre {
 }
 
 li a {
-  font-size: 0.9em;
+  font-size: 1em;
 }
 
 .aka {
@@ -600,4 +599,10 @@ li a {
     padding: 0 !important;
     background-color: white !important;
     border-bottom: none;
+}
+
+.card-img-top {
+  max-height: 250px !important;
+  width: auto !important;
+  padding-top: 20px !important;
 }
