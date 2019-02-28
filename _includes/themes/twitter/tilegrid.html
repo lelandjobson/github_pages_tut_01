@@ -25,10 +25,12 @@
     }
 
     function createCard(projName, projDesc, projUrl, thumb){
+      let pathStart = '{{ BASE_PATH }}';
+      pathStart = pathStart ? pathStart : "";
         let card = '';
         card += '<div class="card card-home card-project">'
             card += '<div class="card-header">'
-            card += '<a href="'+ projUrl + '">' + projName + '</a>'
+            card += '<a href="'+ pathStart + projUrl + '">' + projName + '</a>'
             card += '</div>';
             if(thumb){
               card += '<img class="card-img-top" src="'+ thumb + '">';
