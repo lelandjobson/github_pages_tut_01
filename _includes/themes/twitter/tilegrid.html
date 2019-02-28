@@ -18,8 +18,8 @@
         if(!thumb || thumb === null || thumb === undefined){
             thumb = defaultThumb;
         }
-        let card = createCard(projName, projDesc, projUrl, dir + '/images/' + thumb);
-        document.getElementById(sectionId).appendChild(card);       
+        let card = createCard(projName, projDesc, projUrl, thumb ? (dir + '/images/' + thumb) : undefined);
+        document.getElementById(sectionId).appendChild(card);      
     }
 
     function createCard(projName, projDesc, projUrl, thumb){
@@ -28,7 +28,9 @@
             card += '<div class="card-header">'
             card += '<a>' + projName + '</a>'
             card += '</div>';
-            card += '<img class="card-img-top" src="'+ thumb + '">';
+            if(thumb){
+              card += '<img class="card-img-top" src="'+ thumb + '">';
+            }
             card += '<div class="card-body">'
             card += '<p class="card-text">' + projDesc + '</p>';
             card += '</div>';
@@ -36,6 +38,16 @@
         var div = document.createElement('div');
         div.innerHTML = card;
         return div;
+    }
+
+    function imageExists(image_url){
+      
+      var http = new XMLHttpRequest();
+
+      http.open('HEAD', image_url, false);
+      http.send();
+
+      return http.status != 404;
     }
 })()
 </script>
