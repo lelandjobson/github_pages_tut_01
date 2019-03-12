@@ -14,11 +14,11 @@ order: 0
 Fundamentally, computer graphics are encoded in two ways: as colored cells (Raster) or geometry (Vector). The image formats we are familiar are rasters which vary in their packaging, either uncompressed or compressed, in order to reduce the file size by leveraging the redundancy in the image's content.
 
 
-<h2 class="bgChange" data-background="./images/rasterBG.png">Rasters</h2>
+<h2>Rasters</h2>
  
 >Raster graphics are bitmaps, or a grid of individual pixels that collectively compose an image. Raster graphics render images as a collection of countless tiny squares. Each square, or pixel, is coded in a specific hue or shade.
 
-![](./images/Raster.png)
+![](/images/Raster.png)
 
 Because raster images are pixel-based, they are subject to image degradation. **Just like photographic images that get blurry and imprecise when blown up, a raster image gets jagged and rough** (See [aliasing](https://en.wikipedia.org/wiki/Aliasing)). This ultimately is because when a raster graphic is created at a certain size, it has a fixed number of pixels that comprise the image. Hence an image attempting to scale an image up by 100 it will become bitmapped. Likewise, scaling an image down, although usually is easier to achieve, does in fact degrade an image as well with detail becoming softer than the original, at its created size.
 

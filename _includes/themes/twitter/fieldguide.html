@@ -1,0 +1,42 @@
+<!-- CONTENT -->
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item">
+        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
+            aria-selected="true">Home</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
+            aria-selected="false">Profile</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact"
+            aria-selected="false">Contact</a>
+    </li>
+</ul>
+<div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade" id="home" role="tabpanel" aria-labelledby="home-tab"></div>
+    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab"></div>
+    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
+</div>
+
+<div class="container container-narrow">
+    <h2>{{ page.title }}</h2>
+    This is a test of the field guide autocreator.
+    We specify the pages we want in a field guide, and then they are automatically paginated here.
+    <hr style="border-top-width: 20px; border-color: black !important;">
+    {% assign myPages = page.items %}
+    {% for np in myPages %}
+    {% capture p %}{{ np | append: ".md" }}{% endcapture %}
+    {% for realp in site.pages %}
+    <script>
+        console.log("Checking: ", '{{ p }} =');
+        console.log("{{ realp.name }}")
+    </script>
+    {% if realp.name == p %}
+    <iframe frameBorder="0" scrolling="no" style="width: 100%;" src="{{ realp.url }}" onload="resizeIframe(this)"></iframe>
+    <!-- {{ realp.content }} -->
+    <hr style="border-top-width: 20px; border-color: black !important;">
+    {% endif %}
+    {% endfor %}
+    {% endfor %}
+</div>
