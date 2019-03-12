@@ -512,7 +512,7 @@ li a {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: lightcoral;
+  background: black;
 }
 
 /* Handle on hover */
