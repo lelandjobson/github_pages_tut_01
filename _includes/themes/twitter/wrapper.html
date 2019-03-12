@@ -10,10 +10,13 @@
 
   <!-- Enable responsive viewport -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+  <!-- Pass jekyll template into global scope -->
+  <script>
+    window.basePath = "{{ BASE_PATH }}";
+  </script>
+
   <!-- requireJS -->
   <script data-main="{{ BASE_PATH }}/scripts/main" src="{{ BASE_PATH }}/scripts/require.js"></script>
-
 
   <!-- Le styles -->
   <link href="{{ ASSET_PATH }}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -31,7 +34,20 @@
   <link href="{{ BASE_PATH }}/comments/themes/default-theme.css" rel="stylesheet" />
 
   <!-- CustomScrollbar -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css"></head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+
+  <!-- IsInIframe -->
+  <script>
+      (function inIframe () {
+        try {
+          Window.IsInIframe = window.self !== window.top;
+        } catch (e) {
+            Window.IsInIframe = true;
+        }
+      })();
+  </script>
+
+</head>
 
 <body>
   <!-- SIDEBAR AND CONTENT -->
@@ -41,105 +57,129 @@
     <nav id="sidebar" class="active">
       <h4 style="padding-left: 20px; padding-bottom: 20px;">Navigation</h4>
       <div>
-            <div id="jsTreeNav" class="sidenav">
-                <ul>
-                  {% assign myCats = site.pages | group_by: 'category' %}
-                  {% for cat in myCats %}
-                  <!-- Create the category header -->
-                  {% if cat.name != "" %}
-                  <li data-jstree='{"opened":true, "icon":"fa fa-cubes"}'>{{ cat.name}}
-                    <ul>
-                      {% assign subCats = cat.items | group_by: 'subcategory' %}
-                      {% for subcat in subCats %}
-        
-                      {% if subcat.name != "None" %}
-        
-                      {% assign items = subcat.items | sort: 'order' %}
-        
-                      {% if page.field-guide == subcat.name %}
-                      <li data-jstree='{"opened":true, "icon":"fa fa-book"}' class="nav-header currentguide">{{ subcat.name }}
-                        {% else %}
-                      <li data-jstree='{"icon":"fa fa-book"}' class="nav-header currentguide">{{ subcat.name }}
-                        {% endif %}
-                        <ul>
-                          {% for item in items %}
-                          <!-- {% capture nowunix %}{{'now' | date: '%s'}}{% endcapture %} -->
-        
-                          {% if item.title == "Quick Start" %}
-        
-                          {% if item.url == page.url %}
-                          <li data-jstree='{"selected":true,"icon":"fa fa-bolt"}' class="nav-item current newItem"><a>{{
-                              item.title }}</a></li>
-                          {% else %}
-                          <li data-jstree='{"icon":"fa fa-bolt"}' class="nav-item"><a href="{{ BASE_PATH }}{{ item.url }}">{{
-                              item.title }}</a></li>
-                          {% endif %}
-        
-                          {% else %}
-        
-                          {% case cat.name %}
-                          {% when 'Principles' %}
-                          {% assign myIcon = '"fa fa-code-branch"' %}
-                          {% when 'Processes' %}
-                          {% assign myIcon = '"fa fa-link"' %}
-                          {% when 'Projects' %}
-                          {% assign myIcon = '"fa fa-project-diagram"' %}
-                          {% when 'Platforms' %}
-                          {% capture myIcon %}
-                          "{{ BASE_PATH }}{{ item.dir }}/{{ item.title | downcase }}.png"
-                          {% endcapture %}
-                          {% else %}
-                          {% assign myIcon = "fa fa-book" %}
-                          {% endcase %}
-        
-                          {% if item.url == page.url %}
-                          <li data-jstree='{"selected":true,"icon":{{ myIcon }} }' class="nav-item current newItem"><a>{{
-                              item.title }}</a></li>
-                          {% else %}
-                          <li data-jstree='{"icon":{{ myIcon }} }' class="nav-item"><a href="{{ BASE_PATH }}{{ item.url }}">{{
-                              item.title }}</a></li>
-                          {% endif %}
-        
-                          {% endif %}
-        
-                          {% endfor %}
-        
-                        </ul>
-                        {% endif %}
-                      </li>
-                      {% endfor %}
-                    </ul>
-                  </li>
+        <div id="jsTreeNav" class="sidenav">
+          <ul>
+            {% assign myCats = site.pages | group_by: 'category' %}
+            {% for cat in myCats %}
+            <!-- Create the category header -->
+            {% if cat.name != "" %}
+            <li data-jstree='{"opened":true, "icon":"fa fa-cubes"}'>{{ cat.name}}
+              <ul>
+                {% assign subCats = cat.items | group_by: 'subcategory' %}
+                {% for subcat in subCats %}
+
+                {% if subcat.name != "None" %}
+
+                {% assign items = subcat.items | sort: 'order' %}
+
+                {% if page.field-guide == subcat.name %}
+                <li data-jstree='{"opened":true, "icon":"fa fa-book"}' class="nav-header currentguide">{{ subcat.name
+                  }}
+                  {% else %}
+                <li data-jstree='{"icon":"fa fa-book"}' class="nav-header currentguide">{{ subcat.name }}
                   {% endif %}
-                  {% endfor %}
-                </ul>
-              </div>
+                  <ul>
+                    {% for item in items %}
+                    <!-- {% capture nowunix %}{{'now' | date: '%s'}}{% endcapture %} -->
+
+                    {% if item.title == "Quick Start" %}
+
+                    {% if item.url == page.url %}
+                    <li data-jstree='{"selected":true,"icon":"fa fa-bolt"}' class="nav-item current newItem"><a>{{
+                        item.title }}</a></li>
+                    {% else %}
+                    <li data-jstree='{"icon":"fa fa-bolt"}' class="nav-item"><a href="{{ BASE_PATH }}{{ item.url }}">{{
+                        item.title }}</a></li>
+                    {% endif %}
+
+                    {% else %}
+
+                    {% case cat.name %}
+                    {% when 'Principles' %}
+                    {% assign myIcon = '"fa fa-code-branch"' %}
+                    {% when 'Processes' %}
+                    {% assign myIcon = '"fa fa-link"' %}
+                    {% when 'Projects' %}
+                    {% assign myIcon = '"fa fa-project-diagram"' %}
+                    {% when 'Platforms' %}
+                    {% capture myIcon %}
+                    "{{ BASE_PATH }}{{ item.dir }}/{{ item.title | downcase }}.png"
+                    {% endcapture %}
+                    {% else %}
+                    {% assign myIcon = "fa fa-book" %}
+                    {% endcase %}
+
+                    {% if item.url == page.url %}
+                    <li data-jstree='{"selected":true,"icon":{{ myIcon }} }' class="nav-item current newItem"><a>{{
+                        item.title }}</a></li>
+                    {% else %}
+                    <li data-jstree='{"icon":{{ myIcon }} }' class="nav-item"><a href="{{ BASE_PATH }}{{ item.url }}">{{
+                        item.title }}</a></li>
+                    {% endif %}
+
+                    {% endif %}
+
+                    {% endfor %}
+
+                  </ul>
+                  {% endif %}
+                </li>
+                {% endfor %}
+              </ul>
+            </li>
+            {% endif %}
+            {% endfor %}
+          </ul>
+        </div>
 
       </div>
     </nav>
     <!-- CONTENT (post.html, home.html, etc.) -->
     <div id="content">
+      <!-- SIDEBAR BUTTON -->
+      <div id="openSidebar">
+        <button id="sidebarCollapse" class="btn btn-outline-secondary my-2 my-sm-0" type="button">
+          <i class="fa fa-book-open"></i>
+        </button>
+      </div>
+
+      <div class="bottom-right">
+        <img src="https://lelandjobson.github.io/github_pages_tut_01/assets/images/global/itl_black_clear.png">
+      </div>
+      <!-- CONTENT -->
+      <div class="container container-narrow">
+
         <!-- TOP NAV -->
-        <div id="openSidebar">        
-            <button id="sidebarCollapse" class="btn btn-outline-secondary my-2 my-sm-0" type="button">
-                <i class="fa fa-book-open"></i>
-            </button>
+        <nav class="navbar navbar-expand-lg navbar-light topnav bg-light">
+
+          <a class="navbar-brand" href="{{ BASE_PATH }}">Future Craft Field Guides</a>
+          <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarText"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="navbar-collapse collapse" id="navbarText" style="">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Guides</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+              </li>
+            </ul>
+
+            <form class="form-inline my-2 my-lg-0">
+              <input class="form-control mr-sm-2" type="search" placeholder="Search v.10.2.1" aria-label="Search">
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
           </div>
 
-        <div class="bottom-right">
-          <img src="https://lelandjobson.github.io/github_pages_tut_01/assets/images/global/itl_black_clear.png">
-        </div>
-
-        <div class="top-right">
-            <form class="form-inline my-2 my-lg-0"></form>
-              <input class="form-control mr-sm-2" type="search" placeholder="Search Topics" aria-label="Search">
-            </form>
-        </div>
-        <!-- CONTENT -->
-        <div class="container container-narrow">
-          <!-- TEST SIDE COMMENTS -->
-            {{ content }}
-        </div>
+        </nav>
+        {{ content }}
+      </div>
     </div>
 
   </div>

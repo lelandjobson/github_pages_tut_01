@@ -1,27 +1,142 @@
-<!-- CONTENT -->
+<script defer>
+(function (){
+    const sfUrl ='https://api.sketchfab.com/v3/models/'
+    window.CreateSketchfabCard = function(projName, projDesc, projUrl, sfId, sectionId){
+        // while(window.$ === null || window.$ === undefined){}
+        let sfThumbUrl = sfUrl + sfId;
+        fetch(sfThumbUrl)
+        .then((response => response.json()))
+        .then(function(data){
+            console.log("This is my data",data);
+            let thumb = data ? data.thumbnails.images[2].url : '';
+            let card = createCard(projName, projDesc, projUrl, thumb);
+            document.getElementById(sectionId).appendChild(card);
+        });
+    }
+    const defaultThumb = '';
+    window.CreateImageCard = function(projName, projDesc, projUrl, dir, thumb, sectionId){
+        if(!thumb || thumb === null || thumb === undefined){
+            thumb = defaultThumb;
+        }
+        let pathStart = '{{ BASE_PATH }}';
+        pathStart = pathStart ? pathStart : "";
+        let card = createCard(projName, projDesc, projUrl, thumb ? ('{{ BASE_PATH }}' + dir + '/images/' + thumb) : undefined);
+        document.getElementById(sectionId).appendChild(card);      
+    }
 
-<body style="background-image: url(./assets/images/global/white.png)">
-    <div class="container container-narrow container-content">
+    function createCard(projName, projDesc, projUrl, thumb){
+      let pathStart = '{{ BASE_PATH }}';
+      pathStart = pathStart ? pathStart : "";
+        let card = '';
+        card += '<div class="card card-home card-project">'
+            card += '<div class="card-header">'
+            card += '<a href="'+ pathStart + projUrl + '">' + projName + '</a>'
+            card += '</div>';
+            if(thumb){
+              card += '<img class="card-img-top" src="'+ thumb + '">';
+            }
+            card += '<div class="card-body">'
+            card += '<p class="card-text">' + projDesc + '</p>';
+            card += '</div>';
+        card += '</div>';
+        var div = document.createElement('div');
+        div.innerHTML = card;
+        return div;
+    }
+
+    function imageExists(image_url){
+      
+      var http = new XMLHttpRequest();
+
+      http.open('HEAD', image_url, false);
+      http.send();
+
+      return http.status != 404;
+    }
+})()
+</script>
+<!-- CONTENT -->
+<div class="container container-narrow container-content">
+  <div class="row-fluid post-full">
+    <div class="span12">
       <div class="content">
-        <div class="row-fluid post-full">
-          <div class="span12">
-            <div class="content" style="padding-top: 23%">
-                <div id="projCards" class="card-columns">
-                    {% assign projects = site.pages | where: "category", "Projects" %}
-                    {% for proj in projects %}
-                      <script>
-                      let projName = '{{ proj.title }}';
-                      let projDesc = '{{ proj.description }}';
-                      let sfId = '{{ proj.sketchfabUUID }}';
-                      let projUrl = '{{ proj.url }}';
-                      CreateProjectCard(projName, projDesc, projUrl, sfId)
-                      </script>
-                    {% endfor %}
-                </div>
-              <!-- {{ content }} -->
-            </div>
-          </div>
+        <h2 class="heading-home">Processes</h2>
+        <div id="procCards" class="card-columns">
+          <!-- PROCESSES -->
+          {% assign processes = site.pages | where: "category", "Processes" %}
+          {% for proc in processes %}
+          {% if proc.sketchfabUUID %}
+          <script defer>       
+            window.CreateSketchfabCard('{{ proc.title }}',
+              '{{ proc.description }}',
+              '{{ proc.url }}',
+              '{{ proc.sketchfabUUID }}',
+              'procCards');
+          </script>
+          {% else %}
+          <script defer>
+            window.CreateImageCard('{{ proc.title }}',
+              '{{ proc.description }}',
+              '{{ proc.url }}',
+              '{{ proc.dir }}',
+              '{{ proc.thumb }}',
+              'procCards');
+          </script>
+          {% endif %}
+          {% endfor %}
         </div>
+        <h2 class="heading-home">Platforms</h2>
+        <div id="platCards" class="card-columns">
+          <!-- PLATFORMS -->
+          {% assign platforms = site.pages | where: "category", "Platforms" %}
+          {% for plat in platforms %}
+          {% if plat.sketchfabUUID %}
+          <script defer>
+            window.CreateSketchfabCard('{{ plat.title }}',
+              '{{ plat.description }}',
+              '{{ plat.url }}',
+              '{{ plat.sketchfabUUID }}',
+              'platCards');
+          </script>
+          {% else %}
+          <script defer>
+            window.CreateImageCard('{{ plat.title }}',
+              '{{ plat.description }}',
+              '{{ plat.url }}',
+              '{{ plat.dir }}',
+              '{{ plat.thumb }}',
+              'platCards');
+          </script>
+          {% endif %}
+          {% endfor %}
+        </div>
+        <h2 class="heading-home">Projects</h2>
+        <div id="projCards" class="card-columns">
+          <!-- PROJECTS -->
+          {% assign projects = site.pages | where: "category", "Projects" %}
+          {% for proj in projects %}
+          {% if proj.sketchfabUUID %}
+          <script defer>
+            window.CreateSketchfabCard('{{ proj.title }}',
+              '{{ proj.description }}',
+              '{{ proj.url }}',
+              '{{ proj.sketchfabUUID }}',
+              'projCards');
+          </script>
+          {% else %}
+          <script defer>
+            window.CreateImageCard('{{ plat.title }}',
+              '{{ proj.description }}',
+              '{{ proj.url }}',
+              '{{ proj.dir }}',
+              '{{ proj.thumb }}',
+              'projCards');
+          </script>
+          {% endif %}
+          {% endfor %}
+        </div>
+        <!-- {{ content }} -->
       </div>
     </div>
-  </body>
+  </div>
+</div>

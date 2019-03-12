@@ -7,6 +7,8 @@ field-guide: Adobe Field Guide
 order: 3
 category: Platforms
 subcategory: Adobe
+author: Scott Sorenson
+thumb: PS2.png
 ---
 
 Photoshop is considered a leader in photo editing software and privileges **raster** based content. The software allows users to manipulate and make image adjustments such as cropping, resizing, and correcting color on digital images / photos. The software is particularly popular amongst professional photographers and graphic designers.
